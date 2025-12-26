@@ -110,27 +110,6 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
-
-        {/* Publications Section */}
-        <Card borderColor="cyan" delay={0.6} className="mt-16">
-          <h3 className="text-2xl font-bold mb-4 neon-text-purple font-mono">
-            {'> PUBLICATIONS'}
-          </h3>
-          <div className="border-l-2 border-[rgb(var(--neon-cyan))] pl-4">
-            <p className="text-xl text-[rgb(var(--text-primary))] mb-2 font-mono">
-              Enhancing Remaining Useful Life Prediction
-            </p>
-            <p className="text-[rgb(var(--text-secondary))] mb-2">
-              A Comparative Study of Classical Machine Learning and Generative AI
-            </p>
-            <p className="text-sm text-[rgb(var(--neon-green))] mb-2 font-mono">
-              Springer CCIS Series • ThinkAI&apos;24 Conference
-            </p>
-            <p className="text-sm text-[rgb(var(--text-secondary))]">
-              Worked under the supervision of Ravi Katukam (Ravi.k@arthink.ai) • June 2024 – Dec. 2024
-            </p>
-          </div>
-        </Card>
       </Container>
     </Section>
   );

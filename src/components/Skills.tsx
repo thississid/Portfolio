@@ -10,26 +10,31 @@ const skillCategories = [
   {
     name: 'Languages',
     skills: ['Python', 'SQL', 'Java', 'C'],
+    description: 'Core programming languages for development and data manipulation',
     color: 'cyan',
   },
   {
     name: 'AI/ML Tools',
     skills: ['Hugging Face', 'GPT-2', 'Weaviate', 'Pinecone', 'Granger Causality', 'OpenAI Whisper'],
+    description: 'Specialized tools and models for AI/ML development and deployment',
     color: 'pink',
   },
   {
     name: 'Frameworks',
     skills: ['LangChain', 'Transformers', 'Django', 'TensorFlow', 'Flask', 'React'],
+    description: 'Development frameworks for building scalable applications',
     color: 'purple',
   },
   {
     name: 'Cloud & DevOps',
-    skills: ['Azure OpenAI', 'Docker', 'REST APIs', 'AWS Bedrock', 'VS Code', 'PyCharm', 'IntelliJ', 'Eclipse', 'Git'],
+    skills: ['Azure OpenAI', 'Docker', 'REST APIs', 'AWS Bedrock'],
+    description: 'Cloud services, containerization, and API development',
     color: 'green',
   },
   {
-    name: 'Libraries',
-    skills: ['TensorFlow', 'NumPy', 'Matplotlib'],
+    name: 'IDEs & Tools',
+    skills: ['VS Code', 'PyCharm', 'IntelliJ', 'Eclipse', 'Git'],
+    description: 'Development environments and version control',
     color: 'ai',
   },
 ];
@@ -72,9 +77,14 @@ export default function Skills() {
               whileInView={{ opacity: 1, scale: 1 }}
               className={`border-2 ${getBorderClass(category.color)} bg-opacity-30`}
             >
-              <h3 className={`text-xl font-bold mb-4 ${getColorClass(category.color)} font-mono`}>
+              <h3 className={`text-xl font-bold mb-2 ${getColorClass(category.color)} font-mono`}>
                 {category.name}
               </h3>
+              {category.description && (
+                <p className="text-sm text-[rgb(var(--text-secondary))] mb-4 opacity-80">
+                  {category.description}
+                </p>
+              )}
               <div className="flex flex-wrap gap-3">
                 {category.skills.map((skill, i) => (
                   <motion.span
