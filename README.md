@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌆 Cyberpunk Portfolio - Siddartha Yadav
 
-## Getting Started
+A retro cyberpunk-themed portfolio website built with cutting-edge web technologies, featuring stunning animations and a futuristic aesthetic.
 
-First, run the development server:
+## 🚀 Tech Stack
+
+- **Next.js 14+** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first styling
+- **Framer Motion** - Smooth animations and transitions
+- **Modern CSS** - Custom cyberpunk effects (scanlines, CRT, glitch, neon glows)
+
+## ✨ Features
+
+- 🎨 **Retro Cyberpunk Design** - Old-school terminal aesthetics with modern flair
+- ⚡ **Smooth Animations** - Page transitions and scroll-based reveals using Framer Motion
+- 📱 **Fully Responsive** - Optimized for all screen sizes
+- 🌈 **Neon Effects** - Custom CSS animations with cyan, pink, purple, and green neon glows
+- 🖥️ **CRT Screen Effect** - Authentic retro monitor simulation with scanlines
+- 💫 **Interactive Elements** - Hover effects, glitch animations, and dynamic content
+- 🎯 **SEO Optimized** - Proper meta tags and semantic HTML
+- 🌓 **Light/Dark Mode** - Toggle between cyberpunk dark and clean light themes
+- 🎵 **Background Music** - Optional looping background music with controls
+
+## 📦 Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view your portfolio.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+portfolio/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx      # Root layout with metadata
+│   │   ├── page.tsx        # Main page
+│   │   └── globals.css     # Global styles & cyberpunk effects
+│   └── components/
+│       ├── Header.tsx      # Navigation header
+│       ├── Hero.tsx        # Landing section with typing animation
+│       ├── About.tsx       # About me & education
+│       ├── Experience.tsx  # Work experience timeline
+│       ├── Skills.tsx      # Skills matrix & certifications
+│       ├── Projects.tsx    # Featured projects & publications
+│       ├── Contact.tsx     # Contact form & information
+│       └── Footer.tsx      # Footer with links
+├── public/                 # Static assets
+└── package.json           # Dependencies
+```
 
-## Learn More
+## 🎨 Customization
 
-To learn more about Next.js, take a look at the following resources:
+### Colors
+The cyberpunk color scheme is defined in `src/app/globals.css`:
+- `--neon-cyan`: Main accent color
+- `--neon-pink`: Secondary accent
+- `--neon-purple`: Tertiary accent
+- `--neon-green`: Success/highlight color
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Content
+Update your personal information in the component files:
+- **Personal Info**: `src/components/Hero.tsx`, `src/components/About.tsx`
+- **Experience**: `src/components/Experience.tsx`
+- **Skills**: `src/components/Skills.tsx`
+- **Projects**: `src/components/Projects.tsx`
+- **Contact**: `src/components/Contact.tsx`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Effects
+Cyberpunk effects can be customized in `src/app/globals.css`:
+- Scanline density and opacity
+- CRT flicker speed
+- Glitch animation intensity
+- Neon glow spread and blur
 
-## Deploy on Vercel
+## 🚀 Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Vercel (Recommended)
+```bash
+# Install Vercel CLI
+npm i -g vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Deploy
+vercel
+```
+
+### Build for Production
+```bash
+npm run build
+npm start
+```
+
+## 📝 To-Do for Production
+
+- [ ] Add your background music file (see `MUSIC_SETUP.md`)
+- [ ] Replace contact form with actual backend (currently uses placeholder alert)
+- [ ] Connect contact form to email service (e.g., EmailJS, SendGrid)
+- [ ] Add Google Analytics or similar tracking
+- [ ] Add more projects as you complete them
+- [ ] Test light mode and adjust colors if needed
+
+## 🤝 Contact
+
+- **Email**: officialsiddartha@gmail.com
+- **LinkedIn**: [linkedin.com/in/thississid](https://linkedin.com/in/thississid)
+- **GitHub**: [github.com/thississid](https://github.com/thississid)
+- **Phone**: +91 9032424033
+
+---
+
+**Built with ❤️ using Next.js, TypeScript, and Framer Motion**
+
+*Embrace the cyberpunk aesthetic. Welcome to the future.*
+
