@@ -56,7 +56,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="min-h-screen py-20 md:py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ export default function Skills() {
           <div className="h-1 w-24 md:w-32 bg-[rgb(var(--neon-purple))] mb-8 md:mb-12 shadow-[0_0_10px_rgb(var(--neon-purple))]" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-16">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.name}
@@ -77,12 +77,12 @@ export default function Skills() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`p-6 border ${getBorderClass(category.color)} bg-[rgb(var(--bg-secondary))] bg-opacity-30 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(0,255,255,0.3)] transition-all duration-300`}
+              className={`p-6 md:p-8 border-2 ${getBorderClass(category.color)} bg-[rgb(var(--bg-secondary))] bg-opacity-30 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(0,255,255,0.3)] transition-all duration-300`}
             >
-              <h3 className={`text-2xl font-bold mb-4 ${getColorClass(category.color)}`}>
+              <h3 className={`text-2xl font-bold mb-6 ${getColorClass(category.color)}`}>
                 {category.name}
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3">
                 {category.skills.map((skill, i) => (
                   <motion.span
                     key={skill}
@@ -104,12 +104,12 @@ export default function Skills() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="neon-border p-6 bg-[rgb(var(--bg-secondary))] bg-opacity-50 backdrop-blur-sm"
+          className="neon-border p-6 md:p-8 bg-[rgb(var(--bg-secondary))] bg-opacity-50 backdrop-blur-sm"
         >
-          <h3 className="text-2xl font-bold mb-4 neon-text-green">
+          <h3 className="text-2xl font-bold mb-6 neon-text-green">
             {'> CERTIFICATIONS'}
           </h3>
-          <ul className="space-y-3">
+          <ul className="space-y-4">
             {certifications.map((cert, index) => (
               <motion.li
                 key={index}

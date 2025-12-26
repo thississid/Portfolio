@@ -26,7 +26,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="min-h-screen py-20 md:py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,7 +39,7 @@ export default function Contact() {
           <div className="h-1 w-24 md:w-32 bg-[rgb(var(--neon-pink))] mb-8 md:mb-12 shadow-[0_0_10px_rgb(var(--neon-pink))]" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}

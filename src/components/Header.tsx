@@ -9,6 +9,20 @@ export default function Header() {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   useEffect(() => {
+    // Check for saved theme preference or default to dark
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const shouldBeDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+    setIsDark(shouldBeDark);
+    
+    if (shouldBeDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
@@ -19,8 +33,10 @@ export default function Header() {
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
 
@@ -40,11 +56,11 @@ export default function Header() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-[rgb(var(--neon-cyan))] border-opacity-20 ${
+      className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-300 border-b border-[rgb(var(--neon-cyan))] border-opacity-20 ${
         scrolled ? 'bg-[rgb(var(--bg-primary))] bg-opacity-98 backdrop-blur-md shadow-[0_4px_20px_rgba(0,255,255,0.1)]' : 'bg-[rgb(var(--bg-primary))] bg-opacity-80 backdrop-blur-sm'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <motion.div

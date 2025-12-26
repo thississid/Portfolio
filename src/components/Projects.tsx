@@ -41,7 +41,7 @@ const projects = [
 export default function Projects() {
   return (
     <section id="projects" className="min-h-screen py-20 md:py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ export default function Projects() {
           <div className="h-1 w-24 md:w-32 bg-[rgb(var(--neon-green))] mb-8 md:mb-12 shadow-[0_0_10px_rgb(var(--neon-green))]" />
         </motion.div>
 
-        <div className="space-y-6 md:space-y-8">
+        <div className="space-y-8 md:space-y-12">
           {projects.map((project, index) => (
             <motion.div
               key={index}

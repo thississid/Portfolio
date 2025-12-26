@@ -20,10 +20,14 @@
   }
 
   :root:not(.dark) {
-    --bg-primary: 240 240 255;
-    --bg-secondary: 230 230 245;
+    --bg-primary: 250 250 255;
+    --bg-secondary: 240 240 250;
     --text-primary: 20 20 40;
     --text-secondary: 60 60 100;
+    --neon-cyan: 0 150 200;
+    --neon-pink: 200 20 120;
+    --neon-purple: 100 50 200;
+    --neon-green: 0 150 50;
   }
 }
 
@@ -43,6 +47,13 @@ body {
   color: rgb(var(--text-primary));
   font-family: 'Courier New', monospace;
   overflow-x: hidden;
+  width: 100%;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Cyberpunk scan lines effect */
@@ -136,12 +147,38 @@ body {
     0 0 20px rgb(var(--neon-purple));
 }
 
+.neon-text-green {
+  color: rgb(var(--neon-green));
+  text-shadow: 
+    0 0 5px rgb(var(--neon-green)),
+    0 0 10px rgb(var(--neon-green)),
+    0 0 20px rgb(var(--neon-green));
+}
+
 .neon-border {
   border: 1px solid rgb(var(--neon-cyan));
   box-shadow: 
     0 0 5px rgb(var(--neon-cyan)),
     0 0 10px rgb(var(--neon-cyan)),
     inset 0 0 5px rgb(var(--neon-cyan));
+}
+
+/* Light mode adjustments */
+:root:not(.dark) .neon-text-cyan,
+:root:not(.dark) .neon-text-pink,
+:root:not(.dark) .neon-text-purple,
+:root:not(.dark) .neon-text-green {
+  text-shadow: 
+    0 0 3px currentColor,
+    0 0 6px currentColor,
+    0 0 12px currentColor;
+}
+
+:root:not(.dark) .neon-border {
+  box-shadow: 
+    0 0 3px rgb(var(--neon-cyan)),
+    0 0 6px rgb(var(--neon-cyan)),
+    inset 0 0 3px rgb(var(--neon-cyan));
 }
 
 /* Terminal text animation */
@@ -182,9 +219,21 @@ body {
 ::-webkit-scrollbar-thumb {
   background: rgb(var(--neon-cyan));
   box-shadow: 0 0 10px rgb(var(--neon-cyan));
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(var(--neon-pink));
   box-shadow: 0 0 10px rgb(var(--neon-pink));
+}
+
+/* Light mode scrollbar */
+:root:not(.dark) ::-webkit-scrollbar-thumb {
+  background: rgb(var(--neon-cyan));
+  box-shadow: 0 0 5px rgb(var(--neon-cyan));
+}
+
+:root:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--neon-pink));
+  box-shadow: 0 0 5px rgb(var(--neon-pink));
 }

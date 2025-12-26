@@ -39,7 +39,7 @@ const experiences = [
 export default function Experience() {
   return (
     <section id="experience" className="min-h-screen py-20 md:py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export default function Experience() {
           <div className="h-1 w-24 md:w-32 bg-[rgb(var(--neon-pink))] mb-8 md:mb-12 shadow-[0_0_10px_rgb(var(--neon-pink))]" />
         </motion.div>
 
-        <div className="space-y-6 md:space-y-8">
+        <div className="space-y-8 md:space-y-12">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
@@ -60,9 +60,9 @@ export default function Experience() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="neon-border p-6 bg-[rgb(var(--bg-secondary))] bg-opacity-50 backdrop-blur-sm hover:shadow-[0_0_30px_rgb(var(--neon-cyan))] transition-all duration-300"
+              className="neon-border p-6 md:p-8 bg-[rgb(var(--bg-secondary))] bg-opacity-50 backdrop-blur-sm hover:shadow-[0_0_30px_rgb(var(--neon-cyan))] transition-all duration-300"
             >
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
                 <div>
                   <h3 className="text-2xl font-bold text-[rgb(var(--neon-cyan))] mb-2">
                     {exp.title}
@@ -74,7 +74,7 @@ export default function Experience() {
                 </span>
               </div>
               
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {exp.achievements.map((achievement, i) => (
                   <motion.li
                     key={i}

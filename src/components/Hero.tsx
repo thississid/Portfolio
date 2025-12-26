@@ -35,7 +35,7 @@ export default function Hero() {
         }} />
       </div>
 
-      <div className="container mx-auto z-10 max-w-5xl">
+      <div className="max-w-5xl mx-auto z-10 w-full px-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -88,15 +88,17 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="px-8 py-3 neon-border bg-transparent hover:bg-[rgb(var(--neon-cyan))] hover:bg-opacity-10 transition-all duration-300 text-[rgb(var(--neon-cyan))] font-bold uppercase tracking-wider"
+              className="relative px-8 py-3 neon-border bg-transparent hover:bg-[rgb(var(--neon-cyan))] hover:bg-opacity-10 transition-all duration-300 text-[rgb(var(--neon-cyan))] font-bold uppercase tracking-wider group overflow-hidden"
             >
-              {'> CONNECT'}
+              <span className="relative z-10">{'> CONNECT'}</span>
+              <span className="absolute inset-0 bg-[rgb(var(--neon-cyan))] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
             </a>
             <a
               href="#projects"
-              className="px-8 py-3 border border-[rgb(var(--neon-pink))] hover:shadow-[0_0_20px_rgb(var(--neon-pink))] transition-all duration-300 text-[rgb(var(--neon-pink))] font-bold uppercase tracking-wider"
+              className="relative px-8 py-3 border-2 border-[rgb(var(--neon-pink))] bg-transparent hover:bg-[rgb(var(--neon-pink))] hover:bg-opacity-10 hover:shadow-[0_0_20px_rgb(var(--neon-pink))] transition-all duration-300 text-[rgb(var(--neon-pink))] font-bold uppercase tracking-wider group overflow-hidden"
             >
-              {'> VIEW WORK'}
+              <span className="relative z-10">{'> VIEW WORK'}</span>
+              <span className="absolute inset-0 bg-[rgb(var(--neon-pink))] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
             </a>
           </motion.div>
 
