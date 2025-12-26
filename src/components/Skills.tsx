@@ -1,10 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
 import Card from './ui/Card';
+import TechModal, { techData } from './ui/TechModal';
 import ShootingStars from './ui/ShootingStars';
 
 const skillCategories = [
@@ -63,6 +65,19 @@ const getBorderClass = (color: string) => {
 };
 
 export default function Skills() {
+  const [selectedTech, setSelectedTech] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleTechClick = (techName: string) => {
+    setSelectedTech(techName);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedTech(null);
+  };
+
   return (
     <Section id="skills" centerContent showNeuralNetwork>
       <ShootingStars count={3} />
@@ -95,7 +110,8 @@ export default function Skills() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 + i * 0.05 }}
-                    className="px-3 py-1.5 border border-[rgb(var(--text-secondary))] text-[rgb(var(--text-primary))] text-sm hover:border-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-cyan))] transition-all duration-300 font-mono"
+                    onClick={() => handleTechClick(skill)}
+                    className="px-3 py-1.5 border border-[rgb(var(--text-secondary))] text-[rgb(var(--text-primary))] text-sm hover:border-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-cyan))] hover:shadow-[0_0_10px_rgb(var(--neon-cyan))] transition-all duration-300 font-mono cursor-pointer"
                   >
                     {skill}
                   </motion.span>
@@ -105,6 +121,11 @@ export default function Skills() {
           ))}
         </div>
       </Container>
+      <TechModal 
+        tech={selectedTech ? techData[selectedTech] || null : null}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </Section>
   );
 }

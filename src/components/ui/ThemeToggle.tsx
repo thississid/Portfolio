@@ -13,7 +13,7 @@ export default function ThemeToggle() {
         e.stopPropagation();
         toggleTheme();
       }}
-      className="relative w-14 h-7 rounded-full bg-[rgb(var(--bg-secondary))] border border-[rgb(var(--neon-cyan))] p-1 focus:outline-none focus:ring-2 focus:ring-[rgb(var(--neon-cyan))] focus:ring-offset-2 focus:ring-offset-[rgb(var(--bg-primary))] cursor-pointer"
+      className="relative w-14 h-7 rounded-full bg-[rgb(var(--bg-secondary))] bg-opacity-40 backdrop-blur-md border border-[rgb(var(--neon-cyan))] border-opacity-50 p-1 focus:outline-none focus:ring-2 focus:ring-[rgb(var(--neon-cyan))] focus:ring-offset-2 focus:ring-offset-[rgb(var(--bg-primary))] cursor-pointer"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       aria-label="Toggle theme"

@@ -30,7 +30,7 @@ export default function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[10000] bg-[rgb(var(--bg-primary))] flex items-center justify-center"
+          className="fixed inset-0 z-[10000] bg-[rgb(var(--bg-primary))] bg-opacity-95 backdrop-blur-sm flex items-center justify-center"
         >
           <div className="text-center">
             {/* Animated Logo/Text */}

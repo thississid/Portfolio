@@ -9,7 +9,7 @@ import EnhancedButton from './ui/EnhancedButton';
 
 export default function Hero() {
   const [displayText, setDisplayText] = useState('');
-  const fullText = 'FULL-STACK DEVELOPER | AI/ML SPECIALIST';
+  const fullText = 'AI/ML SPECIALIST | FULL-STACK DEVELOPER';
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {

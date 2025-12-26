@@ -1,11 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
 import Card from './ui/Card';
 import ShootingStars from './ui/ShootingStars';
+import TechModal, { techData } from './ui/TechModal';
 
 const projects = [
   {
@@ -46,6 +48,19 @@ const projects = [
 ];
 
 export default function Projects() {
+  const [selectedTech, setSelectedTech] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleTechClick = (techName: string) => {
+    setSelectedTech(techName);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedTech(null);
+  };
+
   return (
     <Section id="projects" centerContent>
       <ShootingStars count={3} />
@@ -86,7 +101,8 @@ export default function Projects() {
                   {project.tech.map((tech, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 border border-[rgb(var(--neon-purple))] text-[rgb(var(--neon-purple))] text-sm font-mono"
+                      onClick={() => handleTechClick(tech)}
+                      className="px-3 py-1 border border-[rgb(var(--neon-purple))] text-[rgb(var(--neon-purple))] text-sm font-mono hover:shadow-[0_0_10px_rgb(var(--neon-purple))] transition-all duration-300 cursor-pointer"
                     >
                       {tech}
                     </span>
@@ -113,6 +129,11 @@ export default function Projects() {
           ))}
         </div>
       </Container>
+      <TechModal 
+        tech={selectedTech ? techData[selectedTech] || null : null}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </Section>
   );
 }
