@@ -1,13 +1,30 @@
+import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Skills from '@/components/Skills';
-import Experience from '@/components/Experience';
-import Projects from '@/components/Projects';
-import Publications from '@/components/Publications';
-import Certifications from '@/components/Certifications';
-import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+
+// Lazy load components for better performance
+const About = dynamic(() => import('@/components/About'), {
+  loading: () => <div className="min-h-screen" />,
+});
+const Skills = dynamic(() => import('@/components/Skills'), {
+  loading: () => <div className="min-h-screen" />,
+});
+const Experience = dynamic(() => import('@/components/Experience'), {
+  loading: () => <div className="min-h-screen" />,
+});
+const Projects = dynamic(() => import('@/components/Projects'), {
+  loading: () => <div className="min-h-screen" />,
+});
+const Publications = dynamic(() => import('@/components/Publications'), {
+  loading: () => <div className="min-h-screen" />,
+});
+const Certifications = dynamic(() => import('@/components/Certifications'), {
+  loading: () => <div className="min-h-screen" />,
+});
+const Contact = dynamic(() => import('@/components/Contact'), {
+  loading: () => <div className="min-h-screen" />,
+});
 
 export default function Home() {
   return (

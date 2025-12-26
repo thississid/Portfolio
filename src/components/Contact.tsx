@@ -5,10 +5,12 @@ import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
 import Card from './ui/Card';
+import ShootingStars from './ui/ShootingStars';
 
 export default function Contact() {
   return (
     <Section id="contact" centerContent>
+      <ShootingStars count={3} />
       <Container>
         <SectionTitle title="<CONTACT />" color="pink" />
 

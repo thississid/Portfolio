@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import ThemeToggle from './ui/ThemeToggle';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -68,6 +69,7 @@ export default function Header() {
             transition={{ delay: 0.5 }}
             className="flex items-center gap-4"
           >
+            <ThemeToggle />
             <a
               href="https://github.com/thississid"
               target="_blank"

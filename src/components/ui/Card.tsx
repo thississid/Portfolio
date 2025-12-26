@@ -41,8 +41,8 @@ export default function Card({
       initial={initial}
       whileInView={whileInView}
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.6, delay }}
-      className={`${borderClasses[borderColor]} p-6 md:p-8 bg-[rgb(var(--bg-secondary))] bg-opacity-50 backdrop-blur-sm transition-all duration-300 ${hover ? hoverShadows[borderColor] : ''} ${className}`}
+      transition={{ duration: 0.6, delay, ease: [0.4, 0, 0.2, 1] }}
+      className={`${borderClasses[borderColor]} p-6 md:p-8 bg-[rgb(var(--bg-secondary))] bg-opacity-50 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] ${hover ? hoverShadows[borderColor] : ''} ${className}`}
     >
       {children}
     </motion.div>

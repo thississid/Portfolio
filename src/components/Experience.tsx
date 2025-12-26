@@ -5,6 +5,7 @@ import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
 import Card from './ui/Card';
+import ShootingStars from './ui/ShootingStars';
 
 const experiences = [
   {
@@ -42,6 +43,7 @@ const experiences = [
 export default function Experience() {
   return (
     <Section id="experience" centerContent>
+      <ShootingStars count={3} />
       <Container>
         <SectionTitle title="<EXPERIENCE />" color="pink" />
 

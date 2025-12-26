@@ -5,6 +5,7 @@ import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
 import Card from './ui/Card';
+import ShootingStars from './ui/ShootingStars';
 
 const skillCategories = [
   {
@@ -63,7 +64,8 @@ const getBorderClass = (color: string) => {
 
 export default function Skills() {
   return (
-    <Section id="skills" centerContent>
+    <Section id="skills" centerContent showNeuralNetwork>
+      <ShootingStars count={3} />
       <Container>
         <SectionTitle title="<SKILLS />" color="purple" />
 

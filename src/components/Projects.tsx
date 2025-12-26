@@ -5,6 +5,7 @@ import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
 import Card from './ui/Card';
+import ShootingStars from './ui/ShootingStars';
 
 const projects = [
   {
@@ -47,6 +48,7 @@ const projects = [
 export default function Projects() {
   return (
     <Section id="projects" centerContent>
+      <ShootingStars count={3} />
       <Container>
         <SectionTitle title="<PROJECTS />" color="green" />
 
@@ -60,7 +62,7 @@ export default function Projects() {
               transition={{ delay: index * 0.2 }}
               className="group relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-[rgb(var(--neon-cyan))] to-[rgb(var(--neon-pink))] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[rgb(var(--neon-cyan))] to-[rgb(var(--neon-pink))] opacity-0 group-hover:opacity-10 blur-md transition-opacity duration-500" />
               
               <Card
                 borderColor="cyan"

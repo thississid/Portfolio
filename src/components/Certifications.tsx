@@ -5,6 +5,7 @@ import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
 import Card from './ui/Card';
+import ShootingStars from './ui/ShootingStars';
 
 const certifications = [
   {
@@ -82,6 +83,7 @@ const certifications = [
 export default function Certifications() {
   return (
     <Section id="certifications" centerContent>
+      <ShootingStars count={3} />
       <Container>
         <SectionTitle title="<CERTIFICATIONS />" color="ai" />
 

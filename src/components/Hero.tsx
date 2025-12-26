@@ -1,12 +1,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Container from './ui/Container';
+import ShootingStars from './ui/ShootingStars';
+import InteractiveNeuralNetwork from './ui/InteractiveNeuralNetwork';
+import EnhancedButton from './ui/EnhancedButton';
 
 export default function Hero() {
   const [displayText, setDisplayText] = useState('');
   const fullText = 'FULL-STACK DEVELOPER | AI/ML SPECIALIST';
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     let currentIndex = 0;
@@ -23,7 +27,9 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <section ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+      <ShootingStars count={4} />
+      <InteractiveNeuralNetwork nodeCount={15} containerRef={sectionRef} />
       {/* AI Data Streams Background */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(5)].map((_, i) => (
@@ -111,22 +117,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1 }}
-            className="flex flex-wrap gap-4 justify-center"
+            className="flex flex-wrap gap-3 sm:gap-4 justify-center"
           >
-            <a
-              href="#contact"
-              className="relative px-8 py-4 neon-border bg-transparent hover:bg-[rgb(var(--neon-cyan))] hover:bg-opacity-10 transition-all duration-300 text-[rgb(var(--neon-cyan))] font-bold uppercase tracking-wider group overflow-hidden font-mono"
-            >
-              <span className="relative z-10">{'> CONNECT'}</span>
-              <span className="absolute inset-0 bg-[rgb(var(--neon-cyan))] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
-            </a>
-            <a
-              href="#projects"
-              className="relative px-8 py-4 border-2 border-[rgb(var(--neon-pink))] bg-transparent hover:bg-[rgb(var(--neon-pink))] hover:bg-opacity-10 hover:shadow-[0_0_20px_rgb(var(--neon-pink))] transition-all duration-300 text-[rgb(var(--neon-pink))] font-bold uppercase tracking-wider group overflow-hidden font-mono"
-            >
-              <span className="relative z-10">{'> VIEW WORK'}</span>
-              <span className="absolute inset-0 bg-[rgb(var(--neon-pink))] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
-            </a>
+            <EnhancedButton href="#contact" variant="primary">
+              {'> CONNECT'}
+            </EnhancedButton>
+            <EnhancedButton href="#projects" variant="secondary">
+              {'> VIEW WORK'}
+            </EnhancedButton>
           </motion.div>
         </motion.div>
       </Container>

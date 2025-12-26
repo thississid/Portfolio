@@ -5,6 +5,7 @@ import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
 import Card from './ui/Card';
+import ShootingStars from './ui/ShootingStars';
 
 const publications = [
   {
@@ -19,6 +20,7 @@ const publications = [
 export default function Publications() {
   return (
     <Section id="publications" centerContent>
+      <ShootingStars count={3} />
       <Container>
         <SectionTitle title="<PUBLICATIONS />" color="purple" />
 
@@ -32,7 +34,7 @@ export default function Publications() {
               transition={{ delay: index * 0.2 }}
               className="group relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-[rgb(var(--neon-purple))] to-[rgb(var(--neon-pink))] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[rgb(var(--neon-purple))] to-[rgb(var(--neon-pink))] opacity-0 group-hover:opacity-10 blur-md transition-opacity duration-500" />
               
               <Card
                 borderColor="purple"

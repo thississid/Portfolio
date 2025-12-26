@@ -4,10 +4,12 @@ import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
 import Card from './ui/Card';
+import ShootingStars from './ui/ShootingStars';
 
 export default function About() {
   return (
-    <Section id="about" centerContent>
+    <Section id="about" centerContent showNeuralNetwork>
+      <ShootingStars count={3} />
       <Container>
         <SectionTitle title="<ABOUT />" color="cyan" />
 
