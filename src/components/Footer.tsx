@@ -1,25 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Container from './ui/Container';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="border-t border-[rgb(var(--neon-cyan))] bg-[rgb(var(--bg-secondary))] bg-opacity-50 backdrop-blur-sm w-full">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+      <Container className="py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-[rgb(var(--text-secondary))]"
-          >
-            <p className="font-mono">
-              {'<'}<span className="neon-text-cyan">Built with Next.js, TypeScript & Framer Motion</span>{' />'}
-            </p>
-          </motion.div>
-
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -30,7 +20,7 @@ export default function Footer() {
               href="https://github.com/thississid"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors"
+              className="text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors font-mono"
             >
               GitHub
             </a>
@@ -38,13 +28,13 @@ export default function Footer() {
               href="https://linkedin.com/in/thississid"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors"
+              className="text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors font-mono"
             >
               LinkedIn
             </a>
             <a
               href="mailto:officialsiddartha@gmail.com"
-              className="text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors"
+              className="text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors font-mono"
             >
               Email
             </a>
@@ -56,19 +46,20 @@ export default function Footer() {
             viewport={{ once: true }}
             className="text-[rgb(var(--text-secondary))] font-mono"
           >
-            © {currentYear} <span className="neon-text-pink">SIDDARTHA YADAV</span>
+            © {currentYear} <span className="neon-text-pink">GUNDELLY SIDDARTHA YADAV</span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-sm text-[rgb(var(--neon-cyan))] font-mono"
+          >
+            {'> SYSTEM.STATUS: ONLINE'}
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-6 text-sm text-[rgb(var(--neon-cyan))] font-mono"
-        >
-          {'> SYSTEM.STATUS: ONLINE'}
-        </motion.div>
-      </div>
+      </Container>
     </footer>
   );
 }
+

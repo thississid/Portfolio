@@ -1,9 +1,10 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
-import Experience from '@/components/Experience';
 import Skills from '@/components/Skills';
+import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
+import Certifications from '@/components/Certifications';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
@@ -11,12 +12,13 @@ export default function Home() {
   return (
     <div className="relative w-full min-h-screen">
       <Header />
-      <main className="w-full">
+      <main className="w-full relative z-10">
         <Hero />
         <About />
-        <Experience />
         <Skills />
+        <Experience />
         <Projects />
+        <Certifications />
         <Contact />
       </main>
       <Footer />

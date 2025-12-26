@@ -1,16 +1,20 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Section from './ui/Section';
+import Container from './ui/Container';
+import SectionTitle from './ui/SectionTitle';
+import Card from './ui/Card';
 
 const experiences = [
   {
-    title: 'AI and Payments Intern',
+    title: 'Data Science Intern',
     company: 'PiResearch Labs',
     period: 'June 2025 – Present',
     achievements: [
-      'Designed and implemented complete database schema for company-wide operations',
-      'Built and optimized REST API endpoints for core application workflows',
-      'Developed automation scripts for reconciliation and merchant background checks',
+      'Designed and implemented the complete database schema serving as the backbone for company-wide operations, ensuring scalability, reliability, and compliance with industry standards',
+      'Built and optimized REST API endpoints to support core application workflows and improve system performance',
+      'Developed scripts and workflows to automate reconciliation tasks, automatic merchant background check reducing manual effort and increasing operational efficiency',
     ],
   },
   {
@@ -18,10 +22,9 @@ const experiences = [
     company: 'Hexagon R&D India',
     period: 'Jan. 2025 – Feb. 2025',
     achievements: [
-      'Developed Agentic AI prototype improving issue resolution speed by 25%',
-      'Designed AI agents using Azure OpenAI with MagenticOne framework',
-      'Reduced resolution time by 40% through autonomous log analysis',
-      'Improved system scalability by 20% with REST APIs and Ollama models',
+      'Conceptualized and developed an Agentic AI prototype with autonomous root cause analysis for databases, improving HxGN NetWorks issue resolution speed by 25% and cutting average resolution time by 40%',
+      'Designed AI agents using Azure OpenAI models with MagenticOne to autonomously analyze database and service logs, reducing resolution time by 40%; benchmarked against state-of-the-art Agentic frameworks like AutoGen, and CrewAI',
+      'Conducted extensive experimentation with REST APIs and Ollama models, improving system scalability by 20% and reducing cloud computing costs compared to generic GPT-based solutions',
     ],
   },
   {
@@ -29,45 +32,35 @@ const experiences = [
     company: 'Arthink.ai',
     period: 'June 2024 – July 2024',
     achievements: [
-      'Developed regression models achieving 86.24% accuracy on NASA CMAPSS dataset',
-      'Engineered full-stack Flask application with ML models and LangChain agents',
-      'Fine-tuned GPT-2 using Hugging Face Transformers, improving performance by 30%',
+      'Developed and deployed regression models on NASA CMAPSS dataset for predicting engine Remaining Useful Life (RUL), achieving 86.24% accuracy using TensorFlow-based architectures',
+      'Engineered a full-stack Flask application integrating predictive ML models, clustering techniques, Granger Causality for anomaly detection, and Langchain-based LLM agents, resulting in a production-ready AI monitoring tool',
+      'Fine-tuned GPT-2 using Hugging Face Transformers and LoRA on domain-specific text data, boosting downstream NLP task performance by 30% compared to baseline pre-trained models',
     ],
   },
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="min-h-screen py-20 md:py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 neon-text-pink">
-            {'<WORK_EXPERIENCE />'}
-          </h2>
-          <div className="h-1 w-24 md:w-32 bg-[rgb(var(--neon-pink))] mb-8 md:mb-12 shadow-[0_0_10px_rgb(var(--neon-pink))]" />
-        </motion.div>
+    <Section id="experience" centerContent>
+      <Container>
+        <SectionTitle title="<EXPERIENCE />" color="pink" />
 
         <div className="space-y-8 md:space-y-12">
           {experiences.map((exp, index) => (
-            <motion.div
+            <Card
               key={index}
+              borderColor="cyan"
+              delay={index * 0.2}
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              className="neon-border p-6 md:p-8 bg-[rgb(var(--bg-secondary))] bg-opacity-50 backdrop-blur-sm hover:shadow-[0_0_30px_rgb(var(--neon-cyan))] transition-all duration-300"
+              className="hover:shadow-[0_0_30px_rgb(var(--neon-cyan))]"
             >
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
                 <div>
-                  <h3 className="text-2xl font-bold text-[rgb(var(--neon-cyan))] mb-2">
+                  <h3 className="text-2xl font-bold text-[rgb(var(--neon-cyan))] mb-2 font-mono">
                     {exp.title}
                   </h3>
-                  <p className="text-xl text-[rgb(var(--neon-purple))]">{exp.company}</p>
+                  <p className="text-xl text-[rgb(var(--neon-purple))] font-mono">{exp.company}</p>
                 </div>
                 <span className="text-[rgb(var(--neon-green))] font-mono mt-2 md:mt-0">
                   {exp.period}
@@ -84,15 +77,16 @@ export default function Experience() {
                     transition={{ delay: index * 0.2 + i * 0.1 }}
                     className="flex items-start gap-3 text-[rgb(var(--text-secondary))]"
                   >
-                    <span className="text-[rgb(var(--neon-pink))] mt-1">▹</span>
+                    <span className="text-[rgb(var(--neon-pink))] mt-1 font-mono">▹</span>
                     <span>{achievement}</span>
                   </motion.li>
                 ))}
               </ul>
-            </motion.div>
+            </Card>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }
+

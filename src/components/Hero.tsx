@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Container from './ui/Container';
 
 export default function Hero() {
   const [displayText, setDisplayText] = useState('');
@@ -22,20 +23,46 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 sm:pt-28 md:pt-32 px-4">
-      {/* Animated background grid */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px',
-          animation: 'grid-move 20s linear infinite'
-        }} />
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+      {/* AI Data Streams Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(5)].map((_, i) => (
+          <div
+            key={i}
+            className="data-stream"
+            style={{
+              left: `${20 + i * 20}%`,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${3 + i * 0.5}s`,
+            }}
+          />
+        ))}
       </div>
 
-      <div className="max-w-5xl mx-auto z-10 w-full px-4">
+      {/* Floating Neural Network Nodes */}
+      {[...Array(8)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-2 h-2 bg-[rgb(var(--neon-cyan))] rounded-full neural-node"
+          style={{
+            left: `${10 + i * 12}%`,
+            top: `${20 + (i % 3) * 30}%`,
+            animationDelay: `${i * 0.3}s`,
+            boxShadow: `0 0 10px rgb(var(--neon-cyan))`,
+          }}
+          animate={{
+            scale: [1, 1.5, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            delay: i * 0.2,
+          }}
+        />
+      ))}
+
+      <Container className="relative z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -46,7 +73,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mb-4 text-[rgb(var(--neon-pink))] text-base md:text-lg"
+            className="mb-6 text-[rgb(var(--neon-pink))] text-base md:text-lg font-mono"
           >
             {'> SYSTEM.INITIALIZE()'}
           </motion.div>
@@ -55,7 +82,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 neon-text-cyan px-4 leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 neon-text-cyan leading-tight font-mono"
           >
             GUNDELLY SIDDARTHA YADAV
           </motion.h1>
@@ -64,19 +91,19 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 min-h-8 font-mono text-[rgb(var(--neon-green))] px-4"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 min-h-10 font-mono text-[rgb(var(--neon-green))]"
           >
             {displayText}
-            <span className="animate-pulse">|</span>
+            <span className="terminal-cursor ml-1">|</span>
           </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="text-sm sm:text-base md:text-lg text-[rgb(var(--text-secondary))] max-w-2xl mx-auto mb-12 px-4"
+            className="text-base sm:text-lg md:text-xl text-[rgb(var(--text-secondary))] max-w-3xl mx-auto mb-12 leading-relaxed"
           >
-            Building the future with AI/ML, LLM integration, and cloud-based solutions.
+            Full-stack developer with experience in AI/ML, LLM integration, and cloud-based application deployment.
             Specializing in autonomous systems and cutting-edge technology.
           </motion.p>
 
@@ -84,62 +111,29 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1 }}
-            className="flex flex-wrap gap-4 justify-center px-4"
+            className="flex flex-wrap gap-4 justify-center"
           >
             <a
               href="#contact"
-              className="relative px-8 py-3 neon-border bg-transparent hover:bg-[rgb(var(--neon-cyan))] hover:bg-opacity-10 transition-all duration-300 text-[rgb(var(--neon-cyan))] font-bold uppercase tracking-wider group overflow-hidden"
+              className="relative px-8 py-4 neon-border bg-transparent hover:bg-[rgb(var(--neon-cyan))] hover:bg-opacity-10 transition-all duration-300 text-[rgb(var(--neon-cyan))] font-bold uppercase tracking-wider group overflow-hidden font-mono"
             >
               <span className="relative z-10">{'> CONNECT'}</span>
               <span className="absolute inset-0 bg-[rgb(var(--neon-cyan))] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
             </a>
             <a
               href="#projects"
-              className="relative px-8 py-3 border-2 border-[rgb(var(--neon-pink))] bg-transparent hover:bg-[rgb(var(--neon-pink))] hover:bg-opacity-10 hover:shadow-[0_0_20px_rgb(var(--neon-pink))] transition-all duration-300 text-[rgb(var(--neon-pink))] font-bold uppercase tracking-wider group overflow-hidden"
+              className="relative px-8 py-4 border-2 border-[rgb(var(--neon-pink))] bg-transparent hover:bg-[rgb(var(--neon-pink))] hover:bg-opacity-10 hover:shadow-[0_0_20px_rgb(var(--neon-pink))] transition-all duration-300 text-[rgb(var(--neon-pink))] font-bold uppercase tracking-wider group overflow-hidden font-mono"
             >
               <span className="relative z-10">{'> VIEW WORK'}</span>
               <span className="absolute inset-0 bg-[rgb(var(--neon-pink))] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
             </a>
           </motion.div>
-
-          {/* Floating elements */}
-          <div className="absolute top-20 left-10 w-20 h-20 border border-[rgb(var(--neon-purple))] opacity-30 animate-spin-slow" />
-          <div className="absolute bottom-20 right-10 w-16 h-16 border border-[rgb(var(--neon-pink))] opacity-30 animate-bounce-slow" />
         </motion.div>
-      </div>
+      </Container>
 
-      <style jsx>{`
-        @keyframes grid-move {
-          0% {
-            transform: translateY(0);
-          }
-          100% {
-            transform: translateY(50px);
-          }
-        }
-        @keyframes spin-slow {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-        @keyframes bounce-slow {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-20px);
-          }
-        }
-        .animate-spin-slow {
-          animation: spin-slow 10s linear infinite;
-        }
-        .animate-bounce-slow {
-          animation: bounce-slow 3s ease-in-out infinite;
-        }
-      `}</style>
+      {/* Scan Lines Overlay */}
+      <div className="scanlines" />
     </section>
   );
 }
+
