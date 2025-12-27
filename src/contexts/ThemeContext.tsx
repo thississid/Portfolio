@@ -12,64 +12,31 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  // Initialize with a safe default, will be updated on mount
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem('theme') as Theme | null;
-      if (savedTheme) return savedTheme;
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-    return 'dark';
-  });
-  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<Theme>('dark');
 
   useEffect(() => {
-    setMounted(true);
-    // Apply initial theme class immediately
-    const root = document.documentElement;
-    const body = document.body;
-    
-    // Remove any existing theme classes first
-    root.classList.remove('light-theme', 'dark-theme');
-    body.classList.remove('light-theme', 'dark-theme');
-    
-    // Add the current theme class
-    if (theme === 'light') {
-      root.classList.add('light-theme');
-      body.classList.add('light-theme');
-    } else {
-      root.classList.add('dark-theme');
-      body.classList.add('dark-theme');
-    }
-  }, [theme]);
+    const savedTheme = localStorage.getItem('theme') as Theme | null;
+    const initialTheme = savedTheme || 
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    setTheme(initialTheme);
+  }, []);
 
   useEffect(() => {
-    if (!mounted) return;
-    
     const root = document.documentElement;
-    const body = document.body;
     
-    // Remove all theme classes first
-    root.classList.remove('light-theme', 'dark-theme');
-    body.classList.remove('light-theme', 'dark-theme');
-    
-    // Add the appropriate theme class
-    if (theme === 'light') {
-      root.classList.add('light-theme');
-      body.classList.add('light-theme');
+    if (theme === 'dark') {
+      root.classList.add('dark');
     } else {
-      root.classList.add('dark-theme');
-      body.classList.add('dark-theme');
+      root.classList.remove('dark');
     }
     
     localStorage.setItem('theme', theme);
-  }, [theme, mounted]);
+  }, [theme]);
 
   const toggleTheme = () => {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
 
-  // Always provide the context, even before mounting
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
