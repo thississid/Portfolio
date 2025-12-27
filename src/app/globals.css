@@ -457,3 +457,52 @@
   transform: translate(var(--mx, 0), var(--my, 0)) scale(1.05);
 }
 
+/* Resume Print Styles */
+@media print {
+  @page {
+    size: letter;
+    margin: 0.5in;
+  }
+
+  .resume-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .resume-content {
+    color: #000 !important;
+  }
+
+  .resume-content h1,
+  .resume-content h2,
+  .resume-content h3 {
+    color: #000 !important;
+    page-break-after: avoid;
+  }
+
+  .resume-content section {
+    page-break-inside: avoid;
+  }
+
+  .resume-content ul {
+    page-break-inside: avoid;
+  }
+
+  /* Ensure links are visible */
+  .resume-content a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+
+  /* Remove shadows and effects */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}
+
