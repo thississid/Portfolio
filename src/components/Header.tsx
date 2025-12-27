@@ -43,9 +43,9 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl font-bold neon-text-cyan font-mono"
+            className="text-xl md:text-2xl font-bold text-[rgb(var(--neon-cyan))]"
           >
-            {'<SIDDARTHA />'}
+            Siddartha Yadav
           </motion.a>
 
           <nav className="hidden md:flex items-center gap-6 lg:gap-8">
