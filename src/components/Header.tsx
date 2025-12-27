@@ -22,6 +22,7 @@ export default function Header() {
     { label: 'Projects', href: '#projects' },
     { label: 'Publications', href: '#publications' },
     { label: 'Certifications', href: '#certifications' },
+    { label: 'Blog', href: '#blog' },
     { label: 'Contact', href: '#contact' },
   ];
 

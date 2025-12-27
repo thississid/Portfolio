@@ -1,0 +1,112 @@
+/* Blog Post MDX Content Styling */
+@import 'highlight.js/styles/tokyo-night-dark.css';
+
+.mdx-content {
+  color: rgb(var(--text-primary));
+}
+
+.mdx-content h1,
+.mdx-content h2,
+.mdx-content h3,
+.mdx-content h4 {
+  color: rgb(var(--neon-cyan));
+  font-family: 'Courier New', monospace;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.mdx-content h2 {
+  font-size: 2rem;
+  border-bottom: 2px solid rgba(var(--neon-cyan), 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.mdx-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: rgb(var(--text-secondary));
+}
+
+.mdx-content a {
+  color: rgb(var(--neon-pink));
+  text-decoration: underline;
+}
+
+.mdx-content a:hover {
+  color: rgb(var(--neon-cyan));
+}
+
+.mdx-content code {
+  background: rgba(var(--bg-secondary), 0.6);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+  color: rgb(var(--neon-green));
+  font-family: 'Courier New', monospace;
+}
+
+.mdx-content pre {
+  background: rgba(var(--bg-secondary), 0.8) !important;
+  border: 1px solid rgba(var(--neon-cyan), 0.3);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  box-shadow: 0 0 20px rgba(var(--neon-cyan), 0.1);
+}
+
+.mdx-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: 0.9rem;
+}
+
+.mdx-content ul,
+.mdx-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.mdx-content li {
+  margin-bottom: 0.5rem;
+  color: rgb(var(--text-secondary));
+}
+
+.mdx-content strong {
+  color: rgb(var(--neon-green));
+  font-weight: bold;
+}
+
+.mdx-content blockquote {
+  border-left: 4px solid rgb(var(--neon-purple));
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: rgb(var(--text-secondary));
+}
+
+.mdx-content hr {
+  border: none;
+  border-top: 2px solid rgba(var(--neon-cyan), 0.3);
+  margin: 3rem 0;
+}
+
+.mdx-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.mdx-content th,
+.mdx-content td {
+  border: 1px solid rgba(var(--neon-cyan), 0.3);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.mdx-content th {
+  background: rgba(var(--neon-cyan), 0.1);
+  color: rgb(var(--neon-cyan));
+  font-weight: bold;
+}

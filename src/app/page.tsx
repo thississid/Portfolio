@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
+import { getAllPosts } from '@/lib/blog';
 
 // Lazy load components for better performance
 const About = dynamic(() => import('@/components/About'), {
@@ -22,11 +23,16 @@ const Publications = dynamic(() => import('@/components/Publications'), {
 const Certifications = dynamic(() => import('@/components/Certifications'), {
   loading: () => <div className="min-h-screen" />,
 });
+const Blog = dynamic(() => import('@/components/Blog'), {
+  loading: () => <div className="min-h-screen" />,
+});
 const Contact = dynamic(() => import('@/components/Contact'), {
   loading: () => <div className="min-h-screen" />,
 });
 
 export default function Home() {
+  const blogPosts = getAllPosts();
+
   return (
     <div className="relative w-full min-h-screen">
       <Header />
@@ -38,6 +44,7 @@ export default function Home() {
         <Projects />
         <Publications />
         <Certifications />
+        <Blog posts={blogPosts} />
         <Contact />
       </main>
       <Footer />
