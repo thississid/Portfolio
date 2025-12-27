@@ -33,9 +33,14 @@ export default function Card({
       initial={initial}
       whileInView={whileInView}
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.4, delay }}
+      transition={{ 
+        duration: 0.3,
+        delay,
+        ease: 'easeOut'
+      }}
       whileHover={hover ? { y: -4 } : {}}
-      className={`${borderClasses[borderColor]} p-6 md:p-8 bg-[rgb(var(--bg-secondary))] bg-opacity-30 backdrop-blur-md border transition-all duration-300 rounded-lg ${className}`}
+      whileTap={{ scale: 0.98 }}
+      className={`${borderClasses[borderColor]} p-6 md:p-8 bg-[rgb(var(--bg-secondary))] bg-opacity-30 backdrop-blur-md border transition-all duration-200 rounded-lg active:scale-[0.98] ${className}`}
     >
       {children}
     </motion.div>
