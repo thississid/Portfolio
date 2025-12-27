@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     }
 
     // Send email using Resend
-    const data = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>', // You'll change this to your domain
       to: ['officialsiddartha@gmail.com'], // Your email
       replyTo: email, // Sender's email for easy reply
@@ -49,8 +49,15 @@ export async function POST(request: Request) {
       `,
     });
 
+    if (error) {
+      return NextResponse.json(
+        { error: error.message || 'Failed to send email' },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json(
-      { message: 'Email sent successfully', id: data.id },
+      { message: 'Email sent successfully' },
       { status: 200 }
     );
   } catch (error) {
