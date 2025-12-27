@@ -30,8 +30,8 @@ export default function ShootingStars({ count = 3 }: { count?: number }) {
         newStars.push({
           id: Date.now() + i + Math.random() * 1000,
           left: Math.random() * 100,
-          delay: Math.random() * 4,
-          duration: 1.5 + Math.random() * 2.5,
+          delay: Math.random() * 10,
+          duration: 2 + Math.random() * 3,
           color: colors[Math.floor(Math.random() * colors.length)],
           angle: (Math.random() - 0.5) * 45,
           trailLength: 50 + Math.random() * 100,
@@ -41,7 +41,7 @@ export default function ShootingStars({ count = 3 }: { count?: number }) {
     };
 
     generateStars();
-    const interval = setInterval(generateStars, 6000);
+    const interval = setInterval(generateStars, 15000); // Much slower
 
     return () => clearInterval(interval);
   }, [count]);
