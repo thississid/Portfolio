@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
@@ -14,10 +15,17 @@ const publications = [
     venue: 'Springer CCIS Series • ThinkAI\'24 Conference',
     period: 'June 2024 – Dec. 2024',
     supervisor: 'Ravi Katukam (Ravi.k@arthink.ai)',
+    abstract: 'This research paper endeavors to develop and compare predictive models for estimating the Remaining Useful Life (RUL) of manufacturing and engineering systems through the utilization of sensor data. The datasets employed in this study encompass simulated operational and sensor measurements gathered from machinery subjected to diverse operational conditions and fault modes. The primary objective of this investigation is to ascertain the efficacy of conventional machine learning (ML) techniques, specifically Long Short-Term Memory networks (LSTMs), for time series analysis and RUL prediction. Furthermore, generative AI models, such as Generative pretrained transformers (GPTs), are explored for their potential to augment fault detection and RUL estimation accuracy.',
   },
 ];
 
 export default function Publications() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const toggleAbstract = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
   return (
     <Section id="publications" centerContent>
       <ShootingStars count={3} />
@@ -50,7 +58,7 @@ export default function Publications() {
                     {publication.subtitle}
                   </p>
                   
-                  <div className="space-y-2">
+                  <div className="space-y-2 mb-4">
                     <p className="text-sm text-[rgb(var(--neon-green))] font-mono">
                       {publication.venue}
                     </p>
@@ -65,6 +73,48 @@ export default function Publications() {
                       </span>
                     </div>
                   </div>
+
+                  {/* Abstract Section */}
+                  {publication.abstract && (
+                    <div className="mt-6 pt-6 border-t border-[rgb(var(--neon-purple))] border-opacity-30">
+                      <button
+                        onClick={() => toggleAbstract(index)}
+                        className="flex items-center gap-2 text-sm font-mono text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-purple))] transition-colors mb-3 group/btn"
+                      >
+                        <motion.span
+                          animate={{ rotate: expandedIndex === index ? 90 : 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="text-lg"
+                        >
+                          ▶
+                        </motion.span>
+                        <span className="border-b border-transparent group-hover/btn:border-[rgb(var(--neon-purple))]">
+                          {expandedIndex === index ? 'Hide Abstract' : 'Read Abstract'}
+                        </span>
+                      </button>
+                      
+                      <AnimatePresence>
+                        {expandedIndex === index && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.4, ease: 'easeInOut' }}
+                            className="overflow-hidden"
+                          >
+                            <div className="bg-[rgb(var(--bg-secondary))] bg-opacity-50 rounded-lg p-4 md:p-6 border border-[rgb(var(--neon-purple))] border-opacity-20">
+                              <p className="text-xs uppercase tracking-wider text-[rgb(var(--neon-purple))] mb-3 font-mono">
+                                Abstract
+                              </p>
+                              <p className="text-sm md:text-base text-[rgb(var(--text-secondary))] leading-relaxed text-justify">
+                                {publication.abstract}
+                              </p>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  )}
                 </div>
               </Card>
             </motion.div>
