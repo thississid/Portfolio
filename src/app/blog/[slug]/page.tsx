@@ -4,6 +4,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import Link from 'next/link';
+import ShareButtons from '@/components/ui/ShareButtons';
 import './blog-post.css';
 
 export async function generateStaticParams() {
@@ -103,8 +104,17 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           />
         </div>
 
+        {/* Share Section */}
+        <div className="mt-12 pt-8 border-t border-[rgb(var(--border))]">
+          <ShareButtons 
+            url={`/blog/${params.slug}`} 
+            title={post.title}
+            description={post.excerpt}
+          />
+        </div>
+
         {/* Footer */}
-        <footer className="mt-16 pt-8 border-t border-[rgb(var(--neon-cyan))] border-opacity-30">
+        <footer className="mt-8 pt-8 border-t border-[rgb(var(--neon-cyan))] border-opacity-30">
           <Link
             href="/#blog"
             className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[rgb(var(--neon-cyan))] text-[rgb(var(--neon-cyan))] rounded-lg font-mono hover:bg-[rgb(var(--neon-cyan))] hover:bg-opacity-20 hover:shadow-[0_0_20px_rgb(var(--neon-cyan))] transition-all"
