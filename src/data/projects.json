@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1",
+    "title": "RAG-based Automated Support System",
+    "description": "Intelligent customer support system using n8n for workflow automation and Agentic AI agents for diagnosing and resolving user queries. Built an intelligent customer support system enabling scalable issue triaging with minimal human intervention. Integrated OpenAI-powered AI agents to analyze customer issues, retrieve past solutions, and automate resolution, reducing human intervention by 40%. Implemented a self-learning knowledge base with Pinecone vector database, improving response accuracy over time.",
+    "tech": [
+      "n8n",
+      "OpenAI",
+      "LangChain",
+      "Pinecone"
+    ],
+    "status": "live",
+    "githubUrl": "",
+    "liveUrl": ""
+  },
+  {
+    "id": "2",
+    "title": "Telecom Customer Churn Prediction",
+    "description": "End-to-end customer churn analysis using a telecom dataset with feature engineering and exploratory data analysis. Conducted comprehensive churn analysis applying feature engineering and EDA to uncover churn patterns. Built and evaluated multiple machine learning models including Logistic Regression, Random Forest, and XGBoost. Achieved 81.2% accuracy in identifying potential churn customers.",
+    "tech": [
+      "Python",
+      "Scikit-learn",
+      "EDA",
+      "XGBoost"
+    ],
+    "status": "live",
+    "githubUrl": "",
+    "liveUrl": ""
+  },
+  {
+    "id": "3",
+    "title": "Predictive Maintenance Application",
+    "description": "Flask-based predictive maintenance app utilizing deep learning models for industrial time-series datasets. Designed and deployed a Flask-based app achieving 86.24% RUL prediction accuracy on industrial time-series datasets. Solved RUL prediction, clustering, speech recognition (OpenAI Whisper API), and anomaly detection (Granger Causality). Achieved an RMSE of 44.08 and a Silhouette Score of 0.563.",
+    "tech": [
+      "Python",
+      "TensorFlow",
+      "Flask",
+      "OpenAI"
+    ],
+    "status": "live",
+    "githubUrl": "",
+    "liveUrl": ""
+  }
+]

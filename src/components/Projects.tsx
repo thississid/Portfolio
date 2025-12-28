@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
@@ -9,47 +9,51 @@ import Card from './ui/Card';
 import ShootingStars from './ui/ShootingStars';
 import TechModal, { techData } from './ui/TechModal';
 
-const projects = [
-  {
-    title: 'RAG-based Automated Support System',
-    period: 'March 2025 – July 2025',
-    tech: ['n8n', 'OpenAI', 'LangChain'],
-    description: 'Intelligent customer support system using n8n for workflow automation and Agentic AI agents for diagnosing and resolving user queries',
-    achievements: [
-      'Built an intelligent customer support system enabling scalable issue triaging with minimal human intervention',
-      'Integrated OpenAI-powered AI agents to analyze customer issues, retrieve past solutions, and automate resolution, reducing human intervention by 40%',
-      'Implemented a self-learning knowledge base with a vector database Pinecone, improving response accuracy over time',
-      'Designed proactive issue detection workflows that monitor system logs and trigger preventive actions',
-      'Automated report generation and support ticket classification, streamlining support workflows for faster resolution',
-    ],
-  },
-  {
-    title: 'Telecom Customer Churn Prediction',
-    period: 'Jan. 2025 – Mar. 2025',
-    tech: ['Python', 'Scikit-learn', 'EDA'],
-    description: 'End-to-end customer churn analysis using a telecom dataset with feature engineering and exploratory data analysis',
-    achievements: [
-      'Conducted end-to-end customer churn analysis applying feature engineering and exploratory data analysis (EDA) to uncover churn patterns',
-      'Built and evaluated multiple machine learning models including Logistic Regression, Random Forest, and XGBoost',
-      'Achieved 81.2% accuracy in identifying potential churn customers',
-    ],
-  },
-  {
-    title: 'Predictive Maintenance Application',
-    period: 'June 2024 – July 2024',
-    tech: ['Python', 'TensorFlow', 'Flask'],
-    description: 'Flask-based predictive maintenance app utilizing deep learning models for industrial time-series datasets',
-    achievements: [
-      'Designed and deployed a Flask-based predictive maintenance app achieving 86.24% RUL prediction accuracy on industrial time-series datasets',
-      'Solved RUL prediction, clustering, speech recognition (OpenAI Whisper API), and anomaly detection (Granger Causality)',
-      'Achieved an RMSE of 44.08 and a Silhouette Score of 0.563',
-    ],
-  },
-];
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  tech: string[];
+  status: string;
+  githubUrl?: string;
+  liveUrl?: string;
+}
 
 export default function Projects() {
   const [selectedTech, setSelectedTech] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        // Add timestamp to prevent caching
+        const res = await fetch(`/api/admin/projects?t=${Date.now()}`, { 
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache',
+          }
+        });
+        if (res.ok) {
+          const data = await res.json();
+          console.log('Raw data from API:', data);
+          // Only show live projects on frontend
+          const liveProjects = data.filter((p: Project) => p.status === 'live');
+          console.log('Filtered live projects:', liveProjects);
+          console.log('Number of live projects:', liveProjects.length);
+          setProjects(liveProjects);
+        } else {
+          console.error('Failed to fetch projects, status:', res.status);
+        }
+      } catch (error) {
+        console.error('Failed to fetch projects:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchProjects();
+  }, []);
 
   const handleTechClick = (techName: string) => {
     setSelectedTech(techName);
@@ -61,6 +65,19 @@ export default function Projects() {
     setSelectedTech(null);
   };
 
+  if (loading) {
+    return (
+      <Section id="projects" centerContent>
+        <Container>
+          <SectionTitle title="<PROJECTS />" color="green" />
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[rgb(var(--neon-green))] mx-auto"></div>
+          </div>
+        </Container>
+      </Section>
+    );
+  }
+
   return (
     <Section id="projects" centerContent>
       <ShootingStars count={3} />
@@ -68,65 +85,78 @@ export default function Projects() {
         <SectionTitle title="<PROJECTS />" color="green" />
 
         <div className="space-y-8 md:space-y-12">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              className="group relative"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-[rgb(var(--neon-cyan))] to-[rgb(var(--neon-pink))] opacity-0 group-hover:opacity-10 blur-md transition-opacity duration-500" />
-              
-              <Card
-                borderColor="cyan"
-                delay={index * 0.2}
-                className="relative bg-opacity-70 hover:shadow-[0_0_40px_rgba(0,255,255,0.4)]"
+          {projects.length === 0 ? (
+            <div className="text-center py-12 text-[rgb(var(--text-secondary))]">
+              <p>No projects to display yet.</p>
+            </div>
+          ) : (
+            projects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                className="group relative"
               >
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                  <h3 className="text-2xl font-bold text-[rgb(var(--neon-cyan))] mb-2 font-mono">
-                    {project.title}
-                  </h3>
-                  <span className="text-[rgb(var(--neon-pink))] font-mono text-sm">
-                    {project.period}
-                  </span>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[rgb(var(--neon-cyan))] to-[rgb(var(--neon-pink))] opacity-0 group-hover:opacity-10 blur-md transition-opacity duration-500" />
+                
+                <Card
+                  borderColor="cyan"
+                  delay={index * 0.2}
+                  className="relative bg-opacity-70 hover:shadow-[0_0_40px_rgba(0,255,255,0.4)]"
+                >
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                    <h3 className="text-2xl font-bold text-[rgb(var(--neon-cyan))] mb-2 font-mono">
+                      {project.title}
+                    </h3>
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[rgb(var(--neon-pink))] hover:text-[rgb(var(--neon-cyan))] transition-colors font-mono text-sm"
+                      >
+                        View on GitHub →
+                      </a>
+                    )}
+                  </div>
 
-                <p className="text-[rgb(var(--text-secondary))] mb-4">
-                  {project.description}
-                </p>
+                  <p className="text-[rgb(var(--text-secondary))] mb-4">
+                    {project.description}
+                  </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      onClick={() => handleTechClick(tech)}
-                      className="px-3 py-1 border border-[rgb(var(--neon-purple))] text-[rgb(var(--neon-purple))] text-sm font-mono hover:shadow-[0_0_10px_rgb(var(--neon-purple))] transition-all duration-300 cursor-pointer"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech?.map((tech, i) => (
+                      <span
+                        key={i}
+                        onClick={() => handleTechClick(tech)}
+                        className="px-3 py-1 border border-[rgb(var(--neon-purple))] text-[rgb(var(--neon-purple))] text-sm font-mono hover:shadow-[0_0_10px_rgb(var(--neon-purple))] transition-all duration-300 cursor-pointer"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
 
-                <ul className="space-y-2">
-                  {project.achievements.map((achievement, i) => (
-                    <motion.li
-                      key={i}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.2 + i * 0.1 }}
-                      className="flex items-start gap-3 text-[rgb(var(--text-secondary))] text-sm"
-                    >
-                      <span className="text-[rgb(var(--neon-green))] mt-1 font-mono">▸</span>
-                      <span>{achievement}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </Card>
-            </motion.div>
-          ))}
+                  {project.liveUrl && (
+                    <div className="mt-4 pt-4 border-t border-gray-700">
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-cyan))] transition-colors font-mono text-sm"
+                      >
+                        <span>Live Demo</span>
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    </div>
+                  )}
+                </Card>
+              </motion.div>
+            ))
+          )}
         </div>
       </Container>
       <TechModal 

@@ -21,6 +21,7 @@ A modern, high-performance portfolio website with a retro cyber AI/ML theme, sho
 - 📝 **MDX Blog** - Built-in blog with syntax highlighting
 - 📧 **Contact Forms** - Enhanced contact with file attachments
 - 📅 **Meeting Scheduler** - Calendly integration
+- 🎛️ **Admin Panel** - Comprehensive CMS for content management (See [ADMIN_SETUP.md](./Docs/ADMIN_SETUP.md))
 
 ## 🛠️ Tech Stack
 
@@ -63,6 +64,10 @@ cp .env.example .env.local
 
 Required environment variables:
 ```env
+# Admin Panel Authentication
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=your_secure_password
+
 # Email (Resend)
 RESEND_API_KEY=your_resend_api_key
 
@@ -104,12 +109,20 @@ See [TESTING.md](./Docs/TESTING.md) for comprehensive testing documentation.
 portfolio/
 ├── src/
 │   ├── app/                 # Next.js app directory
+│   │   ├── admin/          # Admin panel pages
+│   │   │   ├── analytics/  # Analytics dashboard
+│   │   │   ├── blog-posts/ # Blog management
+│   │   │   ├── dashboard/  # Main dashboard
+│   │   │   ├── messages/   # Contact messages
+│   │   │   ├── projects/   # Project management
+│   │   │   └── settings/   # Settings page
 │   │   ├── api/            # API routes
 │   │   ├── blog/           # Blog pages
 │   │   ├── globals.css     # Global styles
 │   │   ├── layout.tsx      # Root layout
 │   │   └── page.tsx        # Home page
 │   ├── components/          # React components
+│   │   ├── admin/          # Admin panel components
 │   │   ├── ui/             # Reusable UI components
 │   │   └── providers/      # Context providers
 │   ├── content/            # MDX blog posts
@@ -121,8 +134,25 @@ portfolio/
 │   └── e2e/                # Playwright E2E tests
 ├── public/                  # Static assets
 ├── Docs/                    # Documentation
+│   ├── ADMIN_PANEL.md      # Admin panel documentation
+│   └── ADMIN_SETUP.md      # Quick setup guide
 └── [config files]          # Configuration files
 ```
+
+## 🎛️ Admin Panel
+
+Access the admin panel at `/admin` to manage your portfolio content. Features include:
+
+- **Dashboard**: Overview with stats and recent activity
+- **Blog Posts**: Create, edit, and manage blog posts
+- **Projects**: Manage portfolio projects
+- **Analytics**: Track views and traffic
+- **Messages**: View and respond to contact form submissions
+- **Settings**: Configure site settings
+
+For setup and detailed documentation, see:
+- [Quick Setup Guide](./Docs/ADMIN_SETUP.md)
+- [Complete Documentation](./Docs/ADMIN_PANEL.md)
 
 ## 🎨 Customization
 
