@@ -80,11 +80,6 @@ export default withSentryConfig(withMDX(nextConfig), {
 
   // Upload a larger set of source maps for prettier stack traces (increases build time)
   widenClientFileUpload: true,
-  
-  // Disable automatic instrumentation - we're using instrumentation.ts files
-  autoInstrumentServerFunctions: false,
-  autoInstrumentMiddleware: false,
-  autoInstrumentAppDirectory: false,
 
   // Uncomment to route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
   // This can increase your server load as well as your hosting bill.
@@ -98,6 +93,11 @@ export default withSentryConfig(withMDX(nextConfig), {
     // https://docs.sentry.io/product/crons/
     // https://vercel.com/docs/cron-jobs
     automaticVercelMonitors: true,
+    
+    // Disable automatic instrumentation - we're using instrumentation.ts files
+    autoInstrumentServerFunctions: false,
+    autoInstrumentMiddleware: false,
+    autoInstrumentAppDirectory: false,
 
     // Tree-shaking options for reducing bundle size
     treeshake: {
