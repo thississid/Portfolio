@@ -28,31 +28,31 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      <ShootingStars count={4} />
-      <InteractiveNeuralNetwork nodeCount={15} containerRef={sectionRef} />
-      {/* AI Data Streams Background */}
+      <ShootingStars count={2} />
+      <InteractiveNeuralNetwork nodeCount={8} containerRef={sectionRef} />
+      {/* AI Data Streams Background - Reduced for performance */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(5)].map((_, i) => (
+        {[...Array(3)].map((_, i) => (
           <div
             key={i}
             className="data-stream"
             style={{
-              left: `${20 + i * 20}%`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: `${3 + i * 0.5}s`,
+              left: `${25 + i * 25}%`,
+              animationDelay: `${i * 0.8}s`,
+              animationDuration: `${4 + i * 0.5}s`,
             }}
           />
         ))}
       </div>
 
-      {/* Floating Neural Network Nodes */}
-      {[...Array(8)].map((_, i) => (
+      {/* Floating Neural Network Nodes - Reduced count for performance */}
+      {[...Array(4)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute w-2 h-2 bg-[rgb(var(--neon-cyan))] rounded-full neural-node"
           style={{
-            left: `${10 + i * 12}%`,
-            top: `${20 + (i % 3) * 30}%`,
+            left: `${20 + i * 20}%`,
+            top: `${30 + (i % 2) * 40}%`,
             animationDelay: `${i * 0.3}s`,
             boxShadow: `0 0 10px rgb(var(--neon-cyan))`,
           }}

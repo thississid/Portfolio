@@ -20,7 +20,8 @@ export default function Footer() {
               href="https://github.com/thississid"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors font-mono"
+              aria-label="Visit my GitHub profile"
+              className="text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors font-mono min-h-[44px] flex items-center px-2"
             >
               GitHub
             </a>
@@ -28,13 +29,15 @@ export default function Footer() {
               href="https://linkedin.com/in/thississid"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors font-mono"
+              aria-label="Visit my LinkedIn profile"
+              className="text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors font-mono min-h-[44px] flex items-center px-2"
             >
               LinkedIn
             </a>
             <a
               href="mailto:officialsiddartha@gmail.com"
-              className="text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors font-mono"
+              aria-label="Send me an email"
+              className="text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors font-mono min-h-[44px] flex items-center px-2"
             >
               Email
             </a>

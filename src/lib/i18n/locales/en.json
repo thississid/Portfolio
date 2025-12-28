@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "publications": "Publications",
+    "certifications": "Certifications",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "title": "AI/ML Specialist & Full-Stack Developer",
+    "description": "Building intelligent systems and scalable applications with cutting-edge technology",
+    "cta": {
+      "contact": "Get in Touch",
+      "resume": "Download Resume"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Passionate about leveraging AI and machine learning to solve real-world problems. With expertise in full-stack development and a strong foundation in data science, I create innovative solutions that make a difference."
+  },
+  "experience": {
+    "title": "Experience",
+    "present": "Present"
+  },
+  "skills": {
+    "title": "Technical Skills"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "viewDemo": "View Demo",
+    "viewCode": "View Code"
+  },
+  "publications": {
+    "title": "Publications & Research",
+    "readPaper": "Read Paper"
+  },
+  "certifications": {
+    "title": "Certifications",
+    "viewCertificate": "View Certificate"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with Next.js, TypeScript, and Tailwind CSS"
+  },
+  "blog": {
+    "title": "Blog",
+    "readMore": "Read More",
+    "readTime": "min read",
+    "author": "Author",
+    "publishedOn": "Published on",
+    "tags": "Tags",
+    "share": "Share this post",
+    "relatedPosts": "Related Posts"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "notFound": "Not Found",
+    "backToHome": "Back to Home",
+    "views": "views"
+  }
+}

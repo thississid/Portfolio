@@ -56,13 +56,13 @@ export default function InteractiveNeuralNetwork({
         });
       }
 
-      // Create connections (each node connects to 2-3 nearby nodes)
+      // Create connections (each node connects to 1-2 nearby nodes for performance)
       newNodes.forEach((node, index) => {
         const nearbyNodes = newNodes
           .map((n, i) => ({ node: n, index: i, distance: Math.sqrt(Math.pow(node.x - n.x, 2) + Math.pow(node.y - n.y, 2)) }))
           .filter(n => n.index !== index)
           .sort((a, b) => a.distance - b.distance)
-          .slice(0, 2 + Math.floor(Math.random() * 2))
+          .slice(0, 1 + Math.floor(Math.random() * 2))
           .map(n => n.index);
         
         node.connections = nearbyNodes;
@@ -119,13 +119,13 @@ export default function InteractiveNeuralNetwork({
 
     window.addEventListener('resize', handleResize);
 
-    // Animate connections
+    // Animate connections - reduced frequency for performance
     const interval = setInterval(() => {
       setConnections(prev => prev.map(conn => ({
         ...conn,
-        active: Math.random() > 0.7,
+        active: Math.random() > 0.8,
       })));
-    }, 2000);
+    }, 3000);
 
     return () => {
       window.removeEventListener('resize', handleResize);

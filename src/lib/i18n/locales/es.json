@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "publications": "Publicaciones",
+    "certifications": "Certificaciones",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "title": "Especialista en IA/ML y Desarrollador Full-Stack",
+    "description": "Construyendo sistemas inteligentes y aplicaciones escalables con tecnología de vanguardia",
+    "cta": {
+      "contact": "Ponte en Contacto",
+      "resume": "Descargar CV"
+    }
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Apasionado por aprovechar la IA y el aprendizaje automático para resolver problemas del mundo real. Con experiencia en desarrollo full-stack y una sólida base en ciencia de datos, creo soluciones innovadoras que marcan la diferencia."
+  },
+  "experience": {
+    "title": "Experiencia",
+    "present": "Presente"
+  },
+  "skills": {
+    "title": "Habilidades Técnicas"
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "viewDemo": "Ver Demo",
+    "viewCode": "Ver Código"
+  },
+  "publications": {
+    "title": "Publicaciones e Investigación",
+    "readPaper": "Leer Artículo"
+  },
+  "certifications": {
+    "title": "Certificaciones",
+    "viewCertificate": "Ver Certificado"
+  },
+  "contact": {
+    "title": "Ponte en Contacto",
+    "description": "Siempre estoy abierto a discutir nuevos proyectos, ideas creativas u oportunidades para ser parte de tu visión.",
+    "form": {
+      "name": "Nombre",
+      "email": "Correo Electrónico",
+      "message": "Mensaje",
+      "send": "Enviar Mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado exitosamente!",
+      "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo."
+    }
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "builtWith": "Construido con Next.js, TypeScript y Tailwind CSS"
+  },
+  "blog": {
+    "title": "Blog",
+    "readMore": "Leer Más",
+    "readTime": "min de lectura",
+    "author": "Autor",
+    "publishedOn": "Publicado el",
+    "tags": "Etiquetas",
+    "share": "Compartir esta publicación",
+    "relatedPosts": "Publicaciones Relacionadas"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "notFound": "No Encontrado",
+    "backToHome": "Volver al Inicio",
+    "views": "vistas"
+  }
+}

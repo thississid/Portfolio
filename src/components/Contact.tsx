@@ -94,7 +94,8 @@ export default function Contact() {
                     href="https://linkedin.com/in/thississid"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-pink))] transition-colors"
+                    aria-label="Visit my LinkedIn profile"
+                    className="text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-pink))] transition-colors min-h-[44px] inline-flex items-center"
                   >
                     linkedin.com/in/thississid
                   </a>
@@ -109,7 +110,8 @@ export default function Contact() {
                     href="https://github.com/thississid"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-pink))] transition-colors"
+                    aria-label="Visit my GitHub profile"
+                    className="text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-pink))] transition-colors min-h-[44px] inline-flex items-center"
                   >
                     github.com/thississid
                   </a>

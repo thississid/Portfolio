@@ -1,8 +1,13 @@
 import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
-import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 import { getAllPosts } from '@/lib/blog';
+
+// Lazy load Hero with SSR disabled for heavy animations
+const Hero = dynamic(() => import('@/components/Hero'), {
+  ssr: false,
+  loading: () => <div className="min-h-screen flex items-center justify-center" />,
+});
 
 // Lazy load components for better performance
 const About = dynamic(() => import('@/components/About'), {

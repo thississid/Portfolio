@@ -5,6 +5,8 @@ import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import Link from 'next/link';
 import ShareButtons from '@/components/ui/ShareButtons';
+import ViewCounter from '@/components/ui/ViewCounter';
+import { generateBlogPostStructuredData } from '@/lib/structured-data';
 import './blog-post.css';
 
 export async function generateStaticParams() {
@@ -26,6 +28,19 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return {
     title: `${post.title} | Siddartha Yadav`,
     description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: 'article',
+      publishedTime: post.date,
+      authors: [post.author],
+      tags: post.tags,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+    },
   };
 }
 
@@ -36,14 +51,23 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
     notFound();
   }
 
+  const structuredData = generateBlogPostStructuredData(post);
+
   return (
-    <div className="min-h-screen bg-[rgb(var(--bg-primary))] py-20 px-4">
-      <article className="max-w-4xl mx-auto">
-        {/* Back Button */}
-        <Link
-          href="/#blog"
-          className="inline-flex items-center gap-2 text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-pink))] transition-colors mb-8 font-mono text-sm"
-        >
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+      <div className="min-h-screen bg-[rgb(var(--bg-primary))] py-20 px-4">
+        <article className="max-w-4xl mx-auto">
+          {/* Back Button */}
+          <Link
+            href="/#blog"
+            className="inline-flex items-center gap-2 text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-pink))] transition-colors mb-8 font-mono text-sm"
+          >
           <span>←</span>
           <span>Back to Blog</span>
         </Link>
@@ -74,6 +98,8 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
               <span className="text-[rgb(var(--neon-purple))]">⏱</span>
               {post.readTime}
             </span>
+            <span>•</span>
+            <ViewCounter slug={params.slug} />
           </div>
 
           {/* Tags */}
@@ -123,7 +149,8 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
             <span>Back to All Posts</span>
           </Link>
         </footer>
-      </article>
-    </div>
+        </article>
+      </div>
+    </>
   );
 }

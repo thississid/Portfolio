@@ -3,6 +3,9 @@ import React from 'react';
 import './globals.css';
 import Providers from '@/components/providers/Providers';
 import { Analytics } from '@vercel/analytics/next';
+import { generateStructuredData } from '@/lib/structured-data';
+import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
+import * as Sentry from '@sentry/nextjs';
 
 export const metadata: Metadata = {
   title: 'Gundelly Siddartha Yadav | AI/ML Specialist & Full-Stack Developer',
@@ -26,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Gundelly Siddartha Yadav | AI/ML Specialist & Full-Stack Developer',
     description: 'Full-stack developer specializing in AI/ML, LLM integration, and cloud-based application deployment.',
-    url: 'https://yourdomain.com',
+    url: 'https://sid-port-pi.vercel.app',
     siteName: 'Siddartha Yadav Portfolio',
     locale: 'en_US',
     type: 'website',
@@ -36,6 +39,9 @@ export const metadata: Metadata = {
     title: 'Gundelly Siddartha Yadav | AI/ML Specialist',
     description: 'Full-stack developer specializing in AI/ML, LLM integration, and cloud-based application deployment.',
   },
+  other: {
+    ...Sentry.getTraceData(),
+  },
 };
 
 export default function RootLayout({
@@ -43,9 +49,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const structuredData = generateStructuredData();
+  
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Preconnect to external domains for faster loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://vercel.live" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -63,8 +75,15 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
       </head>
       <body>
+        <ServiceWorkerRegistration />
         <Providers>
           {children}
         </Providers>

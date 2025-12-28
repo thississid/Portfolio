@@ -56,7 +56,7 @@ export default function Header() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
-                className="text-sm font-medium text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--neon-cyan))] transition-colors relative group"
+                className="text-sm font-medium text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--neon-cyan))] transition-colors relative group py-3 px-1 min-h-[44px] flex items-center"
               >
                 {item.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[rgb(var(--neon-cyan))] group-hover:w-full transition-all duration-300" />
@@ -74,18 +74,19 @@ export default function Header() {
             <a
               href="/Siddartha_Yadav_Resume.pdf"
               download
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 border border-[rgb(var(--neon-cyan))] border-opacity-50 text-[rgb(var(--neon-cyan))] hover:border-opacity-100 transition-colors rounded-md text-sm"
+              className="flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] min-w-[44px] border border-[rgb(var(--neon-cyan))] border-opacity-50 text-[rgb(var(--neon-cyan))] hover:border-opacity-100 transition-colors rounded-md text-sm"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              Resume
+              <span className="hidden sm:inline">Resume</span>
             </a>
             <a
               href="https://github.com/thississid"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:block text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors text-sm"
+              aria-label="Visit my GitHub profile"
+              className="hidden md:flex items-center min-h-[44px] px-2 text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors text-sm"
             >
               GitHub
             </a>
@@ -93,7 +94,8 @@ export default function Header() {
               href="https://linkedin.com/in/thississid"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:block text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors text-sm"
+              aria-label="Visit my LinkedIn profile"
+              className="hidden md:flex items-center min-h-[44px] px-2 text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors text-sm"
             >
               LinkedIn
             </a>
