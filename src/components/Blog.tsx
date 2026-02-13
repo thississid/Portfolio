@@ -6,7 +6,6 @@ import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
 import Card from './ui/Card';
-import ShootingStars from './ui/ShootingStars';
 import Link from 'next/link';
 
 interface BlogPost {
@@ -40,11 +39,10 @@ export default function Blog({ posts }: BlogProps) {
   if (posts.length === 0) {
     return (
       <Section id="blog" centerContent>
-        <ShootingStars count={3} />
         <Container>
-          <SectionTitle title="<BLOG />" color="pink" />
+          <SectionTitle title="Blog" color="indigo" />
           <div className="text-center py-12">
-            <p className="text-[rgb(var(--text-secondary))] font-mono">
+            <p className="text-[rgb(var(--text-secondary))]">
               📝 Blog posts coming soon...
             </p>
           </div>
@@ -55,19 +53,18 @@ export default function Blog({ posts }: BlogProps) {
 
   return (
     <Section id="blog" centerContent>
-      <ShootingStars count={3} />
       <Container>
-        <SectionTitle title="<BLOG />" color="pink" />
+        <SectionTitle title="Blog" color="indigo" />
 
         {/* Tags Filter */}
         {allTags.length > 0 && (
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             <button
               onClick={() => setSelectedTag(null)}
-              className={`px-4 py-2 rounded-lg text-sm font-mono transition-all ${
+              className={`px-4 py-2 rounded-sm text-sm transition-all ${
                 selectedTag === null
-                  ? 'border-2 border-[rgb(var(--neon-pink))] text-[rgb(var(--neon-pink))]'
-                  : 'border border-[rgb(var(--text-secondary))] border-opacity-30 text-[rgb(var(--text-secondary))] hover:border-[rgb(var(--neon-pink))] hover:text-[rgb(var(--neon-pink))]'
+                  ? 'border-2 border-[rgb(var(--sakura-pink))] text-[rgb(var(--sakura-pink))]'
+                  : 'border border-[rgb(var(--text-secondary))] border-opacity-30 text-[rgb(var(--text-secondary))] hover:border-[rgb(var(--sakura-pink))] hover:text-[rgb(var(--sakura-pink))]'
               }`}
             >
               All
@@ -76,10 +73,10 @@ export default function Blog({ posts }: BlogProps) {
               <button
                 key={tag}
                 onClick={() => setSelectedTag(tag)}
-                className={`px-4 py-2 rounded-lg text-sm font-mono transition-all ${
+                className={`px-4 py-2 rounded-sm text-sm transition-all ${
                   selectedTag === tag
-                    ? 'border-2 border-[rgb(var(--neon-pink))] text-[rgb(var(--neon-pink))]'
-                    : 'border border-[rgb(var(--text-secondary))] border-opacity-30 text-[rgb(var(--text-secondary))] hover:border-[rgb(var(--neon-pink))] hover:text-[rgb(var(--neon-pink))]'
+                    ? 'border-2 border-[rgb(var(--sakura-pink))] text-[rgb(var(--sakura-pink))]'
+                    : 'border border-[rgb(var(--text-secondary))] border-opacity-30 text-[rgb(var(--text-secondary))] hover:border-[rgb(var(--sakura-pink))] hover:text-[rgb(var(--sakura-pink))]'
                 }`}
               >
                 {tag}
@@ -102,18 +99,18 @@ export default function Blog({ posts }: BlogProps) {
                 <Card
                   borderColor={
                     index % 4 === 0
-                      ? 'pink'
+                      ? 'sakura'
                       : index % 4 === 1
-                      ? 'cyan'
+                      ? 'indigo'
                       : index % 4 === 2
-                      ? 'purple'
-                      : 'green'
+                      ? 'terracotta'
+                      : 'moss'
                   }
                   className="h-full flex flex-col hover:scale-105 transition-transform cursor-pointer group"
                 >
                   {/* Cover Image Placeholder */}
                   {post.coverImage ? (
-                    <div className="w-full h-48 bg-gradient-to-br from-[rgb(var(--neon-pink))] to-[rgb(var(--neon-purple))] rounded-lg mb-4 overflow-hidden">
+                    <div className="w-full h-48 bg-gradient-to-br from-[rgb(var(--sakura-pink))] to-[rgb(var(--indigo-blue))] rounded-sm mb-4 overflow-hidden">
                       <img
                         src={post.coverImage}
                         alt={post.title}
@@ -121,13 +118,13 @@ export default function Blog({ posts }: BlogProps) {
                       />
                     </div>
                   ) : (
-                    <div className="w-full h-48 bg-gradient-to-br from-[rgb(var(--neon-pink))] via-[rgb(var(--neon-purple))] to-[rgb(var(--neon-cyan))] opacity-20 rounded-lg mb-4 flex items-center justify-center">
+                    <div className="w-full h-48 bg-gradient-to-br from-[rgb(var(--sakura-pink))] via-[rgb(var(--indigo-blue))] to-[rgb(var(--terracotta))] opacity-20 rounded-sm mb-4 flex items-center justify-center">
                       <span className="text-6xl">📝</span>
                     </div>
                   )}
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-[rgb(var(--neon-pink))] mb-3 font-mono group-hover:text-[rgb(var(--neon-cyan))] transition-colors">
+                  <h3 className="text-xl font-light text-[rgb(var(--sakura-pink))] mb-3 group-hover:text-[rgb(var(--indigo-blue))] transition-colors">
                     {post.title}
                   </h3>
 
@@ -137,15 +134,15 @@ export default function Blog({ posts }: BlogProps) {
                   </p>
 
                   {/* Meta Info */}
-                  <div className="flex items-center justify-between text-xs text-[rgb(var(--text-secondary))] border-t border-[rgb(var(--neon-pink))] border-opacity-20 pt-4 mt-auto">
-                    <span className="font-mono">
+                  <div className="flex items-center justify-between text-xs text-[rgb(var(--text-secondary))] border-t border-[rgb(var(--sakura-pink))] border-opacity-20 pt-4 mt-auto">
+                    <span>
                       {new Date(post.date).toLocaleDateString('en-US', {
                         month: 'short',
                         day: 'numeric',
                         year: 'numeric',
                       })}
                     </span>
-                    <span className="font-mono">{post.readTime}</span>
+                    <span>{post.readTime}</span>
                   </div>
 
                   {/* Tags */}
@@ -154,7 +151,7 @@ export default function Blog({ posts }: BlogProps) {
                       {post.tags.slice(0, 3).map((tag) => (
                         <span
                           key={tag}
-                          className="text-xs px-2.5 py-1 rounded bg-transparent text-[rgb(var(--neon-pink))] border border-[rgb(var(--neon-pink))] border-opacity-50 font-mono"
+                          className="text-xs px-2.5 py-1 rounded-sm bg-transparent text-[rgb(var(--sakura-pink))] border border-[rgb(var(--sakura-pink))] border-opacity-50"
                         >
                           {tag}
                         </span>
@@ -172,7 +169,7 @@ export default function Blog({ posts }: BlogProps) {
           <div className="text-center mt-12">
             <Link
               href="/blog"
-              className="inline-block px-6 py-3 border-2 border-[rgb(var(--neon-pink))] text-[rgb(var(--neon-pink))] rounded-lg font-mono hover:bg-[rgb(var(--neon-pink))] hover:bg-opacity-20 hover:shadow-[0_0_20px_rgb(var(--neon-pink))] transition-all"
+              className="inline-block px-6 py-3 border border-[rgb(var(--sakura-pink))] text-[rgb(var(--sakura-pink))] rounded-sm hover:bg-[rgb(var(--sakura-pink))] hover:bg-opacity-10 transition-all"
             >
               View All Posts →
             </Link>

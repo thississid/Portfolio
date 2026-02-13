@@ -20,7 +20,7 @@ export default function Offline() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <svg
-              className="w-32 h-32 text-[rgb(var(--neon-cyan))]"
+              className="w-32 h-32 text-[rgb(var(--indigo-blue))]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -41,7 +41,7 @@ export default function Offline() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            <span className="bg-gradient-to-r from-[rgb(var(--neon-cyan))] to-[rgb(var(--neon-pink))] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[rgb(var(--indigo-blue))] to-[rgb(var(--sakura-pink))] bg-clip-text text-transparent">
               You're Offline
             </span>
           </motion.h1>
@@ -65,13 +65,13 @@ export default function Offline() {
           >
             <button
               onClick={() => window.location.reload()}
-              className="px-8 py-3 bg-[rgb(var(--neon-cyan))] text-white rounded-lg hover:bg-opacity-90 transition-all duration-300 font-semibold shadow-lg hover:shadow-[0_0_20px_rgba(14,165,233,0.5)] transform hover:scale-105"
+              className="px-8 py-3 bg-[rgb(var(--indigo-blue))] text-white rounded-sm hover:bg-opacity-90 transition-all duration-300 font-light shadow-lg transform hover:scale-105"
             >
               Try Again
             </button>
             <Link
               href="/"
-              className="px-8 py-3 border border-[rgb(var(--neon-cyan))] border-opacity-50 text-[rgb(var(--neon-cyan))] rounded-lg hover:border-opacity-100 hover:bg-[rgb(var(--neon-cyan))] hover:bg-opacity-10 transition-all duration-300 font-semibold"
+              className="px-8 py-3 border border-[rgb(var(--indigo-blue))] border-opacity-50 text-[rgb(var(--indigo-blue))] rounded-sm hover:border-opacity-100 hover:bg-[rgb(var(--indigo-blue))] hover:bg-opacity-10 transition-all duration-300 font-light"
             >
               Go Home
             </Link>

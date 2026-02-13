@@ -2,29 +2,29 @@ import { motion } from 'framer-motion';
 
 interface SectionTitleProps {
   title: string;
-  color?: 'cyan' | 'pink' | 'purple' | 'green' | 'ai';
+  color?: 'moss' | 'sakura' | 'indigo' | 'terracotta' | 'beige';
   className?: string;
 }
 
 const colorClasses = {
-  cyan: 'text-[rgb(var(--neon-cyan))]',
-  pink: 'text-[rgb(var(--neon-pink))]',
-  purple: 'text-[rgb(var(--neon-purple))]',
-  green: 'text-[rgb(var(--neon-green))]',
-  ai: 'text-[rgb(var(--accent-ai))]',
+  moss: 'text-[rgb(var(--moss-green))]',
+  sakura: 'text-[rgb(var(--sakura-pink))]',
+  indigo: 'text-[rgb(var(--indigo-blue))]',
+  terracotta: 'text-[rgb(var(--terracotta))]',
+  beige: 'text-[rgb(var(--warm-beige))]',
 };
 
 const colorBorders = {
-  cyan: 'bg-[rgb(var(--neon-cyan))]',
-  pink: 'bg-[rgb(var(--neon-pink))]',
-  purple: 'bg-[rgb(var(--neon-purple))]',
-  green: 'bg-[rgb(var(--neon-green))]',
-  ai: 'bg-[rgb(var(--accent-ai))]',
+  moss: 'bg-[rgb(var(--moss-green))]',
+  sakura: 'bg-[rgb(var(--sakura-pink))]',
+  indigo: 'bg-[rgb(var(--indigo-blue))]',
+  terracotta: 'bg-[rgb(var(--terracotta))]',
+  beige: 'bg-[rgb(var(--warm-beige))]',
 };
 
 export default function SectionTitle({ 
   title, 
-  color = 'cyan',
+  color = 'moss',
   className = '' 
 }: SectionTitleProps) {
   return (
@@ -32,13 +32,13 @@ export default function SectionTitle({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 0.6 }}
       className={className}
     >
-      <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${colorClasses[color]}`}>
+      <h2 className={`text-3xl md:text-4xl font-light mb-4 tracking-wide ${colorClasses[color]}`}>
         {title}
       </h2>
-      <div className={`h-1 w-24 ${colorBorders[color]} mb-12 md:mb-16 rounded-full`} />
+      <div className={`h-0.5 w-20 ${colorBorders[color]} mb-12 md:mb-16 opacity-60`} />
     </motion.div>
   );
 }

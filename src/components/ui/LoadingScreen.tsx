@@ -40,21 +40,21 @@ export default function LoadingScreen() {
               transition={{ duration: 0.5 }}
               className="mb-8"
             >
-              <h1 className="text-4xl md:text-6xl font-bold neon-text-cyan font-mono mb-4">
-                {'<SIDDARTHA />'}
+              <h1 className="text-4xl md:text-6xl font-light text-[rgb(var(--moss-green))] mb-4">
+                Siddartha
               </h1>
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: '100%' }}
                 transition={{ duration: 1, delay: 0.3 }}
-                className="h-1 bg-[rgb(var(--neon-cyan))] mx-auto max-w-xs"
+                className="h-0.5 bg-[rgb(var(--moss-green))] mx-auto max-w-xs opacity-60"
               />
             </motion.div>
 
             {/* Progress Bar */}
-            <div className="w-64 md:w-96 h-2 bg-[rgb(var(--bg-secondary))] rounded-full overflow-hidden border border-[rgb(var(--neon-cyan))]">
+            <div className="w-64 md:w-96 h-2 bg-[rgb(var(--bg-secondary))] rounded-full overflow-hidden border border-[rgb(var(--moss-green))] border-opacity-30">
               <motion.div
-                className="h-full bg-gradient-to-r from-[rgb(var(--neon-cyan))] to-[rgb(var(--neon-pink))]"
+                className="h-full bg-[rgb(var(--moss-green))] opacity-80"
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.3 }}

@@ -7,61 +7,60 @@ import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
 import Card from './ui/Card';
 import TechModal, { techData } from './ui/TechModal';
-import ShootingStars from './ui/ShootingStars';
 
 const skillCategories = [
   {
     name: 'Languages',
     skills: ['Python', 'SQL', 'Java', 'C'],
     description: 'Core programming languages for development and data manipulation',
-    color: 'cyan',
+    color: 'moss',
   },
   {
     name: 'AI/ML Tools',
     skills: ['Hugging Face', 'GPT-2', 'Weaviate', 'Pinecone', 'Granger Causality', 'OpenAI Whisper'],
     description: 'Specialized tools and models for AI/ML development and deployment',
-    color: 'pink',
+    color: 'sakura',
   },
   {
     name: 'Frameworks',
     skills: ['LangChain', 'Transformers', 'Django', 'TensorFlow', 'Flask', 'React'],
     description: 'Development frameworks for building scalable applications',
-    color: 'purple',
+    color: 'indigo',
   },
   {
     name: 'Cloud & DevOps',
     skills: ['Azure OpenAI', 'Docker', 'REST APIs', 'AWS Bedrock'],
     description: 'Cloud services, containerization, and API development',
-    color: 'green',
+    color: 'terracotta',
   },
   {
     name: 'IDEs & Tools',
     skills: ['VS Code', 'PyCharm', 'IntelliJ', 'Eclipse', 'Git'],
     description: 'Development environments and version control',
-    color: 'ai',
+    color: 'beige',
   },
 ];
 
 const getColorClass = (color: string) => {
   const colors: Record<string, string> = {
-    cyan: 'neon-text-cyan',
-    pink: 'neon-text-pink',
-    purple: 'neon-text-purple',
-    green: 'neon-text-green',
-    ai: 'neon-text-ai',
+    moss: 'text-moss',
+    sakura: 'text-sakura',
+    indigo: 'text-indigo',
+    terracotta: 'text-terracotta',
+    beige: 'text-accent',
   };
-  return colors[color] || 'neon-text-cyan';
+  return colors[color] || 'text-moss';
 };
 
 const getBorderClass = (color: string) => {
   const borders: Record<string, string> = {
-    cyan: 'border-[rgb(var(--neon-cyan))]',
-    pink: 'border-[rgb(var(--neon-pink))]',
-    purple: 'border-[rgb(var(--neon-purple))]',
-    green: 'border-[rgb(var(--neon-green))]',
-    ai: 'border-[rgb(var(--accent-ai))]',
+    moss: 'border-[rgb(var(--moss-green))]',
+    sakura: 'border-[rgb(var(--sakura-pink))]',
+    indigo: 'border-[rgb(var(--indigo-blue))]',
+    terracotta: 'border-[rgb(var(--terracotta))]',
+    beige: 'border-[rgb(var(--warm-beige))]',
   };
-  return borders[color] || 'border-[rgb(var(--neon-cyan))]';
+  return borders[color] || 'border-[rgb(var(--moss-green))]';
 };
 
 export default function Skills() {
@@ -79,22 +78,21 @@ export default function Skills() {
   };
 
   return (
-    <Section id="skills" centerContent showNeuralNetwork>
-      <ShootingStars count={3} />
+    <Section id="skills" centerContent>
       <Container>
-        <SectionTitle title="<SKILLS />" color="purple" />
+        <SectionTitle title="Skills" color="indigo" />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
           {skillCategories.map((category, index) => (
             <Card
               key={category.name}
-              borderColor={category.color as 'cyan' | 'pink' | 'purple' | 'green' | 'ai'}
+              borderColor={category.color as 'moss' | 'sakura' | 'indigo' | 'terracotta' | 'beige'}
               delay={index * 0.1}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               className={`border-2 ${getBorderClass(category.color)} bg-opacity-30`}
             >
-              <h3 className={`text-xl font-bold mb-2 ${getColorClass(category.color)} font-mono`}>
+              <h3 className={`text-xl font-light mb-2 ${getColorClass(category.color)}`}>
                 {category.name}
               </h3>
               {category.description && (

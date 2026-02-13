@@ -6,7 +6,6 @@ import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
 import Card from './ui/Card';
-import ShootingStars from './ui/ShootingStars';
 
 const publications = [
   {
@@ -28,9 +27,8 @@ export default function Publications() {
 
   return (
     <Section id="publications" centerContent>
-      <ShootingStars count={3} />
       <Container>
-        <SectionTitle title="<PUBLICATIONS />" color="purple" />
+        <SectionTitle title="Publications" color="indigo" />
 
         <div className="space-y-8 md:space-y-12">
           {publications.map((publication, index) => (
@@ -42,15 +40,15 @@ export default function Publications() {
               transition={{ delay: index * 0.2 }}
               className="group relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-[rgb(var(--neon-purple))] to-[rgb(var(--neon-pink))] opacity-0 group-hover:opacity-10 blur-md transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[rgb(var(--indigo-blue))] to-[rgb(var(--sakura-pink))] opacity-0 group-hover:opacity-10 blur-md transition-opacity duration-500" />
               
               <Card
-                borderColor="purple"
+                borderColor="indigo"
                 delay={index * 0.2}
-                className="relative bg-opacity-70 hover:shadow-[0_0_40px_rgba(147,51,234,0.4)]"
+                className="relative bg-opacity-70"
               >
-                <div className="border-l-2 border-[rgb(var(--neon-purple))] pl-6">
-                  <h3 className="text-2xl font-bold text-[rgb(var(--neon-purple))] mb-3 font-mono">
+                <div className="border-l-2 border-[rgb(var(--indigo-blue))] pl-6">
+                  <h3 className="text-2xl font-light text-[rgb(var(--indigo-blue))] mb-3">
                     {publication.title}
                   </h3>
                   
@@ -59,27 +57,27 @@ export default function Publications() {
                   </p>
                   
                   <div className="space-y-2 mb-4">
-                    <p className="text-sm text-[rgb(var(--neon-green))] font-mono">
+                    <p className="text-sm text-[rgb(var(--moss-green))]">
                       {publication.venue}
                     </p>
                     
                     <div className="flex flex-col md:flex-row md:items-center md:gap-4 text-sm text-[rgb(var(--text-secondary))]">
-                      <span className="font-mono">
-                        Period: <span className="text-[rgb(var(--neon-cyan))]">{publication.period}</span>
+                      <span>
+                        Period: <span className="text-[rgb(var(--terracotta))]">{publication.period}</span>
                       </span>
                       <span className="hidden md:inline">•</span>
                       <span>
-                        Supervisor: <span className="text-[rgb(var(--neon-pink))] font-mono">{publication.supervisor}</span>
+                        Supervisor: <span className="text-[rgb(var(--sakura-pink))]">{publication.supervisor}</span>
                       </span>
                     </div>
                   </div>
 
                   {/* Abstract Section */}
                   {publication.abstract && (
-                    <div className="mt-6 pt-6 border-t border-[rgb(var(--neon-purple))] border-opacity-30">
+                    <div className="mt-6 pt-6 border-t border-[rgb(var(--indigo-blue))] border-opacity-30">
                       <button
                         onClick={() => toggleAbstract(index)}
-                        className="flex items-center gap-2 text-sm font-mono text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-purple))] transition-colors mb-3 group/btn"
+                        className="flex items-center gap-2 text-sm text-[rgb(var(--terracotta))] hover:text-[rgb(var(--indigo-blue))] transition-colors mb-3 group/btn"
                       >
                         <motion.span
                           animate={{ rotate: expandedIndex === index ? 90 : 0 }}
@@ -88,7 +86,7 @@ export default function Publications() {
                         >
                           ▶
                         </motion.span>
-                        <span className="border-b border-transparent group-hover/btn:border-[rgb(var(--neon-purple))]">
+                        <span className="border-b border-transparent group-hover/btn:border-[rgb(var(--indigo-blue))]">
                           {expandedIndex === index ? 'Hide Abstract' : 'Read Abstract'}
                         </span>
                       </button>
@@ -102,8 +100,8 @@ export default function Publications() {
                             transition={{ duration: 0.4, ease: 'easeInOut' }}
                             className="overflow-hidden"
                           >
-                            <div className="bg-[rgb(var(--bg-secondary))] bg-opacity-50 rounded-lg p-4 md:p-6 border border-[rgb(var(--neon-purple))] border-opacity-20">
-                              <p className="text-xs uppercase tracking-wider text-[rgb(var(--neon-purple))] mb-3 font-mono">
+                            <div className="bg-[rgb(var(--bg-secondary))] bg-opacity-50 rounded-sm p-4 md:p-6 border border-[rgb(var(--indigo-blue))] border-opacity-20">
+                              <p className="text-xs uppercase tracking-wider text-[rgb(var(--indigo-blue))] mb-3">
                                 Abstract
                               </p>
                               <p className="text-sm md:text-base text-[rgb(var(--text-secondary))] leading-relaxed text-justify">

@@ -6,7 +6,6 @@ import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
 import Card from './ui/Card';
-import ShootingStars from './ui/ShootingStars';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -42,9 +41,8 @@ export default function Contact() {
 
   return (
     <Section id="contact" centerContent>
-      <ShootingStars count={3} />
       <Container>
-        <SectionTitle title="Get In Touch" color="pink" />
+        <SectionTitle title="Get In Touch" color="sakura" />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,8 +52,8 @@ export default function Contact() {
           className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6"
         >
           {/* Contact Info */}
-          <Card borderColor="cyan" delay={0}>
-            <h3 className="text-2xl font-bold mb-6 text-[rgb(var(--neon-cyan))]">
+          <Card borderColor="indigo" delay={0}>
+            <h3 className="text-2xl font-light mb-6 text-[rgb(var(--indigo-blue))]">
               Contact Info
             </h3>
             
@@ -66,7 +64,7 @@ export default function Contact() {
                   <p className="text-sm text-[rgb(var(--text-secondary))] mb-1">Email</p>
                   <a 
                     href="mailto:officialsiddartha@gmail.com"
-                    className="text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-pink))] transition-colors"
+                    className="text-[rgb(var(--indigo-blue))] hover:text-[rgb(var(--sakura-pink))] transition-colors"
                   >
                     officialsiddartha@gmail.com
                   </a>
@@ -79,7 +77,7 @@ export default function Contact() {
                   <p className="text-sm text-[rgb(var(--text-secondary))] mb-1">Phone</p>
                   <a 
                     href="tel:+919032424033"
-                    className="text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-pink))] transition-colors"
+                    className="text-[rgb(var(--indigo-blue))] hover:text-[rgb(var(--sakura-pink))] transition-colors"
                   >
                     +91 9032424033
                   </a>
@@ -95,7 +93,7 @@ export default function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Visit my LinkedIn profile"
-                    className="text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-pink))] transition-colors min-h-[44px] inline-flex items-center"
+                    className="text-[rgb(var(--indigo-blue))] hover:text-[rgb(var(--sakura-pink))] transition-colors min-h-[44px] inline-flex items-center"
                   >
                     linkedin.com/in/thississid
                   </a>
@@ -111,7 +109,7 @@ export default function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Visit my GitHub profile"
-                    className="text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-pink))] transition-colors min-h-[44px] inline-flex items-center"
+                    className="text-[rgb(var(--indigo-blue))] hover:text-[rgb(var(--sakura-pink))] transition-colors min-h-[44px] inline-flex items-center"
                   >
                     github.com/thississid
                   </a>
@@ -121,8 +119,8 @@ export default function Contact() {
           </Card>
 
           {/* Contact Form */}
-          <Card borderColor="purple" delay={0.2}>
-            <h3 className="text-2xl font-bold mb-6 text-[rgb(var(--neon-purple))]">
+          <Card borderColor="terracotta" delay={0.2}>
+            <h3 className="text-2xl font-light mb-6 text-[rgb(var(--terracotta))]">
               Send a Message
             </h3>
             
@@ -137,7 +135,7 @@ export default function Contact() {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-2 bg-[rgb(var(--bg-tertiary))] border border-[rgb(var(--neon-cyan))] border-opacity-30 rounded-md focus:border-opacity-100 focus:outline-none transition-colors text-[rgb(var(--text-primary))]"
+                  className="w-full px-4 py-2 bg-[rgb(var(--bg-tertiary))] border border-[rgb(var(--indigo-blue))] border-opacity-30 rounded-sm focus:border-opacity-100 focus:outline-none transition-colors text-[rgb(var(--text-primary))]"
                   placeholder="Your name"
                 />
               </div>
@@ -152,7 +150,7 @@ export default function Contact() {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-2 bg-[rgb(var(--bg-tertiary))] border border-[rgb(var(--neon-cyan))] border-opacity-30 rounded-md focus:border-opacity-100 focus:outline-none transition-colors text-[rgb(var(--text-primary))]"
+                  className="w-full px-4 py-2 bg-[rgb(var(--bg-tertiary))] border border-[rgb(var(--indigo-blue))] border-opacity-30 rounded-sm focus:border-opacity-100 focus:outline-none transition-colors text-[rgb(var(--text-primary))]"
                   placeholder="your@email.com"
                 />
               </div>
@@ -167,23 +165,23 @@ export default function Contact() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={5}
-                  className="w-full px-4 py-2 bg-[rgb(var(--bg-tertiary))] border border-[rgb(var(--neon-cyan))] border-opacity-30 rounded-md focus:border-opacity-100 focus:outline-none transition-colors text-[rgb(var(--text-primary))] resize-none"
+                  className="w-full px-4 py-2 bg-[rgb(var(--bg-tertiary))] border border-[rgb(var(--indigo-blue))] border-opacity-30 rounded-sm focus:border-opacity-100 focus:outline-none transition-colors text-[rgb(var(--text-primary))] resize-none"
                   placeholder="Your message..."
                 />
               </div>
 
               {status === 'success' && (
-                <p className="text-[rgb(var(--neon-green))] text-sm">✓ Message sent successfully!</p>
+                <p className="text-[rgb(var(--moss-green))] text-sm">✓ Message sent successfully!</p>
               )}
 
               {status === 'error' && (
-                <p className="text-[rgb(var(--neon-pink))] text-sm">✗ {errorMessage}</p>
+                <p className="text-[rgb(var(--sakura-pink))] text-sm">✗ {errorMessage}</p>
               )}
 
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full px-6 py-3 border border-[rgb(var(--neon-purple))] border-opacity-50 text-[rgb(var(--neon-purple))] hover:border-opacity-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors rounded-md font-medium"
+                className="w-full px-6 py-3 border border-[rgb(var(--terracotta))] border-opacity-50 text-[rgb(var(--terracotta))] hover:border-opacity-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors rounded-sm font-light"
               >
                 {status === 'loading' ? 'Sending...' : 'Send Message'}
               </button>
@@ -197,8 +195,8 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <Card borderColor="green" delay={0.4} className="mt-6 max-w-4xl mx-auto">
-            <p className="text-[rgb(var(--neon-green))] mb-2 font-medium">
+          <Card borderColor="moss" delay={0.4 } className="mt-6 max-w-4xl mx-auto">
+            <p className="text-[rgb(var(--moss-green))] mb-2 font-light">
               ✓ Available for Opportunities
             </p>
             <p className="text-[rgb(var(--text-secondary))]">

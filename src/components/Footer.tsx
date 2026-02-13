@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[rgb(var(--neon-cyan))] bg-[rgb(var(--bg-secondary))] bg-opacity-50 backdrop-blur-sm w-full">
+    <footer className="border-t border-[rgb(var(--moss-green))] bg-[rgb(var(--bg-secondary))] bg-opacity-50 backdrop-blur-sm w-full">
       <Container className="py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <motion.div
@@ -37,7 +37,7 @@ export default function Footer() {
             <a
               href="mailto:officialsiddartha@gmail.com"
               aria-label="Send me an email"
-              className="text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-pink))] transition-colors font-mono min-h-[44px] flex items-center px-2"
+              className="text-[rgb(var(--moss-green))] hover:text-[rgb(var(--sakura-pink))] transition-colors min-h-[44px] flex items-center px-2"
             >
               Email
             </a>
@@ -47,18 +47,18 @@ export default function Footer() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-[rgb(var(--text-secondary))] font-mono"
+            className="text-[rgb(var(--text-secondary))]"
           >
-            © {currentYear} <span className="neon-text-pink">GUNDELLY SIDDARTHA YADAV</span>
+            © {currentYear} <span className="text-[rgb(var(--sakura-pink))]">Gundelly Siddartha Yadav</span>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm text-[rgb(var(--neon-cyan))] font-mono"
+            className="text-sm text-[rgb(var(--moss-green))]"
           >
-            {'> SYSTEM.STATUS: ONLINE'}
+            {'Made with mindfulness • 心'}
           </motion.div>
         </div>
       </Container>

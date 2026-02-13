@@ -69,9 +69,9 @@ export default function Projects() {
     return (
       <Section id="projects" centerContent>
         <Container>
-          <SectionTitle title="<PROJECTS />" color="green" />
+          <SectionTitle title="Projects" color="moss" />
           <div className="text-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[rgb(var(--neon-green))] mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[rgb(var(--moss-green))] mx-auto"></div>
           </div>
         </Container>
       </Section>
@@ -80,9 +80,8 @@ export default function Projects() {
 
   return (
     <Section id="projects" centerContent>
-      <ShootingStars count={3} />
       <Container>
-        <SectionTitle title="<PROJECTS />" color="green" />
+        <SectionTitle title="Projects" color="moss" />
 
         <div className="space-y-8 md:space-y-12">
           {projects.length === 0 ? (
@@ -99,15 +98,14 @@ export default function Projects() {
                 transition={{ delay: index * 0.2 }}
                 className="group relative"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[rgb(var(--neon-cyan))] to-[rgb(var(--neon-pink))] opacity-0 group-hover:opacity-10 blur-md transition-opacity duration-500" />
                 
                 <Card
-                  borderColor="cyan"
+                  borderColor="moss"
                   delay={index * 0.2}
-                  className="relative bg-opacity-70 hover:shadow-[0_0_40px_rgba(0,255,255,0.4)]"
+                  className="relative bg-opacity-80"
                 >
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                    <h3 className="text-2xl font-bold text-[rgb(var(--neon-cyan))] mb-2 font-mono">
+                    <h3 className="text-2xl font-light text-[rgb(var(--moss-green))] mb-2">
                       {project.title}
                     </h3>
                     {project.githubUrl && (
@@ -115,7 +113,7 @@ export default function Projects() {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[rgb(var(--neon-pink))] hover:text-[rgb(var(--neon-cyan))] transition-colors font-mono text-sm"
+                        className="text-[rgb(var(--sakura-pink))] hover:text-[rgb(var(--moss-green))] transition-colors text-sm"
                       >
                         View on GitHub →
                       </a>
@@ -131,7 +129,7 @@ export default function Projects() {
                       <span
                         key={i}
                         onClick={() => handleTechClick(tech)}
-                        className="px-3 py-1 border border-[rgb(var(--neon-purple))] text-[rgb(var(--neon-purple))] text-sm font-mono hover:shadow-[0_0_10px_rgb(var(--neon-purple))] transition-all duration-300 cursor-pointer"
+                        className="px-3 py-1 border border-[rgb(var(--indigo-blue))] text-[rgb(var(--indigo-blue))] text-sm hover:bg-[rgb(var(--indigo-blue))] hover:bg-opacity-10 transition-all duration-300 cursor-pointer rounded-sm"
                       >
                         {tech}
                       </span>
@@ -139,12 +137,12 @@ export default function Projects() {
                   </div>
 
                   {project.liveUrl && (
-                    <div className="mt-4 pt-4 border-t border-gray-700">
+                    <div className="mt-4 pt-4 border-t border-[rgb(var(--warm-beige))] border-opacity-30">
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[rgb(var(--neon-green))] hover:text-[rgb(var(--neon-cyan))] transition-colors font-mono text-sm"
+                        className="inline-flex items-center gap-2 text-[rgb(var(--moss-green))] hover:text-[rgb(var(--sakura-pink))] transition-colors text-sm"
                       >
                         <span>Live Demo</span>
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

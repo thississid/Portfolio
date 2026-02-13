@@ -20,11 +20,11 @@ export default function MatrixRain() {
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
-    // Matrix rain characters - mix of code symbols and binary
-    const chars = '01アイウエオカキクケコサシスセソタチツテト</>{}[]();=+-*&|$@#';
+    // Japanese characters for subtle effect
+    const chars = '和美静心禅空寂閑淡雅';
     const charArray = chars.split('');
 
-    const fontSize = 14;
+    const fontSize = 16;
     const columns = canvas.width / fontSize;
     const drops: number[] = [];
 
@@ -36,46 +36,26 @@ export default function MatrixRain() {
     let animationFrameId: number;
 
     const draw = () => {
-      // Semi-transparent black to create fade effect
-      ctx.fillStyle = 'rgba(5, 5, 10, 0.05)';
+      // Very subtle fade effect
+      ctx.fillStyle = 'rgba(var(--bg-primary), 0.08)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.font = `${fontSize}px monospace`;
+      ctx.font = `${fontSize}px serif`;
 
       for (let i = 0; i < drops.length; i++) {
         // Random character
         const char = charArray[Math.floor(Math.random() * charArray.length)];
 
-        // Color gradient - brighter at the tip
-        const gradient = ctx.createLinearGradient(
-          i * fontSize,
-          drops[i] * fontSize,
-          i * fontSize,
-          (drops[i] + 1) * fontSize
-        );
-        
-        // Cyan color with varying opacity
-        gradient.addColorStop(0, 'rgba(0, 200, 220, 0.1)');
-        gradient.addColorStop(1, 'rgba(0, 200, 220, 0.8)');
-        
-        ctx.fillStyle = gradient;
+        // Soft moss green color
+        ctx.fillStyle = 'rgba(139, 157, 119, 0.15)';
         ctx.fillText(char, i * fontSize, drops[i] * fontSize);
 
-        // Glow effect for the tip
-        if (drops[i] * fontSize > 50 && Math.random() > 0.95) {
-          ctx.shadowBlur = 10;
-          ctx.shadowColor = 'rgba(0, 200, 220, 0.8)';
-          ctx.fillStyle = 'rgba(0, 200, 220, 1)';
-          ctx.fillText(char, i * fontSize, drops[i] * fontSize);
-          ctx.shadowBlur = 0;
-        }
-
         // Reset drop to top randomly
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.98) {
           drops[i] = 0;
         }
 
-        drops[i]++;
+        drops[i] += 0.3; // Slower fall
       }
 
       animationFrameId = requestAnimationFrame(draw);
@@ -92,7 +72,7 @@ export default function MatrixRain() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-5"
+      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-20"
       style={{ background: 'transparent' }}
     />
   );

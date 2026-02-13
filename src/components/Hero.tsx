@@ -3,13 +3,11 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import Container from './ui/Container';
-import ShootingStars from './ui/ShootingStars';
-import InteractiveNeuralNetwork from './ui/InteractiveNeuralNetwork';
-import EnhancedButton from './ui/EnhancedButton';
+import SakuraPetals from './ui/SakuraPetals';
 
 export default function Hero() {
   const [displayText, setDisplayText] = useState('');
-  const fullText = 'AI/ML SPECIALIST | FULL-STACK DEVELOPER';
+  const fullText = 'AI/ML Specialist • Full-Stack Developer';
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -21,116 +19,96 @@ export default function Hero() {
       } else {
         clearInterval(intervalId);
       }
-    }, 50);
+    }, 60);
 
     return () => clearInterval(intervalId);
   }, []);
 
   return (
     <section ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      <ShootingStars count={2} />
-      <InteractiveNeuralNetwork nodeCount={8} containerRef={sectionRef} />
-      {/* AI Data Streams Background - Reduced for performance */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(3)].map((_, i) => (
-          <div
-            key={i}
-            className="data-stream"
-            style={{
-              left: `${25 + i * 25}%`,
-              animationDelay: `${i * 0.8}s`,
-              animationDuration: `${4 + i * 0.5}s`,
-            }}
-          />
-        ))}
-      </div>
+      <SakuraPetals count={20} />
 
-      {/* Floating Neural Network Nodes - Reduced count for performance */}
-      {[...Array(4)].map((_, i) => (
+      {/* Gentle decorative circles */}
+      {[...Array(3)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 bg-[rgb(var(--neon-cyan))] rounded-full neural-node"
+          className="absolute rounded-full border-2 opacity-20 zen-circle"
           style={{
-            left: `${20 + i * 20}%`,
-            top: `${30 + (i % 2) * 40}%`,
-            animationDelay: `${i * 0.3}s`,
-            boxShadow: `0 0 10px rgb(var(--neon-cyan))`,
-          }}
-          animate={{
-            scale: [1, 1.5, 1],
-            opacity: [0.5, 1, 0.5],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            delay: i * 0.2,
+            left: `${15 + i * 30}%`,
+            top: `${25 + (i % 2) * 35}%`,
+            width: `${60 + i * 30}px`,
+            height: `${60 + i * 30}px`,
+            borderColor: i % 2 === 0 ? 'rgb(var(--sakura-pink))' : 'rgb(var(--moss-green))',
           }}
         />
       ))}
 
       <Container className="relative z-10">
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
           className="text-center"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="mb-6 text-[rgb(var(--neon-pink))] text-base md:text-lg font-mono"
+            transition={{ delay: 0.3 }}
+            className="mb-8 text-[rgb(var(--sakura-pink))] text-sm md:text-base tracking-wider"
           >
-            {'> SYSTEM.INITIALIZE()'}
+            ようこそ • Welcome
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 neon-text-cyan leading-tight font-mono"
+            transition={{ delay: 0.5 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light mb-8 text-[rgb(var(--text-primary))] leading-tight tracking-wide"
           >
-            GUNDELLY SIDDARTHA YADAV
+            Gundelly Siddartha Yadav
           </motion.h1>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 min-h-10 font-mono text-[rgb(var(--neon-green))]"
+            transition={{ delay: 0.7 }}
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-10 min-h-10 text-[rgb(var(--moss-green))]"
           >
             {displayText}
-            <span className="terminal-cursor ml-1">|</span>
+            <span className="terminal-cursor ml-1 opacity-70">|</span>
           </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="text-base sm:text-lg md:text-xl text-[rgb(var(--text-secondary))] max-w-3xl mx-auto mb-12 leading-relaxed"
+            transition={{ delay: 0.9 }}
+            className="text-base sm:text-lg md:text-xl text-[rgb(var(--text-secondary))] max-w-3xl mx-auto mb-12 leading-relaxed font-light"
           >
-            Full-stack developer with experience in AI/ML, LLM integration, and cloud-based application deployment.
-            Specializing in autonomous systems and cutting-edge technology.
+            Crafting elegant solutions through AI/ML, LLM integration, and cloud-based applications.
+            <br />Specializing in autonomous systems with mindful design.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1 }}
-            className="flex flex-wrap gap-3 sm:gap-4 justify-center"
+            transition={{ delay: 1.1 }}
+            className="flex flex-wrap gap-4 sm:gap-6 justify-center"
           >
-            <EnhancedButton href="#contact" variant="primary">
-              {'> CONNECT'}
-            </EnhancedButton>
-            <EnhancedButton href="#projects" variant="secondary">
-              {'> VIEW WORK'}
-            </EnhancedButton>
+            <a
+              href="#contact"
+              className="px-8 py-3 brush-border bg-transparent text-[rgb(var(--moss-green))] rounded-sm hover:bg-[rgb(var(--moss-green))] hover:text-white transition-all duration-300"
+            >
+              Get in Touch
+            </a>
+            <a
+              href="#projects"
+              className="px-8 py-3 brush-border-sakura bg-transparent text-[rgb(var(--sakura-pink))] rounded-sm hover:bg-[rgb(var(--sakura-pink))] hover:text-white transition-all duration-300"
+            >
+              View Work
+            </a>
           </motion.div>
         </motion.div>
       </Container>
-
-      {/* Scan Lines Overlay */}
-      <div className="scanlines" />
     </section>
   );
 }

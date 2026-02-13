@@ -138,9 +138,8 @@ export default function Certifications() {
 
   return (
     <Section id="certifications" centerContent>
-      <ShootingStars count={3} />
       <Container>
-        <SectionTitle title="<CERTIFICATIONS />" color="ai" />
+        <SectionTitle title="Certifications" color="beige" />
 
         <div className="relative max-w-7xl mx-auto py-8">
           {/* Carousel Container */}
@@ -166,29 +165,29 @@ export default function Certifications() {
                       <Card
                         borderColor={
                           globalIndex % 4 === 0
-                            ? 'cyan'
+                            ? 'indigo'
                             : globalIndex % 4 === 1
-                            ? 'pink'
+                            ? 'sakura'
                             : globalIndex % 4 === 2
-                            ? 'purple'
-                            : 'green'
+                            ? 'terracotta'
+                            : 'moss'
                         }
                         className="h-full flex flex-col"
                       >
-                        <h3 className="text-base sm:text-lg md:text-xl font-bold text-[rgb(var(--neon-cyan))] mb-3 sm:mb-4 font-mono leading-snug">
+                        <h3 className="text-base sm:text-lg md:text-xl font-light text-[rgb(var(--indigo-blue))] mb-3 sm:mb-4 leading-snug">
                           {cert.name}
                         </h3>
-                        <p className="text-sm sm:text-base md:text-lg text-[rgb(var(--neon-green))] mb-4 sm:mb-5 font-mono">
+                        <p className="text-sm sm:text-base md:text-lg text-[rgb(var(--moss-green))] mb-4 sm:mb-5">
                           {cert.issuer}
                         </p>
                         <div className="text-sm sm:text-base text-[rgb(var(--text-secondary))] space-y-2 sm:space-y-3 mt-auto">
                           <p className="flex items-center gap-2">
-                            <span className="text-[rgb(var(--neon-cyan))] opacity-60">📅</span>
+                            <span className="text-[rgb(var(--indigo-blue))] opacity-60">📅</span>
                             <span>Issued: {cert.issued}</span>
                           </p>
                           {cert.expires && (
                             <p className="flex items-center gap-2">
-                              <span className="text-[rgb(var(--neon-green))] opacity-60">⏰</span>
+                              <span className="text-[rgb(var(--moss-green))] opacity-60">⏰</span>
                               <span>Expires: {cert.expires}</span>
                             </p>
                           )}

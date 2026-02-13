@@ -5,7 +5,6 @@ import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
 import Card from './ui/Card';
-import ShootingStars from './ui/ShootingStars';
 
 const experiences = [
   {
@@ -43,28 +42,27 @@ const experiences = [
 export default function Experience() {
   return (
     <Section id="experience" centerContent>
-      <ShootingStars count={3} />
       <Container>
-        <SectionTitle title="<EXPERIENCE />" color="pink" />
+        <SectionTitle title="Experience" color="terracotta" />
 
         <div className="space-y-8 md:space-y-12">
           {experiences.map((exp, index) => (
             <Card
               key={index}
-              borderColor="cyan"
+              borderColor="indigo"
               delay={index * 0.2}
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="hover:shadow-[0_0_30px_rgb(var(--neon-cyan))]"
+              className=""
             >
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
                 <div>
-                  <h3 className="text-2xl font-bold text-[rgb(var(--neon-cyan))] mb-2 font-mono">
+                  <h3 className="text-2xl font-light text-[rgb(var(--indigo-blue))] mb-2">
                     {exp.title}
                   </h3>
-                  <p className="text-xl text-[rgb(var(--neon-purple))] font-mono">{exp.company}</p>
+                  <p className="text-xl text-[rgb(var(--terracotta))]">{exp.company}</p>
                 </div>
-                <span className="text-[rgb(var(--neon-green))] font-mono mt-2 md:mt-0">
+                <span className="text-[rgb(var(--moss-green))] mt-2 md:mt-0">
                   {exp.period}
                 </span>
               </div>
@@ -79,7 +77,7 @@ export default function Experience() {
                     transition={{ delay: index * 0.2 + i * 0.1 }}
                     className="flex items-start gap-3 text-[rgb(var(--text-secondary))]"
                   >
-                    <span className="text-[rgb(var(--neon-pink))] mt-1 font-mono">▹</span>
+                    <span className="text-[rgb(var(--sakura-pink))] mt-1">▹</span>
                     <span>{achievement}</span>
                   </motion.li>
                 ))}

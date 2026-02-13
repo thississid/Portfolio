@@ -9,8 +9,8 @@ import * as Sentry from '@sentry/nextjs';
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#0ea5e9' },
-    { media: '(prefers-color-scheme: dark)', color: '#ec4899' },
+    { media: '(prefers-color-scheme: light)', color: '#8B9D77' },
+    { media: '(prefers-color-scheme: dark)', color: '#FFB7C5' },
   ],
 };
 

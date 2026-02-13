@@ -78,9 +78,8 @@ export default function ContactEnhanced() {
 
   return (
     <Section id="contact" centerContent>
-      <ShootingStars count={3} />
       <Container>
-        <SectionTitle title="Get In Touch" color="pink" />
+        <SectionTitle title="Get In Touch" color="sakura" />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -92,7 +91,7 @@ export default function ContactEnhanced() {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Form */}
             <Card>
-              <h3 className="text-2xl font-bold mb-4 text-[rgb(var(--neon-cyan))]">
+              <h3 className="text-2xl font-light mb-4 text-[rgb(var(--indigo-blue))]">
                 Send a Message
               </h3>
               <p className="text-gray-400 mb-6">
@@ -162,7 +161,7 @@ export default function ContactEnhanced() {
                     <label
                       htmlFor="file-upload"
                       aria-label="Choose a file to attach"
-                      className="flex items-center gap-2 px-4 py-2 bg-transparent border border-[rgb(var(--neon-purple))] border-opacity-30 rounded-lg hover:border-opacity-100 cursor-pointer transition-all min-h-[44px]"
+                      className="flex items-center gap-2 px-4 py-2 bg-transparent border border-[rgb(var(--terracotta))] border-opacity-30 rounded-sm hover:border-opacity-100 cursor-pointer transition-all min-h-[44px]"
                     >
                       <svg
                         className="w-5 h-5"
@@ -203,7 +202,7 @@ export default function ContactEnhanced() {
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-[rgb(var(--neon-cyan))] to-[rgb(var(--neon-purple))] text-white rounded-lg font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-6 py-3 bg-gradient-to-r from-[rgb(var(--indigo-blue))] to-[rgb(var(--terracotta))] text-white rounded-sm font-light hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {status === 'loading' ? 'Sending...' : 'Send Message'}
                 </button>
@@ -234,7 +233,7 @@ export default function ContactEnhanced() {
             <div className="space-y-6">
               {/* Calendly Card */}
               <Card>
-                <h3 className="text-2xl font-bold mb-4 text-[rgb(var(--neon-green))]">
+                <h3 className="text-2xl font-light mb-4 text-[rgb(var(--moss-green))]">
                   Schedule a Call
                 </h3>
                 <p className="text-gray-400 mb-6">
@@ -242,7 +241,7 @@ export default function ContactEnhanced() {
                 </p>
                 <button
                   onClick={openCalendly}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-[rgb(var(--neon-green))] to-[rgb(var(--neon-cyan))] text-white rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                  className="w-full px-6 py-3 bg-gradient-to-r from-[rgb(var(--moss-green))] to-[rgb(var(--indigo-blue))] text-white rounded-sm font-light hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
                 >
                   <svg
                     className="w-5 h-5"
@@ -263,7 +262,7 @@ export default function ContactEnhanced() {
 
               {/* Direct Contact Info */}
               <Card>
-                <h3 className="text-2xl font-bold mb-4 text-[rgb(var(--neon-pink))]">
+                <h3 className="text-2xl font-light mb-4 text-[rgb(var(--sakura-pink))]">
                   Direct Contact
                 </h3>
                 <div className="space-y-4">

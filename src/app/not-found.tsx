@@ -28,7 +28,7 @@ export default function NotFound() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <span className="bg-gradient-to-r from-[rgb(var(--neon-cyan))] to-[rgb(var(--neon-pink))] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[rgb(var(--indigo-blue))] to-[rgb(var(--sakura-pink))] bg-clip-text text-transparent">
               404
             </span>
           </motion.h1>
@@ -61,19 +61,19 @@ export default function NotFound() {
           >
             <Link
               href="/"
-              className="px-8 py-3 bg-[rgb(var(--neon-cyan))] text-white rounded-lg hover:bg-opacity-90 transition-all duration-300 font-semibold shadow-lg hover:shadow-[0_0_20px_rgba(14,165,233,0.5)] transform hover:scale-105"
+              className="px-8 py-3 bg-[rgb(var(--indigo-blue))] text-white rounded-sm hover:bg-opacity-90 transition-all duration-300 font-light shadow-lg transform hover:scale-105"
             >
               Go Home
             </Link>
             <Link
               href="/#blog"
-              className="px-8 py-3 border border-[rgb(var(--neon-cyan))] border-opacity-50 text-[rgb(var(--neon-cyan))] rounded-lg hover:border-opacity-100 hover:bg-[rgb(var(--neon-cyan))] hover:bg-opacity-10 transition-all duration-300 font-semibold"
+              className="px-8 py-3 border border-[rgb(var(--indigo-blue))] border-opacity-50 text-[rgb(var(--indigo-blue))] rounded-sm hover:border-opacity-100 hover:bg-[rgb(var(--indigo-blue))] hover:bg-opacity-10 transition-all duration-300 font-light"
             >
               Read Blog
             </Link>
             <Link
               href="/#contact"
-              className="px-8 py-3 border border-[rgb(var(--neon-pink))] border-opacity-50 text-[rgb(var(--neon-pink))] rounded-lg hover:border-opacity-100 hover:bg-[rgb(var(--neon-pink))] hover:bg-opacity-10 transition-all duration-300 font-semibold"
+              className="px-8 py-3 border border-[rgb(var(--sakura-pink))] border-opacity-50 text-[rgb(var(--sakura-pink))] rounded-sm hover:border-opacity-100 hover:bg-[rgb(var(--sakura-pink))] hover:bg-opacity-10 transition-all duration-300 font-light"
             >
               Contact Me
             </Link>
@@ -92,35 +92,35 @@ export default function NotFound() {
             <div className="flex flex-wrap gap-3 justify-center">
               <Link
                 href="/#about"
-                className="text-sm text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-pink))] transition-colors"
+                className="text-sm text-[rgb(var(--indigo-blue))] hover:text-[rgb(var(--sakura-pink))] transition-colors"
               >
                 About
               </Link>
               <span className="text-[rgb(var(--text-secondary))]">•</span>
               <Link
                 href="/#experience"
-                className="text-sm text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-pink))] transition-colors"
+                className="text-sm text-[rgb(var(--indigo-blue))] hover:text-[rgb(var(--sakura-pink))] transition-colors"
               >
                 Experience
               </Link>
               <span className="text-[rgb(var(--text-secondary))]">•</span>
               <Link
                 href="/#projects"
-                className="text-sm text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-pink))] transition-colors"
+                className="text-sm text-[rgb(var(--indigo-blue))] hover:text-[rgb(var(--sakura-pink))] transition-colors"
               >
                 Projects
               </Link>
               <span className="text-[rgb(var(--text-secondary))]">•</span>
               <Link
                 href="/#skills"
-                className="text-sm text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-pink))] transition-colors"
+                className="text-sm text-[rgb(var(--indigo-blue))] hover:text-[rgb(var(--sakura-pink))] transition-colors"
               >
                 Skills
               </Link>
               <span className="text-[rgb(var(--text-secondary))]">•</span>
               <Link
                 href="/#certifications"
-                className="text-sm text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-pink))] transition-colors"
+                className="text-sm text-[rgb(var(--indigo-blue))] hover:text-[rgb(var(--sakura-pink))] transition-colors"
               >
                 Certifications
               </Link>
