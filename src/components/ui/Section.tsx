@@ -21,7 +21,7 @@ export default function Section({
     <section 
       ref={sectionRef}
       id={id} 
-      className={`min-h-screen py-20 md:py-32 relative ${centerContent ? 'flex items-center' : ''} ${className}`}
+      className={`min-h-screen py-20 md:py-28 relative border-t border-[rgb(var(--border))]/70 ${centerContent ? 'flex items-center' : ''} ${className}`}
     >
       {children}
     </section>

@@ -8,13 +8,25 @@ import Card from './ui/Card';
 
 const experiences = [
   {
+    title: 'AI and Python Intern',
+    company: 'Techolution',
+    period: 'March 2026 – Present',
+    achievements: [
+      'Built and validated backend workflows for an enterprise AI governance service, covering alert ingestion, AI based classification, PDF artifact generation, and API integration.',
+      'Improved an access controlled policy management service by validating RBAC permissions, policy lifecycle flows, and audit change tracking.',
+      'Implemented analytics cost metrics by integrating LLM usage data with cloud billing export data to calculate LLM cost, cloud cost, and total cost.',
+      'Enhanced alert classification accuracy by mapping real cloud infrastructure alerts to governance risk categories such as unused resources, stalled queues, external access, destructive queries, and high memory usage.',
+      'Contributed to dashboard improvements by structuring KPI cards, cost insights, risk areas, and actionable governance summaries for better decision making.',
+    ],
+  },
+  {
     title: 'Data Science Intern',
     company: 'PiResearch Labs',
-    period: 'June 2025 – Present',
+    period: 'June 2025 – Mar. 2026',
     achievements: [
-      'Designed and implemented the complete database schema serving as the backbone for company-wide operations, ensuring scalability, reliability, and compliance with industry standards',
+      'Designed and implemented the database schema that supported company-wide operations with a focus on scalability and reliability',
       'Built and optimized REST API endpoints to support core application workflows and improve system performance',
-      'Developed scripts and workflows to automate reconciliation tasks, automatic merchant background check reducing manual effort and increasing operational efficiency',
+      'Automated reconciliation and merchant background-check workflows to reduce manual effort and improve operational efficiency',
     ],
   },
   {

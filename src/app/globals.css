@@ -4,31 +4,43 @@
 
 @layer base {
   :root {
-    --bg-primary: 245 243 237;
-    --bg-secondary: 232 228 219;
-    --bg-tertiary: 255 251 245;
-    --sakura-pink: 255 183 197;
-    --moss-green: 139 157 119;
-    --indigo-blue: 57 72 103;
-    --warm-beige: 217 200 177;
-    --terracotta: 204 136 102;
-    --text-primary: 45 45 45;
-    --text-secondary: 89 89 89;
-    --accent-highlight: 139 157 119;
+    --bg-primary: 248 247 244;
+    --bg-secondary: 240 238 232;
+    --bg-tertiary: 255 255 252;
+    --text-primary: 25 25 25;
+    --text-secondary: 92 92 92;
+    --accent-highlight: 60 60 60;
+    --border: 214 214 208;
+    --surface: 255 255 255;
+    --sakura-pink: 80 80 80;
+    --moss-green: 60 60 60;
+    --indigo-blue: 45 45 45;
+    --warm-beige: 180 180 175;
+    --terracotta: 120 120 120;
+    --neon-green: 60 60 60;
+    --neon-cyan: 45 45 45;
+    --neon-purple: 80 80 80;
+    --neon-pink: 100 100 100;
   }
 
   .dark {
-    --bg-primary: 41 38 35;
-    --bg-secondary: 57 54 50;
-    --bg-tertiary: 33 30 27;
-    --sakura-pink: 255 183 197;
-    --moss-green: 139 157 119;
-    --indigo-blue: 94 110 154;
-    --warm-beige: 217 200 177;
-    --terracotta: 204 136 102;
-    --text-primary: 245 243 237;
-    --text-secondary: 200 195 188;
-    --accent-highlight: 139 157 119;
+    --bg-primary: 19 20 22;
+    --bg-secondary: 27 28 31;
+    --bg-tertiary: 33 34 38;
+    --text-primary: 245 244 240;
+    --text-secondary: 178 178 172;
+    --accent-highlight: 220 220 214;
+    --border: 58 60 64;
+    --surface: 28 29 32;
+    --sakura-pink: 182 182 182;
+    --moss-green: 214 214 214;
+    --indigo-blue: 232 232 232;
+    --warm-beige: 150 150 150;
+    --terracotta: 125 125 125;
+    --neon-green: 214 214 214;
+    --neon-cyan: 232 232 232;
+    --neon-purple: 182 182 182;
+    --neon-pink: 160 160 160;
   }
 
   * {
@@ -45,30 +57,28 @@
   body {
     background: rgb(var(--bg-primary));
     color: rgb(var(--text-primary));
-    font-family: 'Georgia', 'Palatino', 'Times New Roman', serif;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     overflow-x: hidden;
     position: relative;
     transition: background-color 0.5s ease, color 0.5s ease;
   }
 
-  /* Paper-like texture effect */
   .glass {
-    background: rgba(var(--bg-tertiary), 0.7);
+    background: rgba(var(--surface), 0.82);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(var(--warm-beige), 0.3);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(var(--border), 0.8);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   }
 
   .glass-strong {
-    background: rgba(var(--bg-tertiary), 0.85);
+    background: rgba(var(--surface), 0.94);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(var(--warm-beige), 0.4);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(var(--border), 0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   }
 
-  /* Subtle washi paper texture */
   body::before {
     content: '';
     position: fixed;
@@ -76,12 +86,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-      radial-gradient(circle at 20% 50%, rgba(var(--sakura-pink), 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(var(--moss-green), 0.02) 0%, transparent 50%);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.24) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+    background-size: 64px 64px;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.6;
+    opacity: 0.06;
   }
 }
 

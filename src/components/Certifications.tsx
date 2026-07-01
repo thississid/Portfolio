@@ -211,14 +211,14 @@ export default function Certifications() {
           {/* Navigation Buttons */}
           <button
             onClick={prevPage}
-            className="absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-[rgb(var(--bg-secondary))] bg-opacity-90 backdrop-blur-sm border-2 border-[rgb(var(--neon-cyan))] text-[rgb(var(--neon-cyan))] flex items-center justify-center hover:bg-[rgb(var(--neon-cyan))] hover:bg-opacity-20 hover:scale-110 active:scale-95 transition-all shadow-[0_0_15px_rgb(var(--neon-cyan))] hover:shadow-[0_0_25px_rgb(var(--neon-cyan))] z-20 text-xl sm:text-2xl font-bold"
+            className="absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-[rgb(var(--bg-secondary))] border border-[rgb(var(--border))] text-[rgb(var(--text-primary))] flex items-center justify-center hover:bg-[rgb(var(--bg-tertiary))] active:scale-95 transition-all z-20 text-xl sm:text-2xl font-medium"
             aria-label="Previous"
           >
             ‹
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-[rgb(var(--bg-secondary))] bg-opacity-90 backdrop-blur-sm border-2 border-[rgb(var(--neon-cyan))] text-[rgb(var(--neon-cyan))] flex items-center justify-center hover:bg-[rgb(var(--neon-cyan))] hover:bg-opacity-20 hover:scale-110 active:scale-95 transition-all shadow-[0_0_15px_rgb(var(--neon-cyan))] hover:shadow-[0_0_25px_rgb(var(--neon-cyan))] z-20 text-xl sm:text-2xl font-bold"
+            className="absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-[rgb(var(--bg-secondary))] border border-[rgb(var(--border))] text-[rgb(var(--text-primary))] flex items-center justify-center hover:bg-[rgb(var(--bg-tertiary))] active:scale-95 transition-all z-20 text-xl sm:text-2xl font-medium"
             aria-label="Next"
           >
             ›
@@ -232,7 +232,7 @@ export default function Certifications() {
                 onClick={() => goToPage(index)}
                 className={`rounded-full transition-all duration-300 ${
                   index === currentPage
-                    ? 'bg-[rgb(var(--neon-cyan))] w-8 sm:w-10 h-2.5 sm:h-3 shadow-[0_0_12px_rgb(var(--neon-cyan))]'
+                    ? 'bg-[rgb(var(--text-primary))] w-8 sm:w-10 h-2.5 sm:h-3'
                     : 'bg-[rgb(var(--text-secondary))] bg-opacity-30 hover:bg-opacity-60 w-2.5 sm:w-3 h-2.5 sm:h-3'
                 }`}
                 aria-label={`Go to page ${index + 1}`}
@@ -249,7 +249,7 @@ export default function Certifications() {
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
               className={`text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border transition-all ${
                 isAutoPlaying
-                  ? 'border-[rgb(var(--neon-green))] text-[rgb(var(--neon-green))] shadow-[0_0_8px_rgb(var(--neon-green))]'
+                  ? 'border-[rgb(var(--border))] text-[rgb(var(--text-primary))] bg-[rgb(var(--bg-secondary))]'
                   : 'border-[rgb(var(--text-secondary))] text-[rgb(var(--text-secondary))] opacity-50 hover:opacity-100'
               }`}
               aria-label={isAutoPlaying ? 'Pause auto-play' : 'Resume auto-play'}

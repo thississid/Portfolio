@@ -38,9 +38,9 @@ export default function Card({
         delay,
         ease: 'easeOut'
       }}
-      whileHover={hover ? { y: -3, scale: 1.01 } : {}}
+      whileHover={hover ? { y: -2 } : {}}
       whileTap={{ scale: 0.99 }}
-      className={`${borderClasses[borderColor]} p-6 md:p-8 bg-[rgb(var(--bg-tertiary))] bg-opacity-60 backdrop-blur-md border-2 transition-all duration-300 rounded-sm shadow-sm hover:shadow-md ${className}`}
+      className={`${borderClasses[borderColor]} p-6 md:p-8 bg-[rgb(var(--bg-tertiary))] border transition-all duration-300 rounded-none shadow-none ${className}`}
     >
       {children}
     </motion.div>

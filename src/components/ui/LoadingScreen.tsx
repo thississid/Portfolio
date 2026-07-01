@@ -30,40 +30,37 @@ export default function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[10000] bg-[rgb(var(--bg-primary))] bg-opacity-95 backdrop-blur-sm flex items-center justify-center"
+          className="fixed inset-0 z-[10000] bg-[rgb(var(--bg-primary))] flex items-center justify-center"
         >
           <div className="text-center">
-            {/* Animated Logo/Text */}
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
               className="mb-8"
             >
-              <h1 className="text-4xl md:text-6xl font-light text-[rgb(var(--moss-green))] mb-4">
+              <h1 className="text-2xl md:text-4xl font-medium tracking-[0.2em] text-[rgb(var(--text-primary))] uppercase mb-4">
                 Siddartha
               </h1>
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: '100%' }}
                 transition={{ duration: 1, delay: 0.3 }}
-                className="h-0.5 bg-[rgb(var(--moss-green))] mx-auto max-w-xs opacity-60"
+                className="h-px bg-[rgb(var(--border))] mx-auto max-w-xs"
               />
             </motion.div>
 
-            {/* Progress Bar */}
-            <div className="w-64 md:w-96 h-2 bg-[rgb(var(--bg-secondary))] rounded-full overflow-hidden border border-[rgb(var(--moss-green))] border-opacity-30">
+            <div className="w-64 md:w-96 h-2 bg-[rgb(var(--bg-secondary))] overflow-hidden border border-[rgb(var(--border))]">
               <motion.div
-                className="h-full bg-[rgb(var(--moss-green))] opacity-80"
+                className="h-full bg-[rgb(var(--text-primary))]"
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.3 }}
               />
             </div>
 
-            {/* Progress Text */}
             <motion.p
-              className="text-[rgb(var(--neon-green))] font-mono mt-4 text-sm md:text-base"
+              className="text-[rgb(var(--text-secondary))] font-mono mt-4 text-sm md:text-base"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -71,7 +68,6 @@ export default function LoadingScreen() {
               {`> LOADING: ${Math.round(progress)}%`}
             </motion.p>
 
-            {/* Loading Dots */}
             <motion.div
               className="flex gap-2 justify-center mt-6"
               initial={{ opacity: 0 }}
@@ -81,7 +77,7 @@ export default function LoadingScreen() {
               {[0, 1, 2].map((i) => (
                 <motion.div
                   key={i}
-                  className="w-2 h-2 bg-[rgb(var(--neon-cyan))] rounded-full"
+                  className="w-2 h-2 bg-[rgb(var(--text-primary))] rounded-full"
                   animate={{
                     scale: [1, 1.5, 1],
                     opacity: [0.5, 1, 0.5],

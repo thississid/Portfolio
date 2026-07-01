@@ -35,10 +35,13 @@ export default function SectionTitle({
       transition={{ duration: 0.6 }}
       className={className}
     >
-      <h2 className={`text-3xl md:text-4xl font-light mb-4 tracking-wide ${colorClasses[color]}`}>
-        {title}
-      </h2>
-      <div className={`h-0.5 w-20 ${colorBorders[color]} mb-12 md:mb-16 opacity-60`} />
+      <div className="flex items-center gap-3 mb-4">
+        <span className="w-8 h-px bg-[rgb(var(--border))]" />
+        <h2 className={`text-2xl md:text-3xl font-medium tracking-[0.18em] uppercase ${colorClasses[color]}`}>
+          {title}
+        </h2>
+      </div>
+      <div className={`h-px w-24 ${colorBorders[color]} mb-10 opacity-100`} />
     </motion.div>
   );
 }

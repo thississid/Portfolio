@@ -3,11 +3,10 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import Container from './ui/Container';
-import SakuraPetals from './ui/SakuraPetals';
 
 export default function Hero() {
   const [displayText, setDisplayText] = useState('');
-  const fullText = 'AI/ML Specialist • Full-Stack Developer';
+  const fullText = 'AI Engineer • ML Systems • Applied Research';
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -26,44 +25,27 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      <SakuraPetals count={20} />
-
-      {/* Gentle decorative circles */}
-      {[...Array(3)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute rounded-full border-2 opacity-20 zen-circle"
-          style={{
-            left: `${15 + i * 30}%`,
-            top: `${25 + (i % 2) * 35}%`,
-            width: `${60 + i * 30}px`,
-            height: `${60 + i * 30}px`,
-            borderColor: i % 2 === 0 ? 'rgb(var(--sakura-pink))' : 'rgb(var(--moss-green))',
-          }}
-        />
-      ))}
-
       <Container className="relative z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className="text-center"
+          className="text-left max-w-4xl"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mb-8 text-[rgb(var(--sakura-pink))] text-sm md:text-base tracking-wider"
+            className="mb-6 text-xs md:text-sm tracking-[0.3em] uppercase text-[rgb(var(--text-secondary))]"
           >
-            ようこそ • Welcome
+            Portfolio / AI Engineer
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light mb-8 text-[rgb(var(--text-primary))] leading-tight tracking-wide"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium mb-6 text-[rgb(var(--text-primary))] leading-[0.95] tracking-[-0.04em] max-w-4xl"
           >
             Gundelly Siddartha Yadav
           </motion.h1>
@@ -72,7 +54,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-10 min-h-10 text-[rgb(var(--moss-green))]"
+            className="text-base sm:text-lg md:text-xl mb-8 min-h-10 text-[rgb(var(--text-secondary))]"
           >
             {displayText}
             <span className="terminal-cursor ml-1 opacity-70">|</span>
@@ -82,27 +64,26 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
-            className="text-base sm:text-lg md:text-xl text-[rgb(var(--text-secondary))] max-w-3xl mx-auto mb-12 leading-relaxed font-light"
+            className="text-base sm:text-lg text-[rgb(var(--text-secondary))] max-w-2xl mb-10 leading-relaxed"
           >
-            Crafting elegant solutions through AI/ML, LLM integration, and cloud-based applications.
-            <br />Specializing in autonomous systems with mindful design.
+            I build practical AI systems, LLM workflows, and production software with a strong focus on reliability, clarity, and measurable outcomes.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1 }}
-            className="flex flex-wrap gap-4 sm:gap-6 justify-center"
+            className="flex flex-wrap gap-3 sm:gap-4"
           >
             <a
               href="#contact"
-              className="px-8 py-3 brush-border bg-transparent text-[rgb(var(--moss-green))] rounded-sm hover:bg-[rgb(var(--moss-green))] hover:text-white transition-all duration-300"
+              className="px-6 py-3 brush-border bg-transparent text-[rgb(var(--text-primary))] rounded-none hover:bg-[rgb(var(--bg-secondary))] transition-all duration-300 text-sm tracking-[0.12em] uppercase"
             >
               Get in Touch
             </a>
             <a
               href="#projects"
-              className="px-8 py-3 brush-border-sakura bg-transparent text-[rgb(var(--sakura-pink))] rounded-sm hover:bg-[rgb(var(--sakura-pink))] hover:text-white transition-all duration-300"
+              className="px-6 py-3 brush-border-sakura bg-transparent text-[rgb(var(--text-primary))] rounded-none hover:bg-[rgb(var(--bg-secondary))] transition-all duration-300 text-sm tracking-[0.12em] uppercase"
             >
               View Work
             </a>
