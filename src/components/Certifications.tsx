@@ -6,7 +6,6 @@ import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
 import Card from './ui/Card';
-import ShootingStars from './ui/ShootingStars';
 
 const certifications = [
   {

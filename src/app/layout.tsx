@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import React from 'react';
 import './globals.css';
-import Providers from '@/components/providers/Providers';
 import { Analytics } from '@vercel/analytics/next';
 import { generateStructuredData } from '@/lib/structured-data';
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
@@ -58,23 +57,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://vercel.live" />
         <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const savedTheme = localStorage.getItem('theme');
-                  const theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                  if (theme === 'dark') {
-                    document.documentElement.classList.add('dark');
-                  }
-                } catch (e) {
-                  document.documentElement.classList.add('dark');
-                }
-              })();
-            `,
-          }}
-        />
-        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(structuredData),
@@ -83,9 +65,7 @@ export default function RootLayout({
       </head>
       <body>
         <ServiceWorkerRegistration />
-        <Providers>
-          {children}
-        </Providers>
+        {children}
         <Analytics />
       </body>
     </html>

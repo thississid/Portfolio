@@ -57,7 +57,7 @@ export default function Hero() {
             className="text-base sm:text-lg md:text-xl mb-8 min-h-10 text-[rgb(var(--text-secondary))]"
           >
             {displayText}
-            <span className="terminal-cursor ml-1 opacity-70">|</span>
+            <span className="ml-1 opacity-50">|</span>
           </motion.div>
 
           <motion.p
@@ -77,13 +77,13 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="px-6 py-3 brush-border bg-transparent text-[rgb(var(--text-primary))] rounded-none hover:bg-[rgb(var(--bg-secondary))] transition-all duration-300 text-sm tracking-[0.12em] uppercase"
+              className="px-6 py-3 border border-[rgb(var(--border))] bg-transparent text-[rgb(var(--text-primary))] rounded-none hover:bg-[rgb(var(--bg-secondary))] transition-all duration-300 text-sm tracking-[0.12em] uppercase"
             >
               Get in Touch
             </a>
             <a
               href="#projects"
-              className="px-6 py-3 brush-border-sakura bg-transparent text-[rgb(var(--text-primary))] rounded-none hover:bg-[rgb(var(--bg-secondary))] transition-all duration-300 text-sm tracking-[0.12em] uppercase"
+              className="px-6 py-3 border border-[rgb(var(--border))] bg-transparent text-[rgb(var(--text-primary))] rounded-none hover:bg-[rgb(var(--bg-secondary))] transition-all duration-300 text-sm tracking-[0.12em] uppercase"
             >
               View Work
             </a>

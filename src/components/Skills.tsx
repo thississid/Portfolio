@@ -41,28 +41,6 @@ const skillCategories = [
   },
 ];
 
-const getColorClass = (color: string) => {
-  const colors: Record<string, string> = {
-    moss: 'text-moss',
-    sakura: 'text-sakura',
-    indigo: 'text-indigo',
-    terracotta: 'text-terracotta',
-    beige: 'text-accent',
-  };
-  return colors[color] || 'text-moss';
-};
-
-const getBorderClass = (color: string) => {
-  const borders: Record<string, string> = {
-    moss: 'border-[rgb(var(--moss-green))]',
-    sakura: 'border-[rgb(var(--sakura-pink))]',
-    indigo: 'border-[rgb(var(--indigo-blue))]',
-    terracotta: 'border-[rgb(var(--terracotta))]',
-    beige: 'border-[rgb(var(--warm-beige))]',
-  };
-  return borders[color] || 'border-[rgb(var(--moss-green))]';
-};
-
 export default function Skills() {
   const [selectedTech, setSelectedTech] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -86,13 +64,13 @@ export default function Skills() {
           {skillCategories.map((category, index) => (
             <Card
               key={category.name}
-              borderColor={category.color as 'moss' | 'sakura' | 'indigo' | 'terracotta' | 'beige'}
+              borderColor="beige"
               delay={index * 0.1}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              className={`border-2 ${getBorderClass(category.color)} bg-opacity-30`}
+              className="bg-[rgb(var(--bg-tertiary))]"
             >
-              <h3 className={`text-xl font-light mb-2 ${getColorClass(category.color)}`}>
+              <h3 className="text-xl font-medium mb-2 text-[rgb(var(--text-primary))]">
                 {category.name}
               </h3>
               {category.description && (
@@ -109,7 +87,7 @@ export default function Skills() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 + i * 0.05 }}
                     onClick={() => handleTechClick(skill)}
-                    className="px-3 py-1.5 border border-[rgb(var(--text-secondary))] text-[rgb(var(--text-primary))] text-sm hover:border-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-cyan))] hover:shadow-[0_0_10px_rgb(var(--neon-cyan))] transition-all duration-300 font-mono cursor-pointer"
+                    className="px-3 py-1.5 border border-[rgb(var(--border))] text-[rgb(var(--text-primary))] text-sm hover:border-[rgb(var(--text-primary))] transition-colors duration-200 font-mono cursor-pointer"
                   >
                     {skill}
                   </motion.span>
