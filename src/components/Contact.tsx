@@ -64,7 +64,7 @@ export default function Contact() {
                   <p className="text-sm text-[rgb(var(--text-secondary))] mb-1">Email</p>
                   <a 
                     href="mailto:officialsiddartha@gmail.com"
-                    className="text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-green))] transition-colors"
+                    className="break-all text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-green))] transition-colors"
                   >
                     officialsiddartha@gmail.com
                   </a>
@@ -93,7 +93,7 @@ export default function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Visit my LinkedIn profile"
-                    className="text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-green))] transition-colors min-h-[44px] inline-flex items-center"
+                    className="break-all text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-green))] transition-colors min-h-[44px] inline-flex items-center"
                   >
                     linkedin.com/in/thississid
                   </a>
@@ -109,7 +109,7 @@ export default function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Visit my GitHub profile"
-                    className="text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-green))] transition-colors min-h-[44px] inline-flex items-center"
+                    className="break-all text-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-green))] transition-colors min-h-[44px] inline-flex items-center"
                   >
                     github.com/thississid
                   </a>

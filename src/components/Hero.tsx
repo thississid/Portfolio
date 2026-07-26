@@ -38,7 +38,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.08, ease }}
-            className="mb-6 inline-flex items-center gap-3 rounded-full border border-[rgb(var(--neon-green))]/35 bg-[rgb(var(--neon-green))]/10 px-4 py-2 text-xs md:text-sm tracking-[0.18em] uppercase text-[rgb(var(--neon-green))]"
+            className="mb-6 inline-flex max-w-full items-center gap-3 rounded-full border border-[rgb(var(--neon-green))]/35 bg-[rgb(var(--neon-green))]/10 px-4 py-2 text-[0.68rem] sm:text-xs md:text-sm tracking-[0.12em] sm:tracking-[0.18em] uppercase text-[rgb(var(--neon-green))]"
           >
             AI Engineer / Applied Intelligence
           </motion.div>
@@ -47,7 +47,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.14, ease }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold mb-6 text-[rgb(var(--text-primary))] leading-[0.92] tracking-normal max-w-5xl"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold mb-6 text-[rgb(var(--text-primary))] leading-[0.96] sm:leading-[0.92] tracking-normal max-w-5xl"
           >
             Siddartha builds AI systems that ship.
           </motion.h1>
@@ -56,7 +56,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.9, delay: 0.22, ease }}
-            className="font-mono text-base sm:text-lg md:text-xl mb-8 min-h-10 text-[rgb(var(--neon-cyan))]"
+            className="font-mono text-sm sm:text-lg md:text-xl mb-8 min-h-10 text-[rgb(var(--neon-cyan))]"
           >
             {displayText}
             <span className="ml-1 opacity-50">|</span>
@@ -66,7 +66,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.95, delay: 0.28, ease }}
-            className="text-base sm:text-lg md:text-xl text-[rgb(var(--text-secondary))] max-w-3xl mb-10 leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-[rgb(var(--text-secondary))] max-w-3xl mb-8 sm:mb-10 leading-relaxed"
           >
             I turn messy business problems into reliable LLM workflows, ML backends, governance dashboards, and agentic prototypes with the taste of a builder and the discipline of an engineer.
           </motion.p>
@@ -75,10 +75,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.95, delay: 0.34, ease }}
-            className="mb-10 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4"
+            className="mb-8 grid max-w-4xl grid-cols-2 gap-3 sm:mb-10 sm:grid-cols-4"
           >
             {['LLM cost analytics', 'AI governance', 'RAG + agents', 'Production APIs'].map((item) => (
-              <div key={item} className="rounded-lg border border-[rgb(var(--border))]/70 bg-[rgb(var(--surface))]/86 px-4 py-3 text-sm font-medium text-[rgb(var(--text-secondary))] backdrop-blur">
+              <div key={item} className="rounded-lg border border-[rgb(var(--border))]/70 bg-[rgb(var(--surface))]/86 px-3 py-3 text-sm font-medium text-[rgb(var(--text-secondary))] backdrop-blur sm:px-4">
                 {item}
               </div>
             ))}
@@ -92,13 +92,13 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="px-6 py-3 border border-[rgb(var(--neon-cyan))]/60 bg-[rgb(var(--neon-cyan))] text-slate-950 rounded-md hover:bg-[rgb(var(--neon-green))] hover:border-[rgb(var(--neon-green))] transition-all duration-300 text-sm font-semibold tracking-[0.08em] uppercase"
+              className="flex-1 px-5 py-3 text-center border border-[rgb(var(--neon-cyan))]/60 bg-[rgb(var(--neon-cyan))] text-slate-950 rounded-md hover:bg-[rgb(var(--neon-green))] hover:border-[rgb(var(--neon-green))] transition-all duration-300 text-sm font-semibold tracking-[0.08em] uppercase sm:flex-none sm:px-6"
             >
               Get in Touch
             </a>
             <a
               href="#projects"
-              className="px-6 py-3 border border-[rgb(var(--border))] bg-[rgb(var(--surface))]/75 text-[rgb(var(--text-primary))] rounded-md hover:border-[rgb(var(--neon-cyan))] hover:bg-[rgb(var(--neon-cyan))]/10 transition-all duration-300 text-sm tracking-[0.08em] uppercase"
+              className="flex-1 px-5 py-3 text-center border border-[rgb(var(--border))] bg-[rgb(var(--surface))]/75 text-[rgb(var(--text-primary))] rounded-md hover:border-[rgb(var(--neon-cyan))] hover:bg-[rgb(var(--neon-cyan))]/10 transition-all duration-300 text-sm tracking-[0.08em] uppercase sm:flex-none sm:px-6"
             >
               View Work
             </a>

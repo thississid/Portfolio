@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import Section from './ui/Section';
 import Container from './ui/Container';
 import SectionTitle from './ui/SectionTitle';
@@ -81,182 +81,117 @@ const certifications = [
 ];
 
 export default function Certifications() {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Detect mobile screen size
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const cardsPerPage = isMobile ? 1 : 3;
-  const totalPages = Math.ceil(certifications.length / cardsPerPage);
-  const autoPlayInterval = 5000; // 5 seconds
-
-  const nextPage = useCallback(() => {
-    setCurrentPage((prev) => (prev + 1) % totalPages);
-  }, [totalPages]);
-
-  const prevPage = useCallback(() => {
-    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
-    setIsAutoPlaying(false);
-  }, [totalPages]);
-
-  const goToPage = useCallback((index: number) => {
-    setCurrentPage(index);
-    setIsAutoPlaying(false);
-  }, []);
-
-  const handleNext = useCallback(() => {
-    nextPage();
-    setIsAutoPlaying(false);
-  }, [nextPage]);
-
-  // Auto-play functionality
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-
-    const interval = setInterval(() => {
-      nextPage();
-    }, autoPlayInterval);
-
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, nextPage]);
-
-  const currentCerts = certifications.slice(
-    currentPage * cardsPerPage,
-    (currentPage + 1) * cardsPerPage
-  );
+  const [showAll, setShowAll] = useState(false);
+  const visibleCertifications = showAll ? certifications : certifications.slice(0, 3);
+  const nextCertification = certifications[3];
 
   return (
-    <Section id="certifications" centerContent>
+    <Section id="certifications">
       <Container>
         <SectionTitle title="Certifications" color="beige" />
 
-        <div className="relative max-w-7xl mx-auto py-8">
-          {/* Carousel Container */}
-          <div className="overflow-hidden px-14 sm:px-16 md:px-16 lg:px-20">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentPage}
-                initial={{ opacity: 0, x: 24 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -24 }}
-                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 min-h-[320px] sm:min-h-[340px]"
-              >
-                {currentCerts.map((cert, index) => {
-                  const globalIndex = currentPage * cardsPerPage + index;
-                  return (
-                    <motion.div
-                      key={globalIndex}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.04, duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                      <Card
-                        borderColor={
-                          globalIndex % 4 === 0
-                            ? 'indigo'
-                            : globalIndex % 4 === 1
-                            ? 'sakura'
-                            : globalIndex % 4 === 2
-                            ? 'terracotta'
-                            : 'moss'
-                        }
-                        className="h-full flex flex-col"
-                      >
-                        <h3 className="text-base sm:text-lg md:text-xl font-light text-[rgb(var(--indigo-blue))] mb-3 sm:mb-4 leading-snug">
-                          {cert.name}
-                        </h3>
-                        <p className="text-sm sm:text-base md:text-lg text-[rgb(var(--moss-green))] mb-4 sm:mb-5">
-                          {cert.issuer}
-                        </p>
-                        <div className="text-sm sm:text-base text-[rgb(var(--text-secondary))] space-y-2 sm:space-y-3 mt-auto">
-                          <p className="flex items-center gap-2">
-                            <span className="text-[rgb(var(--indigo-blue))] opacity-60">📅</span>
-                            <span>Issued: {cert.issued}</span>
-                          </p>
-                          {cert.expires && (
-                            <p className="flex items-center gap-2">
-                              <span className="text-[rgb(var(--moss-green))] opacity-60">⏰</span>
-                              <span>Expires: {cert.expires}</span>
-                            </p>
-                          )}
-                          {cert.credentialId && (
-                            <p className="font-mono text-[rgb(var(--neon-purple))] break-all">
-                              <span className="opacity-60">🔑 ID: </span>
-                              {cert.credentialId.length > 16
-                                ? `${cert.credentialId.slice(0, 16)}...`
-                                : cert.credentialId}
-                            </p>
-                          )}
-                        </div>
-                      </Card>
-                    </motion.div>
-                  );
-                })}
-              </motion.div>
-            </AnimatePresence>
-          </div>
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-8 max-w-3xl text-base md:text-lg leading-relaxed text-[rgb(var(--text-secondary))]"
+        >
+          Cloud, AI, automation, and platform credentials that back the engineering work without turning the page into a badge wall.
+        </motion.div>
 
-          {/* Navigation Buttons */}
-          <button
-            onClick={prevPage}
-            className="absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-[rgb(var(--bg-secondary))] border border-[rgb(var(--border))] text-[rgb(var(--text-primary))] flex items-center justify-center hover:bg-[rgb(var(--bg-tertiary))] transition-colors duration-300 z-20 text-xl sm:text-2xl font-medium"
-            aria-label="Previous"
-          >
-            ‹
-          </button>
-          <button
-            onClick={handleNext}
-            className="absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-[rgb(var(--bg-secondary))] border border-[rgb(var(--border))] text-[rgb(var(--text-primary))] flex items-center justify-center hover:bg-[rgb(var(--bg-tertiary))] transition-colors duration-300 z-20 text-xl sm:text-2xl font-medium"
-            aria-label="Next"
-          >
-            ›
-          </button>
-
-          {/* Dots Indicator */}
-          <div className="flex justify-center items-center gap-2 sm:gap-3 mt-10 mb-2 px-4">
-            {Array.from({ length: totalPages }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToPage(index)}
-                className={`rounded-full transition-[width,background-color,opacity] duration-500 ease-out ${
-                  index === currentPage
-                    ? 'bg-[rgb(var(--text-primary))] w-8 sm:w-10 h-2.5 sm:h-3'
-                    : 'bg-[rgb(var(--text-secondary))] bg-opacity-30 hover:bg-opacity-60 w-2.5 sm:w-3 h-2.5 sm:h-3'
-                }`}
-                aria-label={`Go to page ${index + 1}`}
-              />
-            ))}
-          </div>
-
-          {/* Page Counter & Auto-play Control */}
-          <div className="flex items-center justify-center gap-3 sm:gap-4 mt-4 flex-wrap px-4">
-            <p className="text-sm sm:text-base text-[rgb(var(--text-secondary))] font-mono">
-              {currentPage + 1} / {totalPages}
-            </p>
-            <button
-              onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className={`text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border transition-colors duration-300 ${
-                isAutoPlaying
-                  ? 'border-[rgb(var(--border))] text-[rgb(var(--text-primary))] bg-[rgb(var(--bg-secondary))]'
-                  : 'border-[rgb(var(--text-secondary))] text-[rgb(var(--text-secondary))] opacity-50 hover:opacity-100'
-              }`}
-              aria-label={isAutoPlaying ? 'Pause auto-play' : 'Resume auto-play'}
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {visibleCertifications.map((cert, index) => (
+            <Card
+              key={`${cert.issuer}-${cert.name}`}
+              borderColor="beige"
+              delay={index * 0.025}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="group flex min-h-[220px] flex-col justify-between border-[rgb(var(--border))]/70 bg-[rgb(var(--surface))]/82 p-5 md:p-6"
             >
-              {isAutoPlaying ? '⏸ Pause' : '▶ Play'}
+              <div>
+                <div className="mb-5 flex items-center justify-between gap-3">
+                  <span className="rounded-full border border-[rgb(var(--border))]/70 bg-[rgb(var(--bg-primary))]/70 px-3 py-1 text-xs font-medium uppercase tracking-[0.12em] text-[rgb(var(--text-secondary))]">
+                    {cert.issuer.split(' ')[0]}
+                  </span>
+                  <span className="text-xs font-mono text-[rgb(var(--text-secondary))]">
+                    {cert.issued}
+                  </span>
+                </div>
+
+                <h3 className="mb-3 text-lg md:text-xl font-semibold leading-snug text-[rgb(var(--text-primary))] transition-colors duration-300 group-hover:text-[rgb(var(--neon-cyan))]">
+                  {cert.name}
+                </h3>
+                <p className="text-sm md:text-base text-[rgb(var(--text-secondary))]">
+                  {cert.issuer}
+                </p>
+              </div>
+
+              <div className="mt-8 border-t border-[rgb(var(--border))]/55 pt-4">
+                <div className="flex flex-wrap items-center gap-2 text-sm text-[rgb(var(--text-secondary))]">
+                  <span>Issued {cert.issued}</span>
+                  {cert.expires && (
+                    <>
+                      <span className="text-[rgb(var(--border))]">/</span>
+                      <span>Valid until {cert.expires}</span>
+                    </>
+                  )}
+                </div>
+                {cert.credentialId && (
+                  <p className="mt-2 max-w-full truncate font-mono text-xs text-[rgb(var(--text-secondary))]">
+                    ID {cert.credentialId}
+                  </p>
+                )}
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        {!showAll && nextCertification && (
+          <motion.button
+            type="button"
+            onClick={() => setShowAll(true)}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.85, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className="group relative mt-4 block h-24 w-full overflow-hidden rounded-lg border border-[rgb(var(--border))]/70 bg-[rgb(var(--surface))]/82 text-left shadow-[0_24px_80px_rgba(22,38,66,0.10)] backdrop-blur-xl transition-[border-color,box-shadow] duration-500 hover:border-[rgb(var(--neon-cyan))] hover:shadow-[0_28px_90px_rgba(34,211,238,0.14)]"
+            aria-label={`See all certifications, starting with ${nextCertification.name}`}
+          >
+            <div className="px-5 py-5 md:px-6">
+              <div className="mb-3 flex items-center justify-between gap-3 opacity-70">
+                <span className="rounded-full border border-[rgb(var(--border))]/70 bg-[rgb(var(--bg-primary))]/70 px-3 py-1 text-xs font-medium uppercase tracking-[0.12em] text-[rgb(var(--text-secondary))]">
+                  {nextCertification.issuer.split(' ')[0]}
+                </span>
+                <span className="text-xs font-mono text-[rgb(var(--text-secondary))]">
+                  {nextCertification.issued}
+                </span>
+              </div>
+              <h3 className="text-lg md:text-xl font-semibold leading-snug text-[rgb(var(--text-primary))] opacity-70">
+                {nextCertification.name}
+              </h3>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[rgb(var(--surface))]/70 to-[rgb(var(--surface))]" />
+            <div className="absolute inset-x-0 bottom-0 flex items-center justify-center pb-4">
+              <span className="rounded-full border border-[rgb(var(--neon-cyan))]/50 bg-[rgb(var(--bg-primary))]/85 px-5 py-2 text-sm font-semibold text-[rgb(var(--text-primary))] shadow-[0_12px_40px_rgba(22,38,66,0.12)] transition-colors duration-300 group-hover:bg-[rgb(var(--neon-cyan))] group-hover:text-slate-950">
+                See all {certifications.length} credentials
+              </span>
+            </div>
+          </motion.button>
+        )}
+
+        {showAll && (
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAll(false)}
+              className="rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--surface))]/80 px-5 py-2 text-sm font-semibold text-[rgb(var(--text-secondary))] transition-colors duration-300 hover:border-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--text-primary))]"
+            >
+              Show fewer
             </button>
           </div>
-        </div>
+        )}
       </Container>
     </Section>
   );
