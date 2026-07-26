@@ -36,12 +36,13 @@ export default function Header() {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-b border-[rgb(var(--border))] ${
+      initial={{ y: -24, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-[background-color,box-shadow,border-color] duration-500 ease-out border-b border-[rgb(var(--border))]/60 ${
         scrolled 
-          ? 'bg-[rgb(var(--bg-primary))]/95 backdrop-blur-sm' 
-          : 'bg-[rgb(var(--bg-primary))]/85 backdrop-blur-sm'
+          ? 'bg-[rgb(var(--bg-primary))]/88 backdrop-blur-xl shadow-[0_18px_60px_rgba(22,38,66,0.14)]' 
+          : 'bg-[rgb(var(--bg-primary))]/72 backdrop-blur-xl'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,10 +51,11 @@ export default function Header() {
             href="#"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-sm font-medium tracking-[0.2em] uppercase text-[rgb(var(--text-primary))] flex items-center gap-2 z-50"
+            transition={{ duration: 0.75, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className="text-sm font-semibold tracking-[0.2em] uppercase text-[rgb(var(--text-primary))] flex items-center gap-2 z-50"
           >
-            <span>GSY</span>
+            <span className="grid h-9 w-9 place-items-center rounded-md border border-[rgb(var(--neon-cyan))]/50 bg-[rgb(var(--neon-cyan))]/10 text-[rgb(var(--neon-cyan))] shadow-[0_0_28px_rgba(34,211,238,0.18)]">SY</span>
+            <span className="hidden sm:inline">AI Engineer</span>
           </motion.a>
 
           <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
@@ -61,13 +63,13 @@ export default function Header() {
               <motion.a
                 key={item.href}
                 href={item.href}
-                initial={{ opacity: 0, y: -20 }}
+                initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index }}
-                className="text-xs tracking-[0.16em] uppercase text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors relative group py-2 min-h-[44px] flex items-center"
+                transition={{ duration: 0.65, delay: 0.05 + index * 0.025, ease: [0.16, 1, 0.3, 1] }}
+                className="text-xs tracking-[0.12em] uppercase text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--neon-cyan))] transition-colors relative group py-2 min-h-[44px] flex items-center"
               >
                 {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-px bg-[rgb(var(--text-primary))] group-hover:w-full transition-all duration-300" />
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-[rgb(var(--neon-cyan))] group-hover:w-full transition-[width] duration-500 ease-out" />
               </motion.a>
             ))}
           </nav>
@@ -75,13 +77,13 @@ export default function Header() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
+            transition={{ duration: 0.75, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
             className="flex items-center gap-3 lg:gap-3"
           >
             <a
               href="/Siddartha_Yadav_Resume.pdf"
               download
-              className="hidden sm:flex items-center gap-1.5 px-3 py-2 min-h-[44px] border border-[rgb(var(--border))] text-[rgb(var(--text-primary))] hover:bg-[rgb(var(--bg-secondary))] transition-all rounded-none text-xs tracking-[0.12em] uppercase"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-2 min-h-[44px] border border-[rgb(var(--neon-cyan))]/45 text-[rgb(var(--text-primary))] hover:bg-[rgb(var(--neon-cyan))]/10 transition-all rounded-md text-xs tracking-[0.12em] uppercase"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -93,7 +95,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit my GitHub profile"
-              className="hidden lg:flex items-center min-h-[44px] px-2 text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors text-xs tracking-[0.12em] uppercase"
+              className="hidden lg:flex items-center min-h-[44px] px-2 text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--neon-cyan))] transition-colors text-xs tracking-[0.12em] uppercase"
             >
               GitHub
             </a>
@@ -102,7 +104,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit my LinkedIn profile"
-              className="hidden xl:flex items-center min-h-[44px] px-2 text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors text-xs tracking-[0.12em] uppercase"
+              className="hidden xl:flex items-center min-h-[44px] px-2 text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--neon-cyan))] transition-colors text-xs tracking-[0.12em] uppercase"
             >
               LinkedIn
             </a>
@@ -130,7 +132,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'calc(100vh - 4rem)' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             className="lg:hidden fixed top-16 left-0 right-0 bg-[rgb(var(--bg-primary))]/95 backdrop-blur-sm border-b border-[rgb(var(--border))] overflow-y-auto"
           >
             <nav className="flex flex-col px-4 py-6 gap-1">
@@ -139,9 +141,9 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 * index }}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: index * 0.025, ease: [0.16, 1, 0.3, 1] }}
                   className="text-sm tracking-[0.12em] uppercase text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] hover:bg-[rgb(var(--bg-secondary))] transition-all py-3 px-4 rounded-none"
                 >
                   {item.label}
@@ -191,4 +193,3 @@ export default function Header() {
     </motion.header>
   );
 }
-

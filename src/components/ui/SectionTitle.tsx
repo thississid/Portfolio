@@ -32,17 +32,16 @@ export default function SectionTitle({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
       className={className}
     >
       <div className="flex items-center gap-3 mb-4">
-        <span className="w-8 h-px bg-[rgb(var(--border))]" />
-        <h2 className={`text-2xl md:text-3xl font-medium tracking-[0.18em] uppercase ${colorClasses[color]}`}>
+        <span className={`h-2 w-2 rounded-full ${colorBorders[color]} shadow-[0_0_24px_currentColor]`} />
+        <h2 className={`text-3xl md:text-5xl font-semibold tracking-normal ${colorClasses[color]}`}>
           {title}
         </h2>
       </div>
-      <div className={`h-px w-24 ${colorBorders[color]} mb-10 opacity-100`} />
+      <div className={`h-px w-32 ${colorBorders[color]} mb-10 opacity-80`} />
     </motion.div>
   );
 }
-

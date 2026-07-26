@@ -61,10 +61,10 @@ export default function Blog({ posts }: BlogProps) {
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             <button
               onClick={() => setSelectedTag(null)}
-              className={`px-4 py-2 rounded-sm text-sm transition-all ${
+              className={`px-4 py-2 rounded-md text-sm transition-all ${
                 selectedTag === null
-                  ? 'border-2 border-[rgb(var(--sakura-pink))] text-[rgb(var(--sakura-pink))]'
-                  : 'border border-[rgb(var(--text-secondary))] border-opacity-30 text-[rgb(var(--text-secondary))] hover:border-[rgb(var(--sakura-pink))] hover:text-[rgb(var(--sakura-pink))]'
+                  ? 'border border-[rgb(var(--neon-cyan))] bg-[rgb(var(--neon-cyan))]/10 text-[rgb(var(--neon-cyan))]'
+                  : 'border border-[rgb(var(--border))] text-[rgb(var(--text-secondary))] hover:border-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-cyan))]'
               }`}
             >
               All
@@ -73,10 +73,10 @@ export default function Blog({ posts }: BlogProps) {
               <button
                 key={tag}
                 onClick={() => setSelectedTag(tag)}
-                className={`px-4 py-2 rounded-sm text-sm transition-all ${
+                className={`px-4 py-2 rounded-md text-sm transition-all ${
                   selectedTag === tag
-                    ? 'border-2 border-[rgb(var(--sakura-pink))] text-[rgb(var(--sakura-pink))]'
-                    : 'border border-[rgb(var(--text-secondary))] border-opacity-30 text-[rgb(var(--text-secondary))] hover:border-[rgb(var(--sakura-pink))] hover:text-[rgb(var(--sakura-pink))]'
+                    ? 'border border-[rgb(var(--neon-cyan))] bg-[rgb(var(--neon-cyan))]/10 text-[rgb(var(--neon-cyan))]'
+                    : 'border border-[rgb(var(--border))] text-[rgb(var(--text-secondary))] hover:border-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-cyan))]'
                 }`}
               >
                 {tag}
@@ -90,10 +90,10 @@ export default function Blog({ posts }: BlogProps) {
           {displayPosts.map((post, index) => (
             <motion.div
               key={post.slug}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ duration: 0.85, delay: Math.min(index * 0.04, 0.14), ease: [0.16, 1, 0.3, 1] }}
             >
               <Link href={`/blog/${post.slug}`}>
                 <Card
@@ -106,11 +106,11 @@ export default function Blog({ posts }: BlogProps) {
                       ? 'terracotta'
                       : 'moss'
                   }
-                  className="h-full flex flex-col hover:scale-105 transition-transform cursor-pointer group"
+                  className="h-full flex flex-col cursor-pointer group"
                 >
                   {/* Cover Image Placeholder */}
                   {post.coverImage ? (
-                    <div className="w-full h-48 bg-gradient-to-br from-[rgb(var(--sakura-pink))] to-[rgb(var(--indigo-blue))] rounded-sm mb-4 overflow-hidden">
+                    <div className="w-full h-48 bg-gradient-to-br from-[rgb(var(--sakura-pink))] to-[rgb(var(--indigo-blue))] rounded-md mb-4 overflow-hidden">
                       <img
                         src={post.coverImage}
                         alt={post.title}
@@ -118,13 +118,13 @@ export default function Blog({ posts }: BlogProps) {
                       />
                     </div>
                   ) : (
-                    <div className="w-full h-48 bg-gradient-to-br from-[rgb(var(--sakura-pink))] via-[rgb(var(--indigo-blue))] to-[rgb(var(--terracotta))] opacity-20 rounded-sm mb-4 flex items-center justify-center">
-                      <span className="text-6xl">📝</span>
+                    <div className="w-full h-48 rounded-md mb-4 flex items-center justify-center border border-[rgb(var(--border))] bg-[linear-gradient(135deg,rgba(34,211,238,0.16),rgba(244,114,182,0.12))]">
+                      <span className="font-mono text-sm uppercase tracking-[0.16em] text-[rgb(var(--neon-cyan))]">Research Notes</span>
                     </div>
                   )}
 
                   {/* Title */}
-                  <h3 className="text-xl font-light text-[rgb(var(--sakura-pink))] mb-3 group-hover:text-[rgb(var(--indigo-blue))] transition-colors">
+                  <h3 className="text-xl font-semibold text-[rgb(var(--text-primary))] mb-3 group-hover:text-[rgb(var(--neon-cyan))] transition-colors">
                     {post.title}
                   </h3>
 
@@ -134,7 +134,7 @@ export default function Blog({ posts }: BlogProps) {
                   </p>
 
                   {/* Meta Info */}
-                  <div className="flex items-center justify-between text-xs text-[rgb(var(--text-secondary))] border-t border-[rgb(var(--sakura-pink))] border-opacity-20 pt-4 mt-auto">
+                  <div className="flex items-center justify-between text-xs text-[rgb(var(--text-secondary))] border-t border-[rgb(var(--border))]/70 pt-4 mt-auto">
                     <span>
                       {new Date(post.date).toLocaleDateString('en-US', {
                         month: 'short',
@@ -151,7 +151,7 @@ export default function Blog({ posts }: BlogProps) {
                       {post.tags.slice(0, 3).map((tag) => (
                         <span
                           key={tag}
-                          className="text-xs px-2.5 py-1 rounded-sm bg-transparent text-[rgb(var(--sakura-pink))] border border-[rgb(var(--sakura-pink))] border-opacity-50"
+                          className="text-xs px-2.5 py-1 rounded-md bg-[rgb(var(--bg-primary))]/45 text-[rgb(var(--neon-cyan))] border border-[rgb(var(--neon-cyan))]/35"
                         >
                           {tag}
                         </span>
@@ -169,7 +169,7 @@ export default function Blog({ posts }: BlogProps) {
           <div className="text-center mt-12">
             <Link
               href="/blog"
-              className="inline-block px-6 py-3 border border-[rgb(var(--sakura-pink))] text-[rgb(var(--sakura-pink))] rounded-sm hover:bg-[rgb(var(--sakura-pink))] hover:bg-opacity-10 transition-all"
+              className="inline-block px-6 py-3 border border-[rgb(var(--neon-cyan))] text-[rgb(var(--neon-cyan))] rounded-md hover:bg-[rgb(var(--neon-cyan))]/10 transition-all"
             >
               View All Posts →
             </Link>

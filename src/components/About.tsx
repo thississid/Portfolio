@@ -12,22 +12,20 @@ export default function About() {
         <SectionTitle title="About" color="sakura" />
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-          <Card borderColor="moss" delay={0} initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}>
-            <h3 className="text-2xl font-light mb-6 text-[rgb(var(--sakura-pink))]">
-              Profile Summary
+          <Card borderColor="moss" delay={0} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}>
+            <h3 className="text-2xl font-semibold mb-6 text-[rgb(var(--neon-cyan))]">
+              Builder Profile
             </h3>
             <p className="text-[rgb(var(--text-secondary))] leading-relaxed mb-4 text-base md:text-lg">
-              Full-stack developer with experience in AI/ML, LLM integration, and cloud-based application deployment.
-              Proficient in Python, Java, C, and OS fundamentals with a strong academic background in AI and Data Science.
+              AI engineer building LLM workflows, ML services, backend APIs, and dashboards that make intelligent systems usable in the real world.
             </p>
             <p className="text-[rgb(var(--text-secondary))] leading-relaxed">
-              Passionate about building intelligent systems that solve real-world problems. Currently working on
-              cutting-edge AI solutions and autonomous systems.
+              Strong in Python, systems thinking, applied research, and fast product execution. Currently focused on AI governance, cost analytics, and agentic automation.
             </p>
           </Card>
 
-          <Card borderColor="sakura" delay={0.1} initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }}>
-            <h3 className="text-2xl font-light mb-6 text-[rgb(var(--indigo-blue))]">
+          <Card borderColor="sakura" delay={0.08} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}>
+            <h3 className="text-2xl font-semibold mb-6 text-[rgb(var(--neon-green))]">
               Education
             </h3>
             <div className="space-y-6">
@@ -67,4 +65,3 @@ export default function About() {
     </Section>
   );
 }
-

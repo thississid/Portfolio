@@ -65,12 +65,12 @@ export default function Skills() {
             <Card
               key={category.name}
               borderColor="beige"
-              delay={index * 0.1}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              className="bg-[rgb(var(--bg-tertiary))]"
+              delay={index * 0.05}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="bg-[rgb(var(--surface))]/80"
             >
-              <h3 className="text-xl font-medium mb-2 text-[rgb(var(--text-primary))]">
+              <h3 className="text-xl font-semibold mb-2 text-[rgb(var(--text-primary))]">
                 {category.name}
               </h3>
               {category.description && (
@@ -82,12 +82,12 @@ export default function Skills() {
                 {category.skills.map((skill, i) => (
                   <motion.span
                     key={skill}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 + i * 0.05 }}
+                    transition={{ duration: 0.6, delay: Math.min(i * 0.02, 0.08), ease: [0.16, 1, 0.3, 1] }}
                     onClick={() => handleTechClick(skill)}
-                    className="px-3 py-1.5 border border-[rgb(var(--border))] text-[rgb(var(--text-primary))] text-sm hover:border-[rgb(var(--text-primary))] transition-colors duration-200 font-mono cursor-pointer"
+                    className="px-3 py-1.5 border border-[rgb(var(--border))] bg-[rgb(var(--bg-primary))]/75 text-[rgb(var(--text-primary))] text-sm hover:border-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-cyan))] transition-colors duration-200 font-mono cursor-pointer rounded-md"
                   >
                     {skill}
                   </motion.span>
@@ -105,4 +105,3 @@ export default function Skills() {
     </Section>
   );
 }
-

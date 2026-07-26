@@ -146,10 +146,10 @@ export default function Certifications() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentPage}
-                initial={{ opacity: 0, x: 100 }}
+                initial={{ opacity: 0, x: 24 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.6, ease: 'easeInOut' }}
+                exit={{ opacity: 0, x: -24 }}
+                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 min-h-[320px] sm:min-h-[340px]"
               >
                 {currentCerts.map((cert, index) => {
@@ -157,9 +157,9 @@ export default function Certifications() {
                   return (
                     <motion.div
                       key={globalIndex}
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                      transition={{ delay: index * 0.04, duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
                     >
                       <Card
                         borderColor={
@@ -210,14 +210,14 @@ export default function Certifications() {
           {/* Navigation Buttons */}
           <button
             onClick={prevPage}
-            className="absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-[rgb(var(--bg-secondary))] border border-[rgb(var(--border))] text-[rgb(var(--text-primary))] flex items-center justify-center hover:bg-[rgb(var(--bg-tertiary))] active:scale-95 transition-all z-20 text-xl sm:text-2xl font-medium"
+            className="absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-[rgb(var(--bg-secondary))] border border-[rgb(var(--border))] text-[rgb(var(--text-primary))] flex items-center justify-center hover:bg-[rgb(var(--bg-tertiary))] transition-colors duration-300 z-20 text-xl sm:text-2xl font-medium"
             aria-label="Previous"
           >
             ‹
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-[rgb(var(--bg-secondary))] border border-[rgb(var(--border))] text-[rgb(var(--text-primary))] flex items-center justify-center hover:bg-[rgb(var(--bg-tertiary))] active:scale-95 transition-all z-20 text-xl sm:text-2xl font-medium"
+            className="absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-[rgb(var(--bg-secondary))] border border-[rgb(var(--border))] text-[rgb(var(--text-primary))] flex items-center justify-center hover:bg-[rgb(var(--bg-tertiary))] transition-colors duration-300 z-20 text-xl sm:text-2xl font-medium"
             aria-label="Next"
           >
             ›
@@ -229,7 +229,7 @@ export default function Certifications() {
               <button
                 key={index}
                 onClick={() => goToPage(index)}
-                className={`rounded-full transition-all duration-300 ${
+                className={`rounded-full transition-[width,background-color,opacity] duration-500 ease-out ${
                   index === currentPage
                     ? 'bg-[rgb(var(--text-primary))] w-8 sm:w-10 h-2.5 sm:h-3'
                     : 'bg-[rgb(var(--text-secondary))] bg-opacity-30 hover:bg-opacity-60 w-2.5 sm:w-3 h-2.5 sm:h-3'
@@ -246,7 +246,7 @@ export default function Certifications() {
             </p>
             <button
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className={`text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border transition-all ${
+              className={`text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border transition-colors duration-300 ${
                 isAutoPlaying
                   ? 'border-[rgb(var(--border))] text-[rgb(var(--text-primary))] bg-[rgb(var(--bg-secondary))]'
                   : 'border-[rgb(var(--text-secondary))] text-[rgb(var(--text-secondary))] opacity-50 hover:opacity-100'
@@ -261,4 +261,3 @@ export default function Certifications() {
     </Section>
   );
 }
-

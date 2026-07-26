@@ -70,7 +70,7 @@ export default function Projects() {
         <Container>
           <SectionTitle title="Projects" color="moss" />
           <div className="text-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[rgb(var(--moss-green))] mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[rgb(var(--neon-cyan))] mx-auto"></div>
           </div>
         </Container>
       </Section>
@@ -82,7 +82,7 @@ export default function Projects() {
       <Container>
         <SectionTitle title="Projects" color="moss" />
 
-        <div className="space-y-8 md:space-y-12">
+        <div className="grid gap-6 lg:grid-cols-2">
           {projects.length === 0 ? (
             <div className="text-center py-12 text-[rgb(var(--text-secondary))]">
               <p>No projects to display yet.</p>
@@ -91,44 +91,49 @@ export default function Projects() {
             projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                className="group relative"
+                transition={{ duration: 0.85, delay: Math.min(index * 0.06, 0.18), ease: [0.16, 1, 0.3, 1] }}
+                className="group relative h-full"
               >
-                
                 <Card
                   borderColor="moss"
-                  delay={index * 0.2}
-                  className="relative bg-opacity-80"
+                  delay={index * 0.04}
+                  className="relative h-full overflow-hidden bg-opacity-80"
                 >
-                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                    <h3 className="text-2xl font-light text-[rgb(var(--moss-green))] mb-2">
-                      {project.title}
-                    </h3>
+                  <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[rgb(var(--neon-cyan))]/10 blur-2xl transition-opacity group-hover:opacity-100" />
+                  <div className="relative mb-5 flex items-start justify-between gap-4">
+                    <div>
+                      <div className="mb-3 font-mono text-xs uppercase tracking-[0.16em] text-[rgb(var(--neon-green))]">
+                        Live Build / {String(index + 1).padStart(2, '0')}
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-semibold text-[rgb(var(--text-primary))] mb-2">
+                        {project.title}
+                      </h3>
+                    </div>
                     {project.githubUrl && (
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[rgb(var(--sakura-pink))] hover:text-[rgb(var(--moss-green))] transition-colors text-sm"
+                        className="shrink-0 rounded-md border border-[rgb(var(--border))] px-3 py-2 text-[rgb(var(--text-secondary))] hover:border-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-cyan))] transition-colors text-sm"
                       >
-                        View on GitHub →
+                        GitHub
                       </a>
                     )}
                   </div>
 
-                  <p className="text-[rgb(var(--text-secondary))] mb-4">
+                  <p className="relative text-[rgb(var(--text-secondary))] mb-5 leading-relaxed">
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="relative flex flex-wrap gap-2 mb-4">
                     {project.tech?.map((tech, i) => (
                       <span
                         key={i}
                         onClick={() => handleTechClick(tech)}
-                        className="px-3 py-1 border border-[rgb(var(--indigo-blue))] text-[rgb(var(--indigo-blue))] text-sm hover:bg-[rgb(var(--indigo-blue))] hover:bg-opacity-10 transition-all duration-300 cursor-pointer rounded-sm"
+                        className="px-3 py-1 border border-[rgb(var(--border))] bg-[rgb(var(--bg-primary))]/75 text-[rgb(var(--text-secondary))] text-sm hover:border-[rgb(var(--neon-cyan))] hover:text-[rgb(var(--neon-cyan))] transition-all duration-300 cursor-pointer rounded-md"
                       >
                         {tech}
                       </span>
@@ -136,12 +141,12 @@ export default function Projects() {
                   </div>
 
                   {project.liveUrl && (
-                    <div className="mt-4 pt-4 border-t border-[rgb(var(--warm-beige))] border-opacity-30">
+                    <div className="relative mt-5 pt-5 border-t border-[rgb(var(--border))]/60">
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[rgb(var(--moss-green))] hover:text-[rgb(var(--sakura-pink))] transition-colors text-sm"
+                        className="inline-flex items-center gap-2 rounded-md bg-[rgb(var(--neon-cyan))] px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-[rgb(var(--neon-green))] transition-colors"
                       >
                         <span>Live Demo</span>
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -164,4 +169,3 @@ export default function Projects() {
     </Section>
   );
 }
-

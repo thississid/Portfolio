@@ -6,8 +6,9 @@ import Container from './ui/Container';
 
 export default function Hero() {
   const [displayText, setDisplayText] = useState('');
-  const fullText = 'AI Engineer • ML Systems • Applied Research';
+  const fullText = 'Agentic AI • LLM Systems • Production ML';
   const sectionRef = useRef<HTMLElement>(null);
+  const ease = [0.16, 1, 0.3, 1] as const;
 
   useEffect(() => {
     let currentIndex = 0;
@@ -25,36 +26,37 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+      <div className="absolute inset-x-0 top-24 mx-auto h-72 max-w-5xl rounded-full bg-[rgb(var(--neon-cyan))]/10 blur-3xl" />
       <Container className="relative z-10">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-          className="text-left max-w-4xl"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.05, ease }}
+          className="text-left max-w-6xl"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="mb-6 text-xs md:text-sm tracking-[0.3em] uppercase text-[rgb(var(--text-secondary))]"
+            transition={{ duration: 0.9, delay: 0.08, ease }}
+            className="mb-6 inline-flex items-center gap-3 rounded-full border border-[rgb(var(--neon-green))]/35 bg-[rgb(var(--neon-green))]/10 px-4 py-2 text-xs md:text-sm tracking-[0.18em] uppercase text-[rgb(var(--neon-green))]"
           >
-            Portfolio / AI Engineer
+            AI Engineer / Applied Intelligence
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium mb-6 text-[rgb(var(--text-primary))] leading-[0.95] tracking-[-0.04em] max-w-4xl"
+            transition={{ duration: 1, delay: 0.14, ease }}
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold mb-6 text-[rgb(var(--text-primary))] leading-[0.92] tracking-normal max-w-5xl"
           >
-            Gundelly Siddartha Yadav
+            Siddartha builds AI systems that ship.
           </motion.h1>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
-            className="text-base sm:text-lg md:text-xl mb-8 min-h-10 text-[rgb(var(--text-secondary))]"
+            transition={{ duration: 0.9, delay: 0.22, ease }}
+            className="font-mono text-base sm:text-lg md:text-xl mb-8 min-h-10 text-[rgb(var(--neon-cyan))]"
           >
             {displayText}
             <span className="ml-1 opacity-50">|</span>
@@ -63,27 +65,40 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
-            className="text-base sm:text-lg text-[rgb(var(--text-secondary))] max-w-2xl mb-10 leading-relaxed"
+            transition={{ duration: 0.95, delay: 0.28, ease }}
+            className="text-base sm:text-lg md:text-xl text-[rgb(var(--text-secondary))] max-w-3xl mb-10 leading-relaxed"
           >
-            I build practical AI systems, LLM workflows, and production software with a strong focus on reliability, clarity, and measurable outcomes.
+            I turn messy business problems into reliable LLM workflows, ML backends, governance dashboards, and agentic prototypes with the taste of a builder and the discipline of an engineer.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1 }}
+            transition={{ duration: 0.95, delay: 0.34, ease }}
+            className="mb-10 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4"
+          >
+            {['LLM cost analytics', 'AI governance', 'RAG + agents', 'Production APIs'].map((item) => (
+              <div key={item} className="rounded-lg border border-[rgb(var(--border))]/70 bg-[rgb(var(--surface))]/86 px-4 py-3 text-sm font-medium text-[rgb(var(--text-secondary))] backdrop-blur">
+                {item}
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.95, delay: 0.4, ease }}
             className="flex flex-wrap gap-3 sm:gap-4"
           >
             <a
               href="#contact"
-              className="px-6 py-3 border border-[rgb(var(--border))] bg-transparent text-[rgb(var(--text-primary))] rounded-none hover:bg-[rgb(var(--bg-secondary))] transition-all duration-300 text-sm tracking-[0.12em] uppercase"
+              className="px-6 py-3 border border-[rgb(var(--neon-cyan))]/60 bg-[rgb(var(--neon-cyan))] text-slate-950 rounded-md hover:bg-[rgb(var(--neon-green))] hover:border-[rgb(var(--neon-green))] transition-all duration-300 text-sm font-semibold tracking-[0.08em] uppercase"
             >
               Get in Touch
             </a>
             <a
               href="#projects"
-              className="px-6 py-3 border border-[rgb(var(--border))] bg-transparent text-[rgb(var(--text-primary))] rounded-none hover:bg-[rgb(var(--bg-secondary))] transition-all duration-300 text-sm tracking-[0.12em] uppercase"
+              className="px-6 py-3 border border-[rgb(var(--border))] bg-[rgb(var(--surface))]/75 text-[rgb(var(--text-primary))] rounded-md hover:border-[rgb(var(--neon-cyan))] hover:bg-[rgb(var(--neon-cyan))]/10 transition-all duration-300 text-sm tracking-[0.08em] uppercase"
             >
               View Work
             </a>
@@ -93,4 +108,3 @@ export default function Hero() {
     </section>
   );
 }
-
