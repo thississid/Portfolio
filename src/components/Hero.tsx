@@ -49,7 +49,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.14, ease }}
             className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold mb-6 text-[rgb(var(--text-primary))] leading-[0.96] sm:leading-[0.92] tracking-normal max-w-5xl"
           >
-            Siddartha builds AI systems that ship.
+            Hi, I&apos;m Siddartha. I build AI systems that ship.
           </motion.h1>
 
           <motion.div

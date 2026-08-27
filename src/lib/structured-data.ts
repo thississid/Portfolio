@@ -4,17 +4,17 @@ export function generateStructuredData() {
     '@type': 'Person',
     name: 'Gundelly Siddartha Yadav',
     alternateName: 'Siddartha Yadav',
-    description: 'Full-stack developer specializing in AI/ML, LLM integration, and cloud-based application deployment.',
+    description: 'AI engineer building agentic AI, LLM systems, and production ML — reliable workflows, backends, and governance dashboards.',
     url: 'https://sid-port-pi.vercel.app',
-    image: 'https://yourdomain.com/icon.png',
+    image: 'https://sid-port-pi.vercel.app/icon.png',
     sameAs: [
       'https://github.com/thississid',
       'https://linkedin.com/in/thississid',
     ],
-    jobTitle: 'AI/ML Specialist & Full-Stack Developer',
+    jobTitle: 'AI Engineer',
     worksFor: {
       '@type': 'Organization',
-      name: 'PiResearch Labs',
+      name: 'Techolution',
     },
     alumniOf: {
       '@type': 'Organization',
@@ -53,6 +53,6 @@ export function generateBlogPostStructuredData(post: {
     },
     datePublished: post.date,
     keywords: post.tags.join(', '),
-    url: `https://yourdomain.com/blog/${post.slug}`,
+    url: `https://sid-port-pi.vercel.app/blog/${post.slug}`,
   };
 }

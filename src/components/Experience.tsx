@@ -13,11 +13,11 @@ const experiences = [
     period: 'March 2026 – Present',
     focus: 'Enterprise AI governance, cost intelligence, and risk classification',
     achievements: [
-      'Built backend workflows for AI governance: alert ingestion, AI classification, PDF evidence generation, and API handoffs.',
-      'Shipped LLM and cloud cost analytics by combining model usage with billing exports for total cost visibility.',
-      'Mapped live cloud alerts into governance risk categories including unused resources, stalled queues, external access, destructive queries, and high memory usage.',
-      'Strengthened access-controlled policy flows across RBAC checks, lifecycle states, and audit history.',
-      'Reworked dashboard information architecture around KPI cards, cost insights, risk areas, and action-first summaries.',
+      'Built backend workflows for AI governance: alert ingestion, AI classification, PDF evidence generation, and API handoffs',
+      'Shipped LLM and cloud cost analytics by combining model usage with billing exports for total cost visibility',
+      'Mapped live cloud alerts into governance risk categories including unused resources, stalled queues, external access, destructive queries, and high memory usage',
+      'Strengthened access-controlled policy flows across RBAC checks, lifecycle states, and audit history',
+      'Reworked dashboard information architecture around KPI cards, cost insights, risk areas, and action-first summaries',
     ],
   },
   {
@@ -38,7 +38,7 @@ const experiences = [
     focus: 'Agentic root-cause analysis for enterprise database operations',
     achievements: [
       'Conceptualized and developed an Agentic AI prototype with autonomous root cause analysis for databases, improving HxGN NetWorks issue resolution speed by 25% and cutting average resolution time by 40%',
-      'Designed AI agents using Azure OpenAI models with MagenticOne to autonomously analyze database and service logs, reducing resolution time by 40%; benchmarked against state-of-the-art Agentic frameworks like AutoGen, and CrewAI',
+      'Designed AI agents using Azure OpenAI models with MagenticOne to autonomously analyze database and service logs, reducing resolution time by 40%; benchmarked against state-of-the-art Agentic frameworks like AutoGen and CrewAI',
       'Conducted extensive experimentation with REST APIs and Ollama models, improving system scalability by 20% and reducing cloud computing costs compared to generic GPT-based solutions',
     ],
   },

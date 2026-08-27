@@ -14,9 +14,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Gundelly Siddartha Yadav | AI/ML Specialist & Full-Stack Developer',
-  description: 'Full-stack developer specializing in AI/ML, LLM integration, and cloud-based application deployment. Experience with Python, Java, TensorFlow, LangChain, and more.',
-  keywords: ['AI/ML', 'Full-Stack Developer', 'Machine Learning', 'Deep Learning', 'LLM', 'Python', 'TensorFlow', 'LangChain'],
+  title: 'Gundelly Siddartha Yadav | AI Engineer',
+  description: 'AI engineer building agentic AI, LLM systems, and production ML — reliable workflows, backends, and governance dashboards. Experience with Python, TensorFlow, LangChain, and more.',
+  keywords: ['AI Engineer', 'Agentic AI', 'LLM Systems', 'Machine Learning', 'Deep Learning', 'Python', 'TensorFlow', 'LangChain'],
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   openGraph: {
-    title: 'Gundelly Siddartha Yadav | AI/ML Specialist & Full-Stack Developer',
-    description: 'Full-stack developer specializing in AI/ML, LLM integration, and cloud-based application deployment.',
+    title: 'Gundelly Siddartha Yadav | AI Engineer',
+    description: 'AI engineer building agentic AI, LLM systems, and production ML — reliable workflows, backends, and governance dashboards.',
     url: 'https://sid-port-pi.vercel.app',
     siteName: 'Siddartha Yadav Portfolio',
     locale: 'en_US',
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Gundelly Siddartha Yadav | AI/ML Specialist',
-    description: 'Full-stack developer specializing in AI/ML, LLM integration, and cloud-based application deployment.',
+    title: 'Gundelly Siddartha Yadav | AI Engineer',
+    description: 'AI engineer building agentic AI, LLM systems, and production ML — reliable workflows, backends, and governance dashboards.',
   },
   other: {
     ...Sentry.getTraceData(),
