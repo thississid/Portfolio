@@ -11,7 +11,7 @@ export function generateStructuredData() {
       'https://github.com/thississid',
       'https://linkedin.com/in/thississid',
     ],
-    jobTitle: 'AI Engineer',
+    jobTitle: 'Associate AI Python Engineer',
     worksFor: {
       '@type': 'Organization',
       name: 'Techolution',

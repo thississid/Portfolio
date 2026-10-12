@@ -8,16 +8,18 @@ import Card from './ui/Card';
 
 const experiences = [
   {
-    title: 'AI Engineering Intern',
+    title: 'Associate AI Python Engineer',
     company: 'Techolution',
     period: 'March 2026 – Present',
-    focus: 'Enterprise AI governance, cost intelligence, and risk classification',
+    focus: 'Enterprise AI governance platform — cost intelligence, root-cause analysis, and cloud automation. Promoted from AI Engineering Intern.',
     achievements: [
-      'Built backend workflows for AI governance: alert ingestion, AI classification, PDF evidence generation, and API handoffs',
-      'Shipped LLM and cloud cost analytics by combining model usage with billing exports for total cost visibility',
-      'Mapped live cloud alerts into governance risk categories including unused resources, stalled queues, external access, destructive queries, and high memory usage',
-      'Strengthened access-controlled policy flows across RBAC checks, lifecycle states, and audit history',
-      'Reworked dashboard information architecture around KPI cards, cost insights, risk areas, and action-first summaries',
+      'Built the flagship AI Governance platform’s L4 Entity Intelligence layer, unifying cost, usage, and movement analytics across 11 entity scopes including Firestore, Compute Engine, AlloyDB, Cloud Logging, Pub/Sub, and agent-assistant relationships',
+      'Designed movement-detection logic (spike, drop, fast, slow, new, dormant) backed by 3/7/30-day moving averages and working-day-aware historical comparisons to surface the resources that actually need investigation',
+      'Engineered a generic multi-source AI root-cause-analysis agent that pulls evidence from AlloyDB, Cloud Logging, and PromQL metrics, and auto-triggers on significant cost movements',
+      'Added hallucination-prevention guardrails — schema and column validation, contract checks — and a structured Incident / Root Cause / Next Steps report format with evidence-ranked contributors',
+      'Optimized historical data backfills, validating a 5,674-row, 219-call run with zero failures while cutting batch-processing time roughly 13x',
+      'Automated daily intelligence refreshes with Cloud Scheduler and a 24h/48h reconciliation window to account for delayed cloud billing data',
+      'Shipped supporting platform features: Triage AI alert ingestion and classification, RBAC-backed Smart AI Prompt Policies with audit trails, LLM and cloud cost analytics, and cloud utilization/hibernation automation',
     ],
   },
   {
@@ -92,7 +94,7 @@ export default function Experience() {
                 </span>
               </div>
               
-              <ul className="relative grid gap-3 md:grid-cols-2">
+              <ul className="relative grid gap-3 md:grid-cols-2 [&>*:last-child:nth-child(odd)]:md:col-span-2">
                 {exp.achievements.map((achievement, i) => (
                   <motion.li
                     key={i}

@@ -82,7 +82,7 @@ export default function Projects() {
       <Container>
         <SectionTitle title="Projects" color="moss" />
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-2 [&>*:last-child:nth-child(odd)]:lg:col-span-2">
           {projects.length === 0 ? (
             <div className="text-center py-12 text-[rgb(var(--text-secondary))]">
               <p>No projects to display yet.</p>
